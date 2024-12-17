@@ -3,57 +3,92 @@ import mongoose from 'mongoose';
 
 // Definición del esquema de usuario (UserSchema) utilizando mongoose
 const UserSchema = new mongoose.Schema({
+    // Campo para el nombre del usuario
+    name: {
+        type: String,
+        required: false,
+        trim: true, // Elimina espacios en blanco al inicio y al final
+    },
+
+    // Campo para el apellido del usuario
+    lastname: {
+        type: String,
+        required: false, // Obligatorio
+        trim: true, // Elimina espacios en blanco al inicio y al final
+    },
+
+    // Campo para el nombre de usuario
+    username: {
+        type: String,
+        required: true, // Obligatorio
+        unique: true, // Debe ser único
+        trim: true, // Elimina espacios en blanco
+    },
+
     // Campo para almacenar el correo electrónico del usuario
     email: {
-        type: String, // El campo es de tipo cadena de texto
-        required: true, // Es un campo obligatorio
-        unique: true, // El correo debe ser único en la base de datos
+        type: String,
+        required: true, // Obligatorio
+        unique: true, // Debe ser único
         lowercase: true, // Convierte el correo a minúsculas automáticamente
-        trim: true, // Elimina los espacios al principio y al final del correo
+        trim: true, // Elimina los espacios al principio y al final
     },
-    
-    // Campo para almacenar la contraseña del usuario
+
+    // Campo para la contraseña
     password: { 
-        type: String, // El campo es de tipo cadena de texto
-        validate: {
-            // Validación personalizada para la contraseña
-            validator: function(value) {
-                // Si el usuario tiene un Discord ID, no se requiere una contraseña
-                if (this.discordId) {
-                    return true;  // Si tiene Discord ID, pasa la validación sin necesidad de contraseña
-                }
-                // Si no es usuario de Discord, se valida que la contraseña tenga al menos 6 caracteres
-                return value && value.length > 6;  
-            },
-            // Mensaje de error si la validación falla
-            message: 'Password should be at least 6 characters long'
-        },
-        required: function() {
-            // Si el usuario no tiene un Discord ID, se hace obligatorio el campo de contraseña
-            return !this.discordId;
-        }
+        type: String,
+        required: false, // Obligatoria
+        minlength: 8, // Longitud mínima
     },
 
-    // Campo para almacenar el Discord ID del usuario (si existe)
-    discordId: {
-        type: String, // El campo es de tipo cadena de texto
-        unique: true, // El Discord ID debe ser único
-        sparse: true, // Permite que no todos los usuarios tengan un Discord ID (campo opcional)
+    // Campo para la fecha de nacimiento
+    dateBirth: {
+        type: Date,
+        required: true, // Obligatoria
     },
 
-    // Campo para almacenar el nombre de usuario (si existe)
-    username: String,
+    // Campo para el país del usuario
+    country: {
+        type: String,
+        required: false, // Obligatorio
+    },
 
-    // Campo para almacenar el avatar del usuario (si existe)
-    avatar: String,
+    // Campos para las políticas y términos aceptados
+    acceptTerms: {
+        type: Boolean,
+        required: true, // Obligatorio
+    },
+
+    isOver14: {
+        type: Boolean,
+        required: true, // Obligatorio
+    },
+
+    acceptPrivacyPolicy: {
+        type: Boolean,
+        required: true, // Obligatorio
+    },
+
+    // Campo para almacenar el avatar del usuario
+    avatar: {
+        type: String, // Ruta al archivo de imagen
+        default: '',
+    },
 
     // Campo para indicar si el usuario ha verificado su correo electrónico
     isVerified: {
-        type: Boolean, // Es un campo booleano (true/false)
-        default: false, // El valor predeterminado es false, indicando que el correo no está verificado
+        type: Boolean,
+        default: false, // Valor predeterminado: no verificado
     },
-    
+
+    // NUEVO CAMPO PARA EL DISCORD ID
+    discordId: {
+        type: String,
+        unique: true,  // Asegura que el discordId sea único
+        sparse: true,  // Permite que sea opcional si el usuario no inicia sesión con Discord
+    },
+
 }, { timestamps: true }); // La opción `timestamps` agrega los campos `createdAt` y `updatedAt` automáticamente
 
-// Exportamos el modelo de usuario, que permite interactuar con la colección de usuarios en la base de datos
+// Exportamos el modelo de usuario
 export default mongoose.model('User', UserSchema);
