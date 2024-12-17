@@ -138,9 +138,13 @@ export const loginUser = async (req, res) => {
     }
 };
 
-// Función para generar un token JWT utilizando la sintaxis de función constante
 export const generateToken = (user) => {
-    return jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    try {
+        return jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    } catch (error) {
+        console.error('Error al generar el token:', error);
+        throw new Error('Error al generar el token');
+    }
 };
 
 // Función para obtener la información del usuario autenticado

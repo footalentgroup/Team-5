@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:3000/api/users'; // URL base de la API para autenticación
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Método para iniciar sesión con usuario y contraseña
   login(username: string, password: string): Observable<any> {
@@ -32,7 +32,6 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/register`, userData);
   }
 
-  // Método para manejar la autenticación con Discord
   loginWithDiscord(token: string): void {
     localStorage.setItem('token', token); // Guardar el token recibido en localStorage
   }
