@@ -12,42 +12,44 @@ import { AuthService } from '../../services/auth.service'; // Se importa el serv
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginForm: FormGroup; // Variable que mantiene la estructura del formulario reactivo.
-  errorMessage: string | null = null; // Variable para manejar los errores que puedan ocurrir durante el login.
+  loginForm: FormGroup; // Formulario reactivo para el inicio de sesión
+  errorMessage: string | null = null; // Mensaje de error para mostrar al usuario
 
-  // El constructor se utiliza para inyectar las dependencias necesarias en el componente.
   constructor(
-    private fb: FormBuilder, // FormBuilder se usa para crear formularios reactivos de manera más fácil.
-    private authService: AuthService, // Se inyecta el servicio de autenticación para hacer la solicitud de login.
-    private router: Router // Se inyecta el router para navegar entre rutas.
+    private fb: FormBuilder, // Inyección de FormBuilder para crear formularios reactivos
+    private authService: AuthService, // Inyección del servicio de autenticación
+    private router: Router // Inyección del router para la navegación
   ) {
-    // Se crea un formulario reactivo utilizando FormBuilder.
+    // Inicialización del formulario reactivo
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], // Se configura el campo 'email' para que sea requerido y tenga un formato de email.
-      password: ['', [Validators.required]], // Se configura el campo 'password' para que sea requerido.
+      username: ['', [Validators.required]], // Campo de nombre de usuario requerido
+      password: ['', [Validators.required]], // Campo de contraseña requerido
     });
   }
 
-  // Función que maneja el evento de inicio de sesión (login).
+  // Método que maneja el evento de inicio de sesión
   onLogin() {
-    if (this.loginForm.invalid) return; // Si el formulario es inválido, no realiza la solicitud.
+    if (this.loginForm.invalid) return; // Si el formulario es inválido, no se realiza la solicitud
 
-    const { email, password } = this.loginForm.value; // Se extraen los valores del formulario.
+    const { username, password } = this.loginForm.value; // Extraer valores del formulario
 
-    // Llama al servicio de autenticación (AuthService) para hacer la solicitud de login.
-    this.authService.login(email, password).subscribe({
-      next: (response) => { // Si la solicitud es exitosa:
-        localStorage.setItem('token', response.token); // Se guarda el token en el almacenamiento local del navegador.
-        this.router.navigate(['/dashboard']); // Se redirige al usuario al dashboard.
+    // Llamada al servicio de autenticación para realizar la solicitud de inicio de sesión
+    this.authService.login(username, password).subscribe({
+      next: (response) => {
+        localStorage.setItem('token', response.token); // Guardar el token en localStorage
+        this.router.navigate(['/dashboard']); // Redirigir al usuario al dashboard
       },
-      error: (err) => { // Si ocurre un error durante la solicitud:
-        this.errorMessage = err.error.message || 'Error al iniciar sesión'; // Se muestra un mensaje de error.
+      error: (err) => {
+        // Manejo de errores: mostrar mensaje de error
+        console.error('Error de inicio de sesión:', err);
+        this.errorMessage = err.error.message || 'Error al iniciar sesión';
       },
     });
   }
 
-  // Función para manejar el login con Discord.
+  // Método para manejar el inicio de sesión con Discord
   onDiscordLogin() {
-    window.location.href = 'http://localhost:3000/auth/discord'; // Redirige al usuario a la URL de autenticación con Discord.
+    // Redirigir a la URL de autenticación de Discord
+    window.location.href = 'http://localhost:3000/api/auth/discord';
   }
 }
