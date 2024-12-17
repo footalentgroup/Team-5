@@ -1,15 +1,46 @@
-import { inject } from '@angular/core'; // Importa la función 'inject' para inyectar servicios en funciones no-clase.
-import { Router } from '@angular/router'; // Importa el servicio Router de Angular para manejar la navegación de rutas.
-import { CanActivateFn } from '@angular/router'; // Importa CanActivateFn, que es un tipo de función utilizada en las guardias de ruta.
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { CanActivateFn } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router); // Inyecta el servicio Router para poder usarlo dentro de la función.
-  const token = localStorage.getItem('token'); // Obtiene el token de acceso almacenado en localStorage.
+  const router = inject(Router);
+  const token = localStorage.getItem('token'); // Obtener el token del localStorage
 
   if (token) {
-    return true; // Si el token está presente (usuario autenticado), permite el acceso a la ruta.
+    try {
+      // Decodifica el JWT para obtener los datos del payload
+      const tokenData = JSON.parse(atob(token.split('.')[1]));
+
+      // Verifica si el token tiene el campo exp y si está expirado
+      if (tokenData.exp) {
+        const isExpired = tokenData.exp < Date.now() / 1000; // Convertir Date.now() a segundos
+
+        if (isExpired) {
+          // Si el token ha expirado, elimínalo y redirige al login
+          localStorage.removeItem('token');
+          router.navigate(['/login']);
+          return false;
+        }
+      } else {
+        console.error("El token no tiene el campo 'exp'.");
+        localStorage.removeItem('token');
+        router.navigate(['/login']);
+        return false;
+      }
+
+      // Si el token es válido y no ha expirado
+      return true;
+    } catch (error) {
+      // Si ocurre un error en la decodificación (token inválido o malformado)
+      console.error("Error al decodificar el token:", error);
+      localStorage.removeItem('token');
+      router.navigate(['/login']);
+      return false;
+    }
   } else {
-    router.navigate(['/login']); // Si no hay token (usuario no autenticado), redirige al login.
-    return false; // Bloquea el acceso a la ruta.
+    // Si no hay token, redirige al login
+    console.log("No hay token, redirigiendo al login...");
+    router.navigate(['/login']);
+    return false;
   }
-};
+}
