@@ -1,34 +1,38 @@
-import { Injectable } from '@angular/core'; // Importa el decorador Injectable para que Angular pueda inyectar esta clase como un servicio.
-import { HttpClient } from '@angular/common/http'; // Importa el servicio HttpClient para realizar peticiones HTTP.
-import { Observable } from 'rxjs'; // Importa Observable de RxJS, que se utiliza para manejar las respuestas asíncronas.
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root', 
+  providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // URL base de la API para las rutas de autenticación.
+  private apiUrl = 'http://localhost:3000/api/users'; // URL base de la API para autenticación
 
-  constructor(private http: HttpClient) {} // Inyecta el servicio HttpClient para realizar las peticiones HTTP.
+  constructor(private http: HttpClient) { }
 
-  // Método para iniciar sesión con email y contraseña
-  login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { email, password }); // Realiza una petición POST al endpoint de login de la API.
+  // Método para iniciar sesión con usuario y contraseña
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
   }
 
   // Método para obtener la información del usuario autenticado usando un token
   getUserInfo(token: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/user`, {
-      headers: { Authorization: `Bearer ${token}` }, // Añade el token al encabezado Authorization para autenticar la solicitud.
+      headers: { Authorization: `Bearer ${token}` }, // Enviar el token en el encabezado
     });
   }
 
   // Método para verificar el email del usuario mediante un token de verificación
   verifyEmail(token: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:3000/api/auth/verify-email?token=${token}`); // Realiza una petición GET para verificar el email usando el token.
+    return this.http.get<any>(`${this.apiUrl}/verify-email?token=${token}`);
   }
 
   // Método para registrar un nuevo usuario
-  register(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/register`, { email, password }); // Realiza una petición POST al endpoint de registro de la API.
-  }  
+  register(userData: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, userData);
+  }
+
+  loginWithDiscord(token: string): void {
+    localStorage.setItem('token', token); // Guardar el token recibido en localStorage
+  }
 }
