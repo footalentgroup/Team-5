@@ -32,8 +32,6 @@ export class VerifyEmailComponent implements OnInit {
         next: (response) => {
           // Si la verificación es exitosa, muestra el mensaje de éxito.
           this.message = response.message;
-          // Después de 3 segundos, redirige al usuario a la página de login.
-          setTimeout(() => this.router.navigate(['/login']), 3000);
         },
         error: (err) => {
           // Si ocurre un error, muestra el mensaje de error.
@@ -45,4 +43,8 @@ export class VerifyEmailComponent implements OnInit {
       this.message = 'Token de verificación no proporcionado.';
     }
   }
+
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
+  }  
 }
