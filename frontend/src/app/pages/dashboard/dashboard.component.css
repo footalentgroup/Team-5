@@ -3,9 +3,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-body {
+.contenedorpadre {
     font-family: Arial, sans-serif;
     background-color: #292F4A;
     color: white;
@@ -16,7 +17,7 @@ body {
     padding: 1rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     backdrop-filter: blur(10px);
 }
 
@@ -77,10 +78,12 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+    
 }
 
 .section {
     margin-bottom: 2rem;
+    background-color: #292F4A;
 }
 
 .section-header {
