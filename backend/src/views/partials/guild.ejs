@@ -1,0 +1,11 @@
+<div>
+  <h2> <%- guild.name %> </h2>
+  <p> <%- guild.id %> </p>
+
+  <% if(guild.icon.substring(0,2) === 'a_') { %>
+
+    <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.gif" alt="">
+  <% } else { %>
+    <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png" alt="">
+  <% } %>
+</div>

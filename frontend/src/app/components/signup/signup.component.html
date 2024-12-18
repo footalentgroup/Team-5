@@ -1,0 +1,128 @@
+<body>
+  <div class="signup-container">
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()" class="signup-form">
+      <!-- Campo para avatar -->
+      <div class="avatar">
+        <div class="avatar-image">
+          <img *ngIf="avatar" [src]="avatar" alt="avatar de usuario">
+          <ng-container *ngIf="!avatar">{{ getInitials() }}</ng-container>
+        </div>
+        <div class="text-avatar">
+          <p>Foto de perfil</p>
+          <p class="upload-img">
+            <input type="file" #fileInput (change)="onFileChange($event)" accept="image/*" style="display: none;" />
+            <span (click)="fileInput.click()">Subir imagen</span>
+          </p>
+        </div>
+      </div>    
+  
+      <div class="form-grid">
+        <div class="form-column">
+          <!-- Campo de nombre -->
+          <div class="form-group">
+            <input id="name" formControlName="name" type="text" placeholder="Nombre" required>
+            <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched" class="error">
+              El nombre es obligatorio.
+            </div>
+          </div>
+  
+          <!-- Campo de apellido -->
+          <div class="form-group">
+            <input id="lastname" formControlName="lastname" type="text" placeholder="Apellido" required>
+            <div *ngIf="signupForm.get('lastname')?.invalid && signupForm.get('lastname')?.touched" class="error">
+              El apellido es obligatorio.
+            </div>
+          </div>
+  
+          <!-- Campo de nombre de usuario -->
+          <div class="form-group">
+            <input id="username" formControlName="username" type="text" placeholder="Nombre de usuario" required>
+            <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error">
+              El nombre de usuario es obligatorio.
+            </div>
+          </div>
+  
+          <!-- Campo de correo electrónico -->
+          <div class="form-group">
+            <input id="email" formControlName="email" type="email" placeholder="Correo electrónico" required>
+            <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error">
+              Introduce un correo electrónico válido.
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-column">
+          <!-- Campo de contraseña -->
+          <div class="form-group">
+            <input id="password" formControlName="password" type="password" placeholder="Contraseña" required>
+            <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error">
+              La contraseña debe tener al menos 8 caracteres.
+            </div>
+          </div>
+  
+          <!-- Campo para repetir contraseña -->
+          <div class="form-group">
+            <input id="repeatPassword" formControlName="repeatPassword" type="password" placeholder="Repetir contraseña"
+              required>
+            <div *ngIf="signupForm.hasError('mismatch') && signupForm.get('repeatPassword')?.touched" class="error">
+              Las contraseñas no coinciden.
+            </div>
+          </div>
+  
+          <!-- Campo de fecha de nacimiento -->
+          <div class="form-group">
+            <input id="dateBirth" formControlName="dateBirth" type="date" placeholder="Fecha de nacimiento" required>
+            <div *ngIf="signupForm.get('dateBirth')?.invalid && signupForm.get('dateBirth')?.touched" class="error">
+              La fecha de nacimiento es obligatoria.
+            </div>
+          </div>
+  
+          <!-- Campo de selección de país -->
+          <div class="form-group">
+            <select id="country" formControlName="country" required>
+              <option value="">Selecciona tu país</option>
+              <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+            </select>
+            <div *ngIf="signupForm.get('country')?.invalid && signupForm.get('country')?.touched" class="error">
+              Selecciona tu país.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="checkbox-group">
+        <!-- Aceptación de términos y condiciones -->
+        <div class="checkbox-item">
+          <input id="acceptTerms" formControlName="acceptTerms" type="checkbox" required>
+          <label for="acceptTerms">Acepto los términos y condiciones</label>
+          <div *ngIf="signupForm.get('acceptTerms')?.invalid && signupForm.get('acceptTerms')?.touched" class="error">
+            Debes aceptar los términos y condiciones.
+          </div>
+        </div>
+  
+        <!-- Confirmación de mayor de 14 años -->
+        <div class="checkbox-item">
+          <input id="isOver14" formControlName="isOver14" type="checkbox" required>
+          <label for="isOver14">Soy mayor de 14 años</label>
+          <div *ngIf="signupForm.get('isOver14')?.invalid && signupForm.get('isOver14')?.touched" class="error">
+            Debes confirmar que eres mayor de 14 años.
+          </div>
+        </div>
+  
+        <!-- Aceptación de política de privacidad -->
+        <div class="checkbox-item">
+          <input id="acceptPrivacyPolicy" formControlName="acceptPrivacyPolicy" type="checkbox" required>
+          <label for="acceptPrivacyPolicy">Acepto la política de privacidad</label>
+          <div *ngIf="signupForm.get('acceptPrivacyPolicy')?.invalid && signupForm.get('acceptPrivacyPolicy')?.touched"
+            class="error">
+            Debes aceptar la política de privacidad.
+          </div>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="!signupForm.valid" class="submit-button">
+        Registrarse
+      </button>
+    </form>
+  </div>
+</body>
