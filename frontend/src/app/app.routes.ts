@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
+
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
+
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
@@ -11,4 +15,6 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'dashboard', component: DashboardComponent, title: 'dashboard'}
 ];
+
