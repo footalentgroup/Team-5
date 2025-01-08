@@ -7,12 +7,7 @@ import userRoutes from './routes/user.routes.js'
 import authDiscordRoutes from './routes/auth-discord.routes.js';
 import mongoDB from './config/db.js';
 import './passport.js';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-// Configura __dirname para ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import teamRoutes from './routes/team.routes.js';
 
 // Cargar las variables de entorno
 dotenv.config();
@@ -37,12 +32,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Sirve archivos estáticos desde la carpeta uploads
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Rutas
 app.use('/api/users', userRoutes);
 app.use('/api/auth/discord', authDiscordRoutes);
+app.use('/api/teams', teamRoutes);
 
 // Conexión a la base de datos
 mongoDB();
