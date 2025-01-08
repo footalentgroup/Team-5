@@ -26,7 +26,7 @@ export const registerUser = async (req, res) => {
     }
 
     try {
-        const avatarPath = req.file ? req.file.path : null;
+        const avatarUrl = req.file ? req.file.path : null;
 
         const existingUser = await User.findOne({ $or: [{ email }, { username }] });
         if (existingUser) {
@@ -46,7 +46,7 @@ export const registerUser = async (req, res) => {
             acceptTerms,
             isOver14,
             acceptPrivacyPolicy,
-            avatar: avatarPath,
+            avatar: avatarUrl,
         });
 
         await newUser.save();
@@ -167,7 +167,6 @@ export const getUserInfo = async (req, res) => {
             username: user.username,
             email: user.email,
             avatar: user.avatar,
-            // Agrega cualquier otro campo que necesites
         });
     } catch (error) {
         console.error('Error al obtener la información del usuario:', error);
