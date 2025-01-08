@@ -5,7 +5,7 @@ import cloudinary from '../config/cloudinary.js';
 const eventStorage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'team-covers',
+    folder: 'event-covers',
     allowed_formats: ['jpg', 'png', 'jpeg'],
     public_id: (req, file) => `${Date.now()}-${file.originalname}`,
   },
