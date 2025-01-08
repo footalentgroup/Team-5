@@ -9,6 +9,7 @@ import mongoDB from './config/db.js';
 import './passport.js';
 import teamRoutes from './routes/team.routes.js';
 import eventRoutes from './routes/event.routes.js';
+import communityRoutes from './routes/community.routes.js';
 
 // Cargar las variables de entorno
 dotenv.config();
@@ -39,6 +40,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/auth/discord', authDiscordRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/events', eventRoutes);
+app.use('/api/community', communityRoutes);
 
 // Conexión a la base de datos
 mongoDB();
