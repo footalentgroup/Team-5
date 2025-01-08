@@ -3,25 +3,27 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { CountryService } from '../../services/country.service'; // Importamos el servicio de países
+import { CountryService } from '../../services/country.service';
+import { CloudinaryService } from '../../services/cloudinary.service';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'] // Corregido el nombre del archivo CSS
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  countries: string[] = []; // Lista de países que se llenará desde la API
-  avatar: string | ArrayBuffer | null = null; // Para mostrar la imagen previa seleccionada
+  countries: string[] = []; 
+  avatar: string | ArrayBuffer | null = null; 
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private countryService: CountryService // Inyectamos el servicio de países
+    private countryService: CountryService, // Inyectamos el servicio de países
+    private cloudinaryService: CloudinaryService // Inyectamos el servicio de Cloudinary
   ) {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -77,41 +79,41 @@ export class SignupComponent implements OnInit {
   }
 
   // Método para manejar el evento de envío del formulario de registro.
-  onSignup() {
+  async onSignup() {
     if (this.signupForm.valid) {
-      const formData = new FormData();
-      const { name, lastname, username, email, password, repeatPassword, dateBirth, country, acceptTerms, isOver14, acceptPrivacyPolicy } = this.signupForm.value;
-  
-      formData.append('name', name);
-      formData.append('lastname', lastname);
-      formData.append('username', username);
-      formData.append('email', email);
-      formData.append('password', password);
-      formData.append('repeatPassword', repeatPassword);
-      formData.append('dateBirth', dateBirth);
-      formData.append('country', country);
-      formData.append('acceptTerms', acceptTerms);
-      formData.append('isOver14', isOver14);
-      formData.append('acceptPrivacyPolicy', acceptPrivacyPolicy);
-  
-      // Obtener el archivo de la forma correcta
-      const avatarFile = this.signupForm.get('avatar')?.value;
-      if (avatarFile && avatarFile instanceof File) {
-        formData.append('avatar', avatarFile, avatarFile.name); // Asegurarse de que sea un archivo válido
-      }
-  
-      this.authService.register(formData).subscribe(
-        (response) => {
-          alert('Registro exitoso. Verifica tu correo electrónico.');
-          this.router.navigate(['/login']);
-        },
-        (error) => {
-          console.error('Error en el registro:', error);
-          alert(error.error?.message || 'Error al registrar el usuario.');
+      try {
+        const avatarFile = this.signupForm.get('avatar')?.value;
+        let avatarUrl = '';
+
+        // Subir el avatar si existe
+        if (avatarFile) {
+          avatarUrl = await this.cloudinaryService.uploadAvatar(avatarFile);
         }
-      );
+
+        const userData = {
+          ...this.signupForm.value,
+          avatar: avatarUrl // Guardamos la URL del avatar
+        };
+
+        this.authService.register(userData).subscribe(
+          () => {
+            alert('Registro exitoso. Verifica tu correo.');
+            this.router.navigate(['/login']);
+          },
+          (error) => {
+            console.error('Error en el registro:', error);
+            alert(error?.error?.message || 'Error al registrar el usuario.');
+          }
+        );
+      } catch (error) {
+        if (error instanceof Error) {
+          alert(error.message || 'Error al subir el avatar.');
+        } else {
+          alert('Error desconocido.');
+        }
+      }
     } else {
-      alert('Por favor, completa todos los campos requeridos correctamente.');
+      alert('Por favor, completa todos los campos requeridos.');
     }
-  }  
+  }
 }

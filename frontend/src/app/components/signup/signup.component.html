@@ -4,7 +4,9 @@
       <!-- Campo para avatar -->
       <div class="avatar">
         <div class="avatar-image">
+          <!-- Mostrar imagen de avatar si está seleccionada -->
           <img *ngIf="avatar" [src]="avatar" alt="avatar de usuario">
+          <!-- Mostrar iniciales si no se ha seleccionado avatar -->
           <ng-container *ngIf="!avatar">{{ getInitials() }}</ng-container>
         </div>
         <div class="text-avatar">
@@ -15,7 +17,7 @@
           </p>
         </div>
       </div>    
-  
+
       <div class="form-grid">
         <div class="form-column">
           <!-- Campo de nombre -->
