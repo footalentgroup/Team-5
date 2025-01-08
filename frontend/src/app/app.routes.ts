@@ -7,6 +7,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TeamsComponent } from './pages/teams/teams.component';
+
 // import { NgModel } from '@angular/forms';
 // import { NgModule } from '@angular/core';
 
