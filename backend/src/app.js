@@ -8,6 +8,7 @@ import authDiscordRoutes from './routes/auth-discord.routes.js';
 import mongoDB from './config/db.js';
 import './passport.js';
 import teamRoutes from './routes/team.routes.js';
+import eventRoutes from './routes/event.routes.js';
 
 // Cargar las variables de entorno
 dotenv.config();
@@ -37,6 +38,7 @@ app.use(passport.session());
 app.use('/api/users', userRoutes);
 app.use('/api/auth/discord', authDiscordRoutes);
 app.use('/api/teams', teamRoutes);
+app.use('/api/events', eventRoutes);
 
 // Conexión a la base de datos
 mongoDB();
