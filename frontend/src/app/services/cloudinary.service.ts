@@ -15,7 +15,7 @@ export class CloudinaryService {
       try {
         const formData = new FormData();
         formData.append('file', avatarFile, avatarFile.name);
-        formData.append('upload_preset', 'profile_avatar'); // Aquí va el nombre de tu preset
+        formData.append('upload_preset', 'profile_avatar');
 
         const response = await fetch('https://api.cloudinary.com/v1_1/dxlz3grar/image/upload', {
           method: 'POST',

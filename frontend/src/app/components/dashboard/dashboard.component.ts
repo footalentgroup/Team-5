@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'] // Corrige 'styleUrl' a 'styleUrls'
+  styleUrls: ['./dashboard.component.css'] 
 })
 export class DashboardComponent implements OnInit {
   userInfo: any; // Para almacenar la información del usuario
