@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://backend-ftg.vercel.app/api/users'; // URL base de la API para autenticación
+  private apiUrl = 'https://backend-t5-ftg.vercel.app/api/users'; // URL base de la API para autenticación
 
   constructor(private http: HttpClient) { }
 
