@@ -1,0 +1,92 @@
+body {
+    background-image: url('/assets/login/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-content: center;
+}
+
+.profile-container {
+    width: 715px;
+    height: 820px;
+
+    border-radius: 10px;
+    background-color: #292F4A;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.info-profile {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 60px;
+}
+
+.info-profile span {
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.option-profile {
+    width: 100%;
+    margin: 40px 0 30px 0;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 60px;
+
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Contenedor del grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    margin: 40px;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Estilo de los ítems del grid */
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.trophies {
+    width: 80%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 20px 0  ;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+}
