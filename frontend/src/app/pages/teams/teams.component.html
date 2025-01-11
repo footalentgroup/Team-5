@@ -1,36 +1,11 @@
-<!-- inicio de main para teams -->
- <!-- <main>
-
-     <section>
-         <article class="banner">
-        <div class="row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Explorar Eventos" aria-label="Explorar Eventos">
-              <i class="bi bi-search"></i>
-            </div>
-            <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ol>
-        </div>
-        </article>  
-        <article>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </article>
-     </section>
- </main> -->
-
- <section class="search-section">
+ <main>
+ <section>
 
     <!-- Banner -->
      <article class="banner">
         <img class="img-banner" src="/assets/teams/destoks 1/danny-howe-bn-D2bCvpik-unsplash.jpg" alt="banner-img">
     <!-- Barra de búsqueda -->
+     <div class="container-banner">
     <div class="search-bar">
       <input 
         type="text" 
@@ -48,49 +23,51 @@
 
       <!-- Botón Filtro -->
       <button type="button" class="filter-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
-        <span>Filtro</span>
+        <svg class="icon-filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+         filtro
       </button>
   
       <!-- Etiquetas de filtro -->
 
       <div class="filter-tags">
         <div class="filter-tag">
-          <span>Torneo</span>
           <button type="button" aria-label="Eliminar filtro Torneo" class="remove-tag">
-            <i class="bi bi-x-lg"></i>
+            Torneo <i class="bi bi-x-lg"></i>
           </button>
         </div>
         <div class="filter-tag">
-          <span>con cupo</span>
           <button type="button" aria-label="Eliminar filtro con cupo" class="remove-tag">
-            <i class="bi bi-x-lg"></i>
+            Con cupo <i class="bi bi-x-lg"></i>
           </button>
         </div>
         <div class="filter-tag">
-          <span>Valorant</span>
           <button type="button" aria-label="Eliminar filtro Valorant" class="remove-tag">
-            <i class="bi bi-x-lg"></i>
+            Valorant <i class="bi bi-x-lg"></i>
           </button>
         </div>
       </div>
-    </div>
+    </div> 
+  </div>
     </article>
     <!-- Teams -->
      <article class="article-teams">
+    
+      <!-- ----------------------------------- -->
         <div class="icon-teams-community">
              <!-- Botón Comunidades -->
-            <button type="button" class="btn-pass">
-                <i class="fa-solid fa-house"></i>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3l0-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5l0 21.5c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112l32 0c24 0 46.2 7.5 64.4 20.3zM448 416l0-21.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176l32 0c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2l0 26.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3l0-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2l0 42.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-42.8c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112l32 0c61.9 0 112 50.1 112 112z"/></svg>
-                <span>Comunidades</span>
-             </button>
+             <div type="button" class="btn-pass">
+              <div class="icon-com"><i class="bi bi-people-fill"></i>
+              </div>
+              <div class="text-icon">Comunidades</div>
+             </div>
              <!-- Botón Equipos -->
-            <button type="button" class="btn-pass">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3l0-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5l0 21.5c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112l32 0c24 0 46.2 7.5 64.4 20.3zM448 416l0-21.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176l32 0c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2l0 26.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3l0-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2l0 42.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-42.8c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112l32 0c61.9 0 112 50.1 112 112z"/></svg>
-                <span>Equipos</span>
-             </button>
+             <div type="button" class="btn-pass">
+              <span class="icon-com"><i class="fa-solid fa-people-group fa-fade"></i>
+              </span>
+              <span class="text-icon">Equipos</span>
+             </div>
         </div>
+      <!-- -------------------------------- -->
         <div class="teams">
             <h1>Equipos</h1>
             <h3>Equipos que podrían interesarte</h3>
@@ -162,4 +139,4 @@
         </div>
      </article>
   </section>
-  
+</main>

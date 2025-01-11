@@ -1,0 +1,261 @@
+/* Importación fuente google font "Roboto" */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: "Roboto", serif;
+    color: #E8EEFE;
+}
+
+/* estilos, fuentes, colores, etc */
+
+:root {
+    /* Tipografía */
+    --font-roboto: "Roboto", serif, arial;
+
+    /* Paleta de colores */
+    --background: #292F4A;
+    --button-o: #434D7B;
+    --button-2: #292F4A;
+    --font-button: #94B1F9;
+    --icon-claro: #E8EEFE;
+    --background-card: #434D7B;
+    --card-oscuro: #1F2439;
+
+    /* hoover */
+    --perm-font-btn: #F6A1FD;
+    --hover-font: #E8EEFE;
+}
+
+/* Inicio de estilos destok 1 - equipos */
+
+main{
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    background-color:#292F4A
+}
+
+/* ------------  Banner ------------ */
+
+.banner{
+    height: 262px;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    background-size: cover; 
+    background-position: center;
+    position: relative;
+}
+
+.img-banner{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container-banner{
+    position: absolute;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 4%;
+    width: 40%;
+}
+
+/* barra de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    position: relative;
+    color: black;
+    text-decoration: none;
+  }
+ 
+  .buttom-search {
+    background-color: #ffffff;
+    border: none;
+    margin-top: 2%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-left: 90%;
+  }
+
+  .buttom-search i {
+    color: var(--card-oscuro);
+    font-size: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: block;
+    color: #1F2439;
+  }
+
+/* Filtros */
+  .filters {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    display: flex;
+    background-color:#94B1F9;
+    color:#292F4A;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 2%;
+    align-items: center;
+  }
+  
+  .filter-btn:hover {
+    color: #1F2439;
+    background-color:#E8EEFE;
+  }
+  
+  .filter-btn .icon-filter {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    color: #1F2439;
+  }
+
+  /*-------------- Etiquetas de filtro -----------------*/
+  
+  .filter-tags {
+    display: flex;
+    gap: 10px;
+  }
+
+  .filter-tag {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: #434D7B;
+    padding: 7px 12px;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+
+  .filter-tag i{
+    font-size: 12px;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .filter-tag i:hover{
+    color: #1F2439;
+  }
+
+  .filter-tag:hover{
+    background-color: #E8EEFE;
+    color: #1F2439;
+  }
+
+  .remove-tag {
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    gap: 15px;
+  }
+
+  .remove-tag:hover{
+    color: #1F2439;
+  }
+
+  .remove-tag i{
+    font-weight: bold;
+  }
+  .remove-tag i:hover{
+    color: #1F2439
+  }
+
+  /* ------------teams------------ */
+
+  /*---- Botón comunidades, mis equipos ---- */
+
+  .article-teams{
+    width: 95%;
+    margin-left: 2%;
+  }
+
+  .icon-teams-community{
+    /* border: solid red; */
+    width: 12%;
+    display: flex;
+    justify-content: space-around;
+    /* position: relative; */
+    margin-bottom: 1%;
+    align-items: center;
+  }
+
+  /* ------------------------ */
+
+  /* .icon-teams-community::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #DC5F00, #fee0e0, #DC5F00);
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+}
+  
+.icon-teams-community:hover::before {
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+.icon-teams-community:hover{
+    color: var(--text-hoover);
+    transition: 0.4s ease-in-out;
+} */
+
+  /* ----------------- */
+
+  .icon-com{
+    /* margin-right: 35px; */
+    /* border: yellow; */
+    /* color: #E8EEFE; */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+  }
+
+  .text-icon{
+    font-size: 12px;
+    /* border: solid green; */
+    display: flex;
+    /* position: absolute; */
+    justify-content: center;
+  }
+
+  .btn-pass{
+    /* border: rgb(238, 0, 255) solid; */
+    object-fit: cover;
+    width: 50%;
+    /* border: rebeccapurple solid; */
+  }
+
+  .btn-pass:hover{
+    border-bottom:#94B1F9 solid;
+    
+  }
