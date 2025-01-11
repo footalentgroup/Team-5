@@ -1,0 +1,239 @@
+/* Banner de búsqueda */
+.banner-search {
+    width: 100%;
+    min-height: 480px;
+    background-image: url('../../../../public/assets/landing/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    place-content: center;
+}
+
+.banner-search input {
+    width: 720px;
+    height: 60px;
+    border: none;
+    border-radius: 50px;
+    padding: 16px;
+    text-align: center;
+}
+
+.banner-search input:focus {
+    outline: none;
+}
+
+/* Banner de plataforma */
+.banner-platform {
+    width: 100%;
+    min-height: 150px;
+    background-color: #94B1F9;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Servicios */
+.banner-services {
+    width: 100%;
+    min-height: 400px;
+    background-color: #292F4A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.container-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.services {
+    width: 380px;
+    height: 240px;
+    border: solid 1px #f6a1fd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.banner-services button {
+    width: 200px;
+    height: 48px;
+    color: #292f4aff;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    background-color: #94B1F9;
+    cursor: pointer;
+}
+
+/* Ofertas */
+.banner-offers {
+    width: 100%;
+    min-height: 620px;
+    background-color: #353c60;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}
+
+.banner-offers h2 {
+    color: white;
+    text-align: center;
+}
+
+.offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.offer-card {
+    width: 385px;
+    min-height: 480px;
+    color: white;
+    border: solid 2px #f6a1fd;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offer-card-w {
+    width: 385px;
+    min-height: 480px;
+    background-color: #e8eefe;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offer-card button, .offer-card-w button {
+    width: 328px;
+    height: 48px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.offer-card button {
+    background-color: #292f4aff;
+    color: #94b1f9ff;
+    border: solid 1px #94b1f9ff;
+}
+
+.offer-card-w button {
+    background-color: #94b1f9ff;
+    color: #292f4aff;
+    border: none;
+}
+
+/* Listas */
+ul {
+    list-style-position: inside;
+    padding-left: 20px;
+}
+
+li {
+    line-height: 1.5;
+}
+
+/* Comentarios */
+.banner-comments {
+    width: 100%;
+    min-height: 580px;
+    background-color: #292F4A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card-comment {
+    width: 100%;
+    max-width: 580px;
+    background-color: #e8eefeff;
+    color: #092466ff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.card-comment img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.card-comment p {
+    font-size: large;
+    font-weight: 600;
+}
+
+.info-user {
+    width: 100%;
+    text-align: right;
+}
+
+.banner-comments button {
+    width: 200px;
+    height: 48px;
+    color: #292f4aff;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    background-color: #94B1F9;
+    cursor: pointer;
+}
+
+/* QA (bootstrap)*/
+.banner-qa {
+    width: 100%;
+    min-height: 480px;
+    background-color: #94b1f9ff;
+    color: #092466ff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.accordion-button, .accordion-body {
+    color: #292F4A;
+    background-color: inherit;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-collapse {
+    background-color: #94B1F9;
+    border: solid 2px #292F4A;
+}
