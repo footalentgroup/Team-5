@@ -10,7 +10,7 @@
 
 :root {
     /* Tipografía */
-    --font-roboto: "Roboto", serif, arial;
+    --font-roboto: "Roboto", serif;
 
     /* Paleta de colores */
     --background: #292F4A;
@@ -31,18 +31,16 @@
 main{
     width: 100%;
     height: auto;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color:#292F4A
 }
 
 /* ------------  Banner ------------ */
 
 .banner{
-    height: 262px;
+    height: 200px;
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    background-size: cover; 
-    background-position: center;
+    justify-content: center; 
     position: relative;
 }
 
@@ -50,6 +48,18 @@ main{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.gradient{
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(148,177,249);
+    background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%, rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
+    /* background: linear-gradient(to top left,rgba(194, 39, 194, 0.396),  rgba(94, 139, 199, 0.462),
+    rgba(2, 37, 108, 0.542), rgba(1, 45, 132, 0.405), rgba(194, 39, 194, 0.849)); */
 }
 
 .container-banner{
@@ -66,7 +76,6 @@ main{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-
   }
 
   .search-input {
@@ -159,7 +168,7 @@ main{
 
   .filter-tag:hover{
     background-color: #E8EEFE;
-    /* -webkit-transition: 0.3s linear; */
+    -webkit-transition: 0.3s linear;
     transition: 0.3s linear;
   }
 
@@ -186,6 +195,7 @@ main{
   .article-teams{
     width: 100%;
     margin-left: 2%;
+    position: relative;
   }
 
   .icon-teams-community{
@@ -194,6 +204,37 @@ main{
     justify-content: space-around;
     margin-bottom: 1%;
     align-items: center;
+    margin-top: 3px;
+  }
+
+  /* Botones de scrolear derecha e izquierda en equipos */
+
+  .container-scrolls{
+    position: absolute;
+    margin-left: 87%;
+    margin-top: 2.5%;
+    background-color: none;
+  }
+
+  .btns-scroll{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .l1{
+    color: #515c85;
+    font-size: 25px;
+    padding: 0 18px;
+    cursor: pointer;
+  }
+
+  .l1:hover{
+    background-color:#434D7B;
+    border-radius: 6px;
+    transition: 0.3 linear;
+    -webkit-transition: 0.3s linear;
+    color: #E8EEFE;
   }
 
   /* ------------------------ */
@@ -224,8 +265,6 @@ main{
   /* ----------------- */
 
   .icon-com{
-    /* margin-right: 35px; */
-    /* border: yellow; */
     color: #E8EEFE;
     height: auto;
     display: flex;
@@ -235,9 +274,7 @@ main{
 
   .text-icon{
     font-size: 12px;
-    /* border: solid green; */
     display: flex;
-    /* position: absolute; */
     justify-content: center;
   }
 
@@ -264,11 +301,16 @@ main{
   /* contenedor teams  */
 
   .teams{
-    display: flex;
     gap: 20px;
+    display: flex;
+    /* flex-wrap: nowrap; */
     overflow-x: scroll;
-    scrollbar-width: none;
+    scroll-behavior: smooth;
   }
+
+  .teams::-webkit-scrollbar {
+    display: none;
+}  
 
   /* tarjeta general de equipos */
 
@@ -278,6 +320,7 @@ main{
     width: 30%;
     height: 20%;
     padding: 14px;
+    flex: 0 0 auto;
   }
 
     /* tarjeta secundaria de equipos */
@@ -385,3 +428,112 @@ main{
     color: #E8EEFE;
     border: solid  #E8EEFE 1px;
   }
+
+ /* apartado de crear teams */
+
+ .create-teams{
+  margin-top: 4px;
+ }
+
+ /* Mis equipos */
+
+.my-teams{
+  padding: 2%;
+  background-color:#353C60;
+  border-radius: 10px;
+  width: 95%;
+}
+
+h2{
+  font-size: 30PX;
+  margin-bottom: 1% ;
+}
+
+.create-button{
+  width: 20%;
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1F2439;
+  border-radius: 10px;
+}
+
+.create-team{
+  background-color: #94B1F9;
+  border: none;
+  border-radius: 20px;
+  color: #1F2439;
+  padding: 0 4%;
+  font-size: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.create-team i{
+  color: #1F2439;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.create-team:hover{
+  background-color: #E8EEFE;
+}
+
+.cont-myTeams{
+  display: flex;
+  flex: 0 0 auto;
+  gap: 15px;
+}
+
+.card-create{
+  width: 19vw;
+  height: 32vh;
+  display: flex;
+  padding: 4%;
+  flex-direction: column;
+  background-color:#434D7B;
+  border-radius: 10px;
+  position: relative;
+} 
+
+.team-img{
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.team-img img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.h4-Myteams{
+  margin-top: 5%;
+}
+
+.If-two ol{
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  margin-top: 1%;
+  padding: 0;
+}
+
+.If-two ol li a{
+  display: flex;
+  gap: 5px;
+  padding: 2px 4px;
+}
+
+.bnt-ver2{
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 75%;
+}
+
