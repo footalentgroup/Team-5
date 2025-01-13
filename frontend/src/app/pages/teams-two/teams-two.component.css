@@ -65,7 +65,7 @@ main{
     justify-content: center;
     background-color:#353C60;
     justify-content: space-around;
-    padding: 0 8% 3% 8%;
+    padding: 2% 6% 3% 11%;
 }
 
 h1{
@@ -117,5 +117,65 @@ h1{
 }
 
 .data-team{
-    border: solid green;
+    width: 20%;
+}
+
+.Number-data{
+    display: flex;
+    gap: 20px;
+}
+
+.content-icon{
+    background-color: #434D7B;
+    padding: 4% 6%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+
+.content-icon span{
+    font-size: 13px;
+}
+
+.action-team{
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+}
+
+.action-team button{
+    width: 45px; 
+    height: 45px;
+    background-color:#292F4A;
+    padding: 5%;
+    border: none;
+    border-radius: 50%; 
+    text-align: center;  
+    font-size: 13px; 
+}
+
+.action-team button i{ 
+    color: #94B1F9;
+    font-size: 12px;
+}
+.button-like{
+    background-color: #94B1F9;
+    padding: 1% 6%;
+    border: none;
+    border-radius: 25px; 
+    text-align: center;  
+    display: flex;
+    gap: 15px;
+    color: #1F2439;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.button-like i{
+    color:#1F2439;
+    font-size: 12px;
 }
