@@ -57,9 +57,8 @@ main{
     width: 100%;
     height: 100%;
     background: rgb(148,177,249);
-    background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%, rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
-    /* background: linear-gradient(to top left,rgba(194, 39, 194, 0.396),  rgba(94, 139, 199, 0.462),
-    rgba(2, 37, 108, 0.542), rgba(1, 45, 132, 0.405), rgba(194, 39, 194, 0.849)); */
+    background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%,
+     rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
 }
 
 .container-banner{

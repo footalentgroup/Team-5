@@ -1,0 +1,121 @@
+/* Importación fuente google font "Roboto" */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: "Roboto", serif;
+    color: #E8EEFE;
+}
+
+/* estilos, fuentes, colores, etc */
+
+:root {
+    /* Tipografía */
+    --font-roboto: "Roboto", serif;
+
+    /* Paleta de colores */
+    --background: #292F4A;
+    --button-o: #434D7B;
+    --button-2: #292F4A;
+    --font-button: #94B1F9;
+    --icon-claro: #E8EEFE;
+    --background-card: #434D7B;
+    --card-oscuro: #1F2439;
+
+    /* hoover */
+    --perm-font-btn: #F6A1FD;
+    --hover-font: #E8EEFE;
+}
+
+
+main{
+    width: 100%;
+    height: auto;
+}
+
+.banner{
+    width: 100%;
+    height: 30vh;
+    position: relative;
+}
+
+.banner img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Div gradient, color de imagen baner */
+
+.gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(148,177,249);
+    background: linear-gradient(162deg, rgba(148, 176, 249, 0.679) 0%, rgba(245, 161, 253, 0.575) 10%,
+     rgba(9, 35, 102, 0.459) 19%, rgba(12, 46, 133, 0.525) 55%, rgba(148, 176, 249, 0.497) 80%, rgba(245, 161, 253, 0.519) 100%);
+}
+
+/* Inicio del article donde esta la informacion general */
+.article-info{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color:#353C60;
+    justify-content: space-around;
+    padding: 0 8% 3% 8%;
+}
+
+h1{
+    font-size: 25px;
+    color:#94B1F9;
+}
+
+.created-by{
+    font-size: 11px;
+    font-weight:normal;
+    margin: 0;
+}
+
+/* Boton de live */
+
+.button-live{
+    background-color:#353C60;
+    border: #F6A1FD solid 1px;
+    border-radius: 3px;
+    padding: 2% 6%;
+    font-size: 10px;
+    color: #F6A1FD;
+    margin: 4% 0;
+    display: flex;
+    gap: 10px;
+}
+
+.button-live i{
+    color: #F6A1FD; 
+    font-size: 10px
+}
+
+/* boton de dispositivos  */
+
+.button-devices{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.button-devices button{
+    background-color: #353C60;
+    border:#E8EEFE solid 1px;
+    padding: 2% 5%;
+    font-size: 12px;
+    border-radius: 3px;
+    display: flex;
+    gap: 10px;
+}
+
+.data-team{
+    border: solid green;
+}
