@@ -15,8 +15,9 @@ import { CloudinaryService } from '../../services/cloudinary.service';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  countries: string[] = []; 
-  avatar: string | ArrayBuffer | null = null; 
+  loading = true;
+  countries: string[] = [];
+  avatar: string | ArrayBuffer | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -42,16 +43,28 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Llama al servicio para obtener la lista de países
-    this.countryService.getCountries().subscribe(
-      (data) => {
-        this.countries = data.map((country: any) => country.name.common); // Extraemos el nombre de los países
+    // Inicia el indicador de carga
+    this.loading = true;
+  
+    // Llama al servicio para obtener los países
+    this.countryService.getCountries().subscribe({
+      next: (data) => {
+        // Verifica que la respuesta sea válida
+        if (data && Array.isArray(data)) {
+          this.countries = data.map((country: any) => country.name.common);
+        } else {
+          console.error('Respuesta inesperada:', data);
+          alert('Error al procesar los datos de países.');
+        }
+        this.loading = false; // Desactiva el indicador de carga
       },
-      (error) => {
+      error: (error) => {
+        // Maneja el error y desactiva el indicador de carga
         console.error('Error al obtener países:', error);
-        alert('No se pudieron cargar los países.');
-      }
-    );
+        alert('No se pudieron cargar los países. Intenta nuevamente.');
+        this.loading = false;
+      },
+    });
   }
 
   // Maneja el evento de cambio de archivo (cuando el usuario selecciona una imagen)
