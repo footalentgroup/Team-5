@@ -1,0 +1,43 @@
+body {
+    background-image: url('/assets/login/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-content: center;
+}
+
+.help-container {
+    width: 950px;
+    height: auto;
+
+    border-radius: 10px;
+    padding: 20px 40px 32px 40px;
+    background-color: #292F4A;
+    color: white;
+}
+
+a {
+    gap: 10px;
+    text-decoration: none;
+    color: #94B1F9;
+}
+
+section {
+    margin: 40px 120px 0 140px;
+}
+
+h6 {
+    margin: 0 10px 20px 0;
+}
+
+.help-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}

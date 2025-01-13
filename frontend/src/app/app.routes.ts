@@ -6,13 +6,19 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { SignupComponent } from './components/signup/signup.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { VerifyEditProfileComponent } from './components/verify-edit-profile/verify-edit-profile.component';
+import { HelpCenterComponent } from './pages/help-center/help-center.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'verify-edit', component: VerifyEditProfileComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
-  { path: 'landing', component: LandingComponent },
-  { path: 'user-profile', component: UserProfileComponent }
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'edit-user-profile', component: EditProfileComponent },
+  { path: 'help-center', component: HelpCenterComponent },
 ];
