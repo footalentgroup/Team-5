@@ -1,0 +1,52 @@
+
+.imgLogo {
+    width: 136px;
+    height: 53px;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.btnNavBajo {
+    align-self: center;
+}
+
+.navbar-bottom { 
+    display: none; 
+}
+
+#comunidad {
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .btnBienvenida span {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .navbar .navbar-toggler,
+    .navbar .btnBienvenida {
+        display: none;
+    }
+
+    .navbar-bottom { 
+        display: flex; 
+        position: fixed; 
+        bottom: 0; 
+        width: 100%;
+    }
+
+    .navUpRight{
+        padding-right: 0px;
+    }
+}

@@ -3,10 +3,58 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 body{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: auto;
+}
+
+:root {
+    --navbar-color: #292f4a;
+    --letra-navbar: #94b1f9;
+    --navitem-active: #f6a1fd;
+}
+
+.navColor {
+    background-color: var(--navbar-color);
+}
+
+.letra-navbar,
+.btnNoti {
+    color: var(--letra-navbar);
+}
+
+.letraNav {
+    font-size: small;
+}
+
+.nav-link:hover,
+.nav-link:hover .btnNavBajo,
+.btnNoti:hover,
+.nav-link:active,
+.nav-link:focus {
+    color: var(--navitem-active) !important;
+}
+
+.nav-link:active {
+    text-decoration: underline;
+}
+
+.btnBienvenida,
+.btnNavBajo {
+    background-color: var(--navbar-color);
+    border-color: var(--letra-navbar);
+    color: var(--letra-navbar);
+}
+
+.btnBienvenida:hover {
+    background-color: var(--navitem-active);
+    color: var(--navbar-color);
+    border-color: var(--navbar-color);
+}
+
+.nav-link:active .btnNavBajo {
+    background-color: var(--navitem-active);
+    color: var(--navbar-color);
 }
