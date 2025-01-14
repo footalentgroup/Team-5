@@ -8,9 +8,10 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { VerifyEditProfileComponent } from './components/verify-edit-profile/verify-edit-profile.component';
 import { HelpCenterComponent } from './pages/help-center/help-center.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { BuildingComponent } from './pages/building/building.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -19,4 +20,7 @@ export const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'edit-user-profile', component: EditProfileComponent },
   { path: 'help-center', component: HelpCenterComponent },
+  { path: 'building', component: BuildingComponent },
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent },
 ];
