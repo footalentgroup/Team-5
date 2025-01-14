@@ -41,3 +41,12 @@ button {
     margin: 20px;
     font-weight: 600;
 }
+
+/* Estilos para móviles pequeños */
+@media (max-width: 480px) {
+    .verify-edit {
+        width: 350px;
+        text-align: center;
+    }
+}
+  
