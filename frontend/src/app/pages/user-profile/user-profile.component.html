@@ -12,29 +12,28 @@
         <div class="option-profile">
             <ul>
                 <li>
-                    <a href="#">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="35" height="35" rx="17.5" stroke="#94B1F9" />
+                        <path
+                            d="M18 18C19.0609 18 20.0783 17.5786 20.8284 16.8284C21.5786 16.0783 22 15.0609 22 14C22 12.9391 21.5786 11.9217 20.8284 11.1716C20.0783 10.4214 19.0609 10 18 10C16.9391 10 15.9217 10.4214 15.1716 11.1716C14.4214 11.9217 14 12.9391 14 14C14 15.0609 14.4214 16.0783 15.1716 16.8284C15.9217 17.5786 16.9391 18 18 18ZM16.5719 19.5C13.4938 19.5 11 21.9937 11 25.0719C11 25.5844 11.4156 26 11.9281 26H24.0719C24.5844 26 25 25.5844 25 25.0719C25 21.9937 22.5063 19.5 19.4281 19.5H16.5719Z"
+                            fill="#94B1F9" />
+                    </svg>
+                        Información personal
+                    
+                </li>
+                <li>
+                    <a routerLink="/edit-user-profile">
                         <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.5" y="1" width="35" height="35" rx="17.5" stroke="#94B1F9" />
                             <path
                                 d="M21.3342 11.1035L19.8217 12.616L23.8842 16.6785L25.3967 15.166C26.1779 14.3848 26.1779 13.1191 25.3967 12.3379L24.1654 11.1035C23.3842 10.3223 22.1185 10.3223 21.3373 11.1035H21.3342ZM19.1154 13.3223L11.831 20.6098C11.506 20.9348 11.2685 21.3379 11.1373 21.7785L10.031 25.5379C9.95291 25.8035 10.0248 26.0879 10.2185 26.2816C10.4123 26.4754 10.6967 26.5473 10.9592 26.4723L14.7185 25.366C15.1592 25.2348 15.5623 24.9973 15.8873 24.6723L23.1779 17.3848L19.1154 13.3223Z"
                                 fill="#94B1F9" />
                         </svg>
-                        Información personal
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="35" height="35" rx="17.5" stroke="#94B1F9" />
-                            <path
-                                d="M18 18C19.0609 18 20.0783 17.5786 20.8284 16.8284C21.5786 16.0783 22 15.0609 22 14C22 12.9391 21.5786 11.9217 20.8284 11.1716C20.0783 10.4214 19.0609 10 18 10C16.9391 10 15.9217 10.4214 15.1716 11.1716C14.4214 11.9217 14 12.9391 14 14C14 15.0609 14.4214 16.0783 15.1716 16.8284C15.9217 17.5786 16.9391 18 18 18ZM16.5719 19.5C13.4938 19.5 11 21.9937 11 25.0719C11 25.5844 11.4156 26 11.9281 26H24.0719C24.5844 26 25 25.5844 25 25.0719C25 21.9937 22.5063 19.5 19.4281 19.5H16.5719Z"
-                                fill="#94B1F9" />
-                        </svg>
                         Editar perfil
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a routerLink="/help-center">
                         <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.5" y="1" width="35" height="35" rx="17.5" stroke="#94B1F9" />
                             <path
@@ -94,7 +93,7 @@
             <img src="assets/user-profile/trophies/bronce.png" alt="trofeo de oro">
             <img src="assets/user-profile/trophies/platino.png" alt="trofeo de oro">
         </div>
-        <button>
+        <button (click)="copyToClipboard()">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.5" y="0.5" width="35" height="35" rx="17.5" stroke="#94B1F9" />
                 <path
@@ -102,5 +101,6 @@
                     fill="#94B1F9" />
             </svg>
         </button>
+        <p *ngIf="copied" class="copied-message">¡Enlace copiado al portapapeles!</p>
     </div>
 </body>
