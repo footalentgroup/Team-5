@@ -107,35 +107,41 @@
         <!-- Aceptación de términos y condiciones -->
         <div class="checkbox-item">
           <input id="acceptTerms" formControlName="acceptTerms" type="checkbox" required>
-          <label for="acceptTerms">Acepto los términos y condiciones</label>
+          <label for="acceptTerms">Acepto los Términos y condiciones</label>
           <div *ngIf="signupForm.get('acceptTerms')?.invalid && signupForm.get('acceptTerms')?.touched" class="error">
             Debes aceptar los términos y condiciones.
-          </div>
-        </div>
-
-        <!-- Confirmación de mayor de 14 años -->
-        <div class="checkbox-item">
-          <input id="isOver14" formControlName="isOver14" type="checkbox" required>
-          <label for="isOver14">Soy mayor de 14 años</label>
-          <div *ngIf="signupForm.get('isOver14')?.invalid && signupForm.get('isOver14')?.touched" class="error">
-            Debes confirmar que eres mayor de 14 años.
           </div>
         </div>
 
         <!-- Aceptación de política de privacidad -->
         <div class="checkbox-item">
           <input id="acceptPrivacyPolicy" formControlName="acceptPrivacyPolicy" type="checkbox" required>
-          <label for="acceptPrivacyPolicy">Acepto la política de privacidad</label>
+          <label for="acceptPrivacyPolicy">Estoy de acuerdo con las Políticas de Privacidad y Datos.</label>
           <div *ngIf="signupForm.get('acceptPrivacyPolicy')?.invalid && signupForm.get('acceptPrivacyPolicy')?.touched"
             class="error">
             Debes aceptar la política de privacidad.
           </div>
         </div>
+
+        <!-- Confirmación de mayor de 14 años -->
+        <div class="checkbox-item">
+          <input id="isOver14" formControlName="isOver14" type="checkbox" required>
+          <label for="isOver14">Confirmo que soy mayor de 14 años o cuento con la autorización de mi representante legal
+            para usar los servicios de Respawn Events</label>
+          <div *ngIf="signupForm.get('isOver14')?.invalid && signupForm.get('isOver14')?.touched" class="error">
+            Debes confirmar que eres mayor de 14 años.
+          </div>
+        </div>
       </div>
 
       <button type="submit" [disabled]="!signupForm.valid" class="submit-button">
-        Registrarse
+        Crear cuenta
       </button>
     </form>
+    
+    <button (click)="onDiscordLogin()" class="discord-button">Crear cuenta con Discord</button>
+    <hr>
+    <p>¿Ya tienes cuenta?</p>
+    <a routerLink="/login">Iniciar sesión</a>
   </div>
 </body>
