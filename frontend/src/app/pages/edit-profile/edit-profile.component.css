@@ -43,6 +43,7 @@ input {
     margin-bottom: 0.5rem;
     border-radius: 5px;
     font-size: 1rem;
+    text-align: center;
 }
 
 input::placeholder {
@@ -83,4 +84,28 @@ hr {
 
 a {
     color: white;
+}
+
+@media (max-width: 480px) {
+    .edit-container {
+        width: 350px;
+        padding: 20px;
+    }
+
+    .form-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0px
+    }
+}
+
+/* Estilos para móviles grandes o phablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .edit-container {
+        width: 650px;
+        padding: 40px;
+    }
 }
