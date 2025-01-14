@@ -130,7 +130,8 @@
     align-items: center;
 }
 
-.offer-card button, .offer-card-w button {
+.offer-card button,
+.offer-card-w button {
     width: 328px;
     height: 48px;
     font-weight: 600;
@@ -224,7 +225,8 @@ li {
     justify-content: space-evenly;
 }
 
-.accordion-button, .accordion-body {
+.accordion-button,
+.accordion-body {
     color: #292F4A;
     background-color: inherit;
 }
@@ -236,4 +238,185 @@ li {
 .accordion-collapse {
     background-color: #94B1F9;
     border: solid 2px #292F4A;
+}
+
+/* Media Queries */
+/* Estilos para teléfonos pequeños */
+@media (max-width: 480px) {
+    .banner-search {
+        background-image: url('../../../../public/assets/landing/banner-mobile.jpg');
+    }
+
+    .banner-search input {
+        width: 350px;
+        background-color: #03071E80;
+        border: solid 2px #FCA311;
+        color: white;
+    }
+
+    .banner-search input::placeholder {
+        color: white;
+    }
+
+    .banner-platform {
+        background-color: #FCA311;
+        font-size: small;
+        text-align: center;
+        gap: 5px;
+    }
+
+    svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .banner-services {
+        padding: 20px;
+        font-size: small;
+        background-color: #03071E;
+    }
+
+    .container-services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .services {
+        width: 182px;
+        height: 150px;
+
+        background-color: #09103A4D;
+        border: none;
+    }
+
+    .services path {
+        fill: #06BEE1;
+    }
+
+    h3 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .banner-services button {
+        background-color: #FCA311;
+    }
+
+    .banner-offers {
+        background-color: #091038;
+        padding: 20px 0;
+    }
+
+    .offers-container {
+        padding: 10px;
+    }
+
+    .offer-card {
+        width: 350px;
+        height: 320px;
+
+        border: none;
+        background-color: #03071E;
+    }
+
+    .offer-card path {
+        fill: #06BEE1;
+    }
+
+    .offer-card-w {
+        width: 350px;
+        height: 320px;
+        background-color: #FCA311;
+    }
+
+    .offer-card-w path {
+        fill: white;
+    }
+
+    .offer-card-res {
+        background-color: #122072;
+    }
+
+    .offer-card button {
+        width: 160px;
+        background-color: inherit;
+        border: solid 2px #FCA311;
+        color: #FCA311;
+    }
+
+    .offer-card-w button {
+        width: 160px;
+        background-color: #03071E;
+        border: none;
+        color: #FCA311;
+    }
+
+    .banner-comments {
+        background-color: #03071E;
+        color: white;
+        text-align: center;
+    }
+
+    .card-comment {
+        width: 250px;
+        height: auto;
+
+        background-color: #09103A4D;
+        color: white;
+    }
+
+    .card-comment img {
+        width: 66px;
+        height: 66px;
+
+        font-size: 10px;
+    }
+
+    .banner-comments button {
+        background-color: #FCA311;
+    }
+
+    .banner-qa {
+        background-color: #091038;
+        color: white;
+        padding: 20px;
+    }
+
+    .accordion-button,
+    .accordion-body {
+        color: white;
+        background-color: #03071E;
+    }
+
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+
+    .accordion-collapse {
+        background-color: #03071E;
+        border: none;
+    }
+}
+
+/* Estilos para móviles grandes y tablets pequeñas */
+@media (min-width: 481px) and (max-width: 768px) {
+    .banner-services {
+        padding: 20px;
+    }
+
+    .container-services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .services {
+        width: 350px;
+        height: 210px;
+    }
+
+    .banner-offers {
+        padding: 20px;
+    }
 }
