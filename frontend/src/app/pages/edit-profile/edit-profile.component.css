@@ -1,0 +1,111 @@
+body {
+    background-image: url('/assets/login/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-content: center;
+}
+
+.edit-container {
+    width: 870px;
+    height: auto;
+
+    text-align: center;
+    border-radius: 10px;
+    background-color: #292F4A;
+    color: white;
+    padding: 30px 120px 30px 120px;
+}
+
+.form-section {
+    margin-bottom: 10px;
+}
+
+h6 {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: inherit;
+    border: 1px solid white;
+    color: white;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+input::placeholder {
+    color: white;
+    text-align: center;
+    font-size: small;
+}
+
+input:focus {
+    border-color: #94B1F9;
+    outline: none;
+}
+
+.form-submit {
+    text-align: center;
+}
+
+button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #292F4A;
+    background-color: #94B1F9;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: #9fb7f5;
+}
+
+hr {
+    color: white;
+    height: 2px;
+}
+
+a {
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .edit-container {
+        width: 350px;
+        padding: 20px;
+    }
+
+    .form-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0px
+    }
+}
+
+/* Estilos para móviles grandes o phablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .edit-container {
+        width: 650px;
+        padding: 40px;
+    }
+}

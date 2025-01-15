@@ -10,6 +10,7 @@ import './passport.js';
 import teamRoutes from './routes/team.routes.js';
 import eventRoutes from './routes/event.routes.js';
 import communityRoutes from './routes/community.routes.js';
+import searchRoutes from './routes/search.routes.js';
 
 // Cargar las variables de entorno
 dotenv.config();
@@ -18,7 +19,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: [process.env.FRONTEND_URL,process.env.FRONTEND_URL_LOCAL],
   credentials: true
 }));
 app.use(session({
@@ -41,6 +42,7 @@ app.use('/api/auth/discord', authDiscordRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/community', communityRoutes);
+app.use('/api', searchRoutes);
 
 // Conexión a la base de datos
 mongoDB();
