@@ -1,0 +1,48 @@
+body {
+    background-image: url('/assets/building/building-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-content: center;
+}
+
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    color: white;
+    gap: 20px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+h1 {
+    font-size: 130px;
+    color: #94B1F9;
+}
+
+p {
+    font-size: 40px;
+}
+
+span {
+    margin-bottom: 30px;
+}
+
+button {
+    width: 180px;
+    height: 60px;
+
+    border-radius: 50px;
+    border: none;
+    padding: 10px;
+    background-color: #94B1F9;
+    color: #292F4A;
+    font-weight: 600;
+}

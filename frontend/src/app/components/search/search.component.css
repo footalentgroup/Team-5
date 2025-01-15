@@ -1,0 +1,162 @@
+/* Banner de búsqueda */
+.search-container {
+    width: 100%;
+    min-height: 480px;
+    background-image: url('../../../../public/assets/landing/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    place-content: center;
+}
+
+.search-input {
+    width: 720px;
+    height: 60px;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.search-input::placeholder {
+    text-align: start;
+    font-weight: 600;
+    color: black;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.filters-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.filters-toggle-button {
+    width: 94px;
+    margin: 20px;
+    padding: 0.7rem;
+    background-color: #94B1F9;
+    color: #292F4A;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    gap: 2.5rem;
+    color: white;
+}
+
+.filters label {
+    padding: 0.7rem;
+    background-color: #434D7B;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters input {
+    background-color: #94B1F9;
+}
+
+.results-container {
+    width: 100vw;
+    height: auto;
+
+    background-color: #292F4A;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.results {
+    width: 850px;
+    height: auto;
+
+    background-color: #292F4A;
+    color: white;
+}
+
+.results h2 {
+    margin: 40px 0;
+}
+
+.no-results {
+    color: white;
+    text-align: center;
+    margin: 1rem;
+}
+
+.results h4 {
+    margin: 20px 0;
+}
+
+.result-item {
+    width: 100%;
+    height: auto;
+
+    background-color: #434D7B;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.img-result {
+    width: 215px;
+    height: 98px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.img-user {
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.result-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.medal-result {
+    display: flex;
+    align-items: flex-start;
+    justify-content: first baseline;
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .banner-search {
+        background-image: url('../../../../public/assets/landing/banner-mobile.jpg');
+    }
+
+    .banner-search input {
+        width: 350px;
+        background-color: #03071E80;
+        border: solid 2px #FCA311;
+        color: white;
+    }
+
+    .banner-search input::placeholder {
+        color: white;
+    }
+}
