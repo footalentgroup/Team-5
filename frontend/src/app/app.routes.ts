@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+
+
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './guards/auth.guard';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
@@ -24,3 +26,4 @@ export const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];
+
