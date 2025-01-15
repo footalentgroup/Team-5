@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-
-
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './guards/auth.guard';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
@@ -12,6 +10,13 @@ import { VerifyEditProfileComponent } from './components/verify-edit-profile/ver
 import { HelpCenterComponent } from './pages/help-center/help-center.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BuildingComponent } from './pages/building/building.component';
+import { ComunidadesComponent } from './pages/comunidades/comunidades.component';
+import { TeamsComponent } from './pages/teams/teams.component';
+import { TeamsTwoComponent } from './pages/teams-two/teams-two.component';
+
+// import { NgModel } from '@angular/forms';
+// import { NgModule } from '@angular/core';
+
 
 export const routes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -25,5 +30,10 @@ export const routes: Routes = [
   { path: 'building', component: BuildingComponent },
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
+  { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
+  { path: 'teams', component: TeamsComponent},
+  { path: 'teams-two', component: TeamsTwoComponent}
 ];
 
+
+export class AppRoutinModule { }
