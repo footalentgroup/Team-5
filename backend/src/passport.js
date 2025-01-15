@@ -33,10 +33,10 @@ passport.use(
                     user = await User.create({
                         discordId: profile.id,
                         username: profile.username,
-                        email: profile.email || null, // Cambiar a null si no hay email
+                        email: profile.email || null, 
                         avatar: profile.avatar || '',
                         password: randomPassword,
-                        name: '',  // Completa según lo que necesites
+                        name: '',  
                         lastname: '',
                         acceptTerms: true,
                         acceptPrivacyPolicy: true,
@@ -50,7 +50,7 @@ passport.use(
                 // Llamar a done con el usuario encontrado o creado
                 return done(null, user);
             } catch (error) {
-                console.error('Error en la autenticación de Discord:', error); // Log de error
+                console.error('Error en la autenticación de Discord:', error);
                 return done(error, null);
             }
         }
@@ -68,10 +68,10 @@ passport.deserializeUser (async (id, done) => {
         const user = await User.findById(id);
         done(null, user); // Llamar a done con el usuario recuperado
     } catch (error) {
-        console.error('Error al deserializar el usuario:', error); // Log de error
+        console.error('Error al deserializar el usuario:', error); 
         done(error, null); // Pasar el error al callback
     }
 });
 
-// Exportar la instancia configurada de passport
+
 export default passport;

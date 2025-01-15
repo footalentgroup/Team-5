@@ -50,6 +50,6 @@ export class LoginComponent {
   // Método para manejar el inicio de sesión con Discord
   onDiscordLogin() {
     // Redirigir a la URL de autenticación de Discord
-    window.location.href = 'http://localhost:3000/api/auth/discord';
+    window.location.href = 'https://backend-t5-ftg.vercel.app/api/auth/discord';
   }
 }
