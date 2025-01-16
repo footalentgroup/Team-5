@@ -10,10 +10,13 @@ body{
     height: auto;
 }
 
+/* navbar */
+
 :root {
     --navbar-color: #292f4a;
     --letra-navbar: #94b1f9;
     --navitem-active: #f6a1fd;
+    --color-blanco: #E8EEFE;
 }
 
 .navColor {
@@ -23,10 +26,6 @@ body{
 .letra-navbar,
 .btnNoti {
     color: var(--letra-navbar);
-}
-
-.letraNav {
-    font-size: small;
 }
 
 .nav-link:hover,
@@ -57,4 +56,17 @@ body{
 .nav-link:active .btnNavBajo {
     background-color: var(--navitem-active);
     color: var(--navbar-color);
+}
+
+/* Comunidades */
+
+.btnComunidades,
+.letra {
+    color: var(--color-blanco);
+}
+
+.btnComunidades:hover, 
+.btnComunidades:active {
+    color: var(--letra-navbar);
+    border-bottom: 2px solid var(--letra-navbar);
 }
