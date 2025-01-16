@@ -1,0 +1,52 @@
+body {
+    background-image: url('/assets/login/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-content: center;
+}
+
+.verify-edit {
+    width: 450px;
+    height: 450px;
+
+    border-radius: 10px;
+    background-color: #292F4A;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h2 {
+    color: #F6A1FD;
+}
+
+p {
+    font-size: large;
+}
+
+button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    color: #292F4A;
+    background-color: #94B1F9;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px;
+    font-weight: 600;
+}
+
+/* Estilos para móviles pequeños */
+@media (max-width: 480px) {
+    .verify-edit {
+        width: 350px;
+        text-align: center;
+    }
+}
+  

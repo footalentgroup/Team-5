@@ -1,0 +1,382 @@
+/* Banner de plataforma */
+.banner-platform {
+    width: 100%;
+    min-height: 150px;
+    background-color: #94B1F9;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Servicios */
+.banner-services {
+    width: 100%;
+    min-height: 400px;
+    background-color: #292F4A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.container-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.services {
+    width: 380px;
+    height: 240px;
+    border: solid 1px #f6a1fd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.banner-services button {
+    width: 200px;
+    height: 48px;
+    color: #292f4aff;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    background-color: #94B1F9;
+    cursor: pointer;
+}
+
+/* Ofertas */
+.banner-offers {
+    width: 100%;
+    min-height: 620px;
+    background-color: #353c60;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}
+
+.banner-offers h2 {
+    color: white;
+    text-align: center;
+}
+
+.offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.offer-card {
+    width: 385px;
+    min-height: 480px;
+    color: white;
+    border: solid 2px #f6a1fd;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offer-card-w {
+    width: 385px;
+    min-height: 480px;
+    background-color: #e8eefe;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offer-card button,
+.offer-card-w button {
+    width: 328px;
+    height: 48px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.offer-card button {
+    background-color: #292f4aff;
+    color: #94b1f9ff;
+    border: solid 1px #94b1f9ff;
+}
+
+.offer-card-w button {
+    background-color: #94b1f9ff;
+    color: #292f4aff;
+    border: none;
+}
+
+/* Listas */
+ul {
+    list-style-position: inside;
+    padding-left: 20px;
+}
+
+li {
+    line-height: 1.5;
+}
+
+/* Comentarios */
+.banner-comments {
+    width: 100%;
+    min-height: 580px;
+    background-color: #292F4A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card-comment {
+    width: 100%;
+    max-width: 580px;
+    background-color: #e8eefeff;
+    color: #092466ff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.card-comment img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.card-comment p {
+    font-size: large;
+    font-weight: 600;
+}
+
+.info-user {
+    width: 100%;
+    text-align: right;
+}
+
+.banner-comments button {
+    width: 200px;
+    height: 48px;
+    color: #292f4aff;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    background-color: #94B1F9;
+    cursor: pointer;
+}
+
+/* QA (bootstrap)*/
+.banner-qa {
+    width: 100%;
+    min-height: 480px;
+    background-color: #94b1f9ff;
+    color: #092466ff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.accordion-button,
+.accordion-body {
+    color: #292F4A;
+    background-color: inherit;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-collapse {
+    background-color: #94B1F9;
+    border: solid 2px #292F4A;
+}
+
+/* Media Queries */
+/* Estilos para teléfonos pequeños */
+@media (max-width: 480px) {
+    .banner-platform {
+        background-color: #FCA311;
+        font-size: small;
+        text-align: center;
+        gap: 5px;
+    }
+
+    svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .banner-services {
+        padding: 20px;
+        font-size: small;
+        background-color: #03071E;
+    }
+
+    .container-services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .services {
+        width: 182px;
+        height: 150px;
+
+        background-color: #09103A4D;
+        border: none;
+    }
+
+    .services path {
+        fill: #06BEE1;
+    }
+
+    h3 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .banner-services button {
+        background-color: #FCA311;
+    }
+
+    .banner-offers {
+        background-color: #091038;
+        padding: 20px 0;
+    }
+
+    .offers-container {
+        padding: 10px;
+    }
+
+    .offer-card {
+        width: 350px;
+        height: 320px;
+
+        border: none;
+        background-color: #03071E;
+    }
+
+    .offer-card path {
+        fill: #06BEE1;
+    }
+
+    .offer-card-w {
+        width: 350px;
+        height: 320px;
+        background-color: #FCA311;
+    }
+
+    .offer-card-w path {
+        fill: white;
+    }
+
+    .offer-card-res {
+        background-color: #122072;
+    }
+
+    .offer-card button {
+        width: 160px;
+        background-color: inherit;
+        border: solid 2px #FCA311;
+        color: #FCA311;
+    }
+
+    .offer-card-w button {
+        width: 160px;
+        background-color: #03071E;
+        border: none;
+        color: #FCA311;
+    }
+
+    .banner-comments {
+        background-color: #03071E;
+        color: white;
+        text-align: center;
+    }
+
+    .card-comment {
+        width: 250px;
+        height: auto;
+
+        background-color: #09103A4D;
+        color: white;
+    }
+
+    .card-comment img {
+        width: 66px;
+        height: 66px;
+
+        font-size: 10px;
+    }
+
+    .banner-comments button {
+        background-color: #FCA311;
+    }
+
+    .banner-qa {
+        background-color: #091038;
+        color: white;
+        padding: 20px;
+    }
+
+    .accordion-button,
+    .accordion-body {
+        color: white;
+        background-color: #03071E;
+    }
+
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+
+    .accordion-collapse {
+        background-color: #03071E;
+        border: none;
+    }
+}
+
+/* Estilos para móviles grandes y tablets pequeñas */
+@media (min-width: 481px) and (max-width: 768px) {
+    .banner-services {
+        padding: 20px;
+    }
+
+    .container-services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .services {
+        width: 350px;
+        height: 210px;
+    }
+
+    .banner-offers {
+        padding: 20px;
+    }
+}

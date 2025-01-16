@@ -106,3 +106,10 @@ hr {
 .create-account a {
   color: #FAFAFA;
 }
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+  .login-container {
+    width: 380px;
+  }
+}

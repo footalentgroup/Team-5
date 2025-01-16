@@ -26,7 +26,7 @@ body {
 
 .container-verify-email h2 {
     font-size: 32px;
-    color: #94B1F9;
+    color: #F6A1FD;
 }
 
 .container-verify-email p {
@@ -36,6 +36,7 @@ body {
 .btn {
     width: 230px;
     height: 48px;
+    font-weight: 600;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -43,3 +44,12 @@ body {
     background-color: #94B1F9;
     color: #292F4A;
 }
+
+/* Estilos para móviles pequeños */
+@media (max-width: 480px) {
+    .container-verify-email {
+        width: 350px;
+        text-align: center;
+    }
+}
+  
