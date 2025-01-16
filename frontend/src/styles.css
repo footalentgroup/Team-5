@@ -77,7 +77,3 @@ body {
     color: var(--letra-navbar);
     border-bottom: 2px solid var(--letra-navbar);
 }
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden;
-}
