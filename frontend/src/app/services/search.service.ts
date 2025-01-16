@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  private apiUrl = 'http://localhost:3000/api/search';
+  private apiUrl = 'https://backend-t5-ftg.vercel.app/api/search';
 
   constructor(private http: HttpClient) {}
 
@@ -14,7 +14,6 @@ export class SearchService {
     const params = new HttpParams()
       .set('query', query)
       .set('types', types.join(',')); // Concatena los tipos seleccionados
-
     return this.http.get<any>(this.apiUrl, { params });
   }
 }
