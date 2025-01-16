@@ -17,10 +17,13 @@ body {
     overflow-x: hidden;
 }
 
+/* navbar */
+
 :root {
     --navbar-color: #292f4a;
     --letra-navbar: #94b1f9;
     --navitem-active: #f6a1fd;
+    --color-blanco: #E8EEFE;
 }
 
 .navColor {
@@ -30,10 +33,6 @@ body {
 .letra-navbar,
 .btnNoti {
     color: var(--letra-navbar);
-}
-
-.letraNav {
-    font-size: small;
 }
 
 .nav-link:hover,
@@ -64,7 +63,37 @@ body {
 .nav-link:active .btnNavBajo {
     background-color: var(--navitem-active);
     color: var(--navbar-color);
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden;
+}
+
+/* Comunidades */
+
+.btnComunidades,
+.letra {
+    color: var(--color-blanco);
+}
+
+.btnComunidades:hover, 
+.btnComunidades.active {
+    color: var(--letra-navbar);
+}
+
+.btnComunidades.active {
+    border-bottom: 2px solid var(--letra-navbar);
+}
+
+.button-Ver {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 78%;
+    background-color: var(--navbar-color);
+    border: var(--letra-navbar) solid 1px;
+    color: var(--letra-navbar);
+    border-radius: 20px;
+    padding: 4px 13px;
+    font-size: 10px;
+}
+
+.button-Ver:hover {
+    color: var(--color-blanco);
+    border: solid var(--color-blanco) 1px;
 }

@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="mx-lg-2 nav-link py-2 px-3 letra-navbar">
+            <a href="#" class="mx-lg-2 nav-link py-2 px-3 letra-navbar" [routerLink] = "'/comunidades'">
               <i class="py-2 px-3 fa-solid fa-people-group"></i>
               Comunidades
             </a>
@@ -45,7 +45,7 @@
         </button>
       </div>
       <div>
-        <button class="rounded-pill border-2 py-2 px-3 btnBienvenida letraNav">
+        <button class="rounded-pill border-2 py-2 px-3 btnBienvenida letraNav" [routerLink] = "'/signup'">
           <i class="fa-solid fa-user"></i>
           <span class="ps-2">¡Bienvenido/a!</span>
         </button>
@@ -68,7 +68,7 @@
     </button>
     <span class="d-flex justify-content-center">Eventos</span>
   </a>
-  <a href="#" class="nav-link navbar-nav" id="comunidad">
+  <a href="#" class="nav-link navbar-nav" id="comunidad" [routerLink] = "'/comunidades'">
     <button class="rounded-pill border-0 px-3 btnNavBajo letraNav">
       <i class="fa-solid fa-people-group"></i>
     </button>

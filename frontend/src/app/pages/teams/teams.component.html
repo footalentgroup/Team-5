@@ -24,8 +24,9 @@
 
       <!-- Botón Filtro -->
       <button type="button" class="filter-btn">
-        <i class="bi bi-list icon-filter"></i>
-         Filtro
+        <!-- <i class="bi bi-list icon-filter"></i> -->
+        <fa-icon class="icon-filter" [icon]="faBars"></fa-icon>
+         Filtrar búsqueda
       </button>
   
       <!-- Etiquetas de filtro -->
@@ -56,21 +57,16 @@
       <!-- ----------------------------------- -->
         <div class="icon-teams-community">
              <!-- Botón Comunidades -->
-             <div type="button" class="btn-pass">
-              <div class="icon-com"><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.75 4.75C2.75 4.28587 2.93437 3.84075 3.26256 3.51256C3.59075 3.18437 4.03587 3 4.5 3C4.96413 3 5.40925 3.18437 5.73744 3.51256C6.06563 3.84075 6.25 4.28587 6.25 4.75C6.25 5.21413 6.06563 5.65925 5.73744 5.98744C5.40925 6.31563 4.96413 6.5 4.5 6.5C4.03587 6.5 3.59075 6.31563 3.26256 5.98744C2.93437 5.65925 2.75 5.21413 2.75 4.75ZM2.5 9.67812C2.1875 10.0281 2 10.4938 2 11C2 11.5063 2.1875 11.9719 2.5 12.3219V9.675V9.67812ZM7.0125 8.1375C6.08437 8.95937 5.5 10.1625 5.5 11.5C5.5 12.5719 5.875 13.5562 6.5 14.3281V15C6.5 15.5531 6.05312 16 5.5 16H3.5C2.94688 16 2.5 15.5531 2.5 15V14.1625C1.31875 13.6 0.5 12.3969 0.5 11C0.5 9.06563 2.06562 7.5 4 7.5H5C5.75 7.5 6.44375 7.73438 7.0125 8.13438V8.1375ZM14.5 15V14.3281C15.125 13.5562 15.5 12.5719 15.5 11.5C15.5 10.1625 14.9156 8.95937 13.9875 8.13438C14.5563 7.73438 15.25 7.5 16 7.5H17C18.9344 7.5 20.5 9.06563 20.5 11C20.5 12.3969 19.6812 13.6 18.5 14.1625V15C18.5 15.5531 18.0531 16 17.5 16H15.5C14.9469 16 14.5 15.5531 14.5 15ZM14.75 4.75C14.75 4.28587 14.9344 3.84075 15.2626 3.51256C15.5908 3.18437 16.0359 3 16.5 3C16.9641 3 17.4092 3.18437 17.7374 3.51256C18.0656 3.84075 18.25 4.28587 18.25 4.75C18.25 5.21413 18.0656 5.65925 17.7374 5.98744C17.4092 6.31563 16.9641 6.5 16.5 6.5C16.0359 6.5 15.5908 6.31563 15.2626 5.98744C14.9344 5.65925 14.75 5.21413 14.75 4.75ZM18.5 9.67812V12.325C18.8125 11.9719 19 11.5094 19 11.0031C19 10.4969 18.8125 10.0312 18.5 9.68125V9.67812ZM10.5 3C11.0304 3 11.5391 3.21071 11.9142 3.58579C12.2893 3.96086 12.5 4.46957 12.5 5C12.5 5.53043 12.2893 6.03914 11.9142 6.41421C11.5391 6.78929 11.0304 7 10.5 7C9.96957 7 9.46086 6.78929 9.08579 6.41421C8.71071 6.03914 8.5 5.53043 8.5 5C8.5 4.46957 8.71071 3.96086 9.08579 3.58579C9.46086 3.21071 9.96957 3 10.5 3ZM8 11.5C8 12.0063 8.1875 12.4688 8.5 12.8219V10.175C8.1875 10.5281 8 10.9906 8 11.4969V11.5ZM12.5 10.1781V12.825C12.8125 12.4719 13 12.0094 13 11.5031C13 10.9969 12.8125 10.5312 12.5 10.1812V10.1781ZM14.5 11.5C14.5 12.8969 13.6812 14.1 12.5 14.6625V16C12.5 16.5531 12.0531 17 11.5 17H9.5C8.94687 17 8.5 16.5531 8.5 16V14.6625C7.31875 14.1 6.5 12.8969 6.5 11.5C6.5 9.56563 8.06563 8 10 8H11C12.9344 8 14.5 9.56563 14.5 11.5Z" fill="#E8EEFE"/>
-                </svg>
-                
+             <div type="button" class="btn-pass" [routerLink] = "'/comunidades'">
+              <div class="icon-com">
+                <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
               </div>
               <div class="text-icon">Comunidades</div>
              </div>
              <!-- Botón Equipos -->
              <div type="button" class="btn-pass">
-              <span class="icon-com"><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.75 4.75C2.75 4.28587 2.93437 3.84075 3.26256 3.51256C3.59075 3.18437 4.03587 3 4.5 3C4.96413 3 5.40925 3.18437 5.73744 3.51256C6.06563 3.84075 6.25 4.28587 6.25 4.75C6.25 5.21413 6.06563 5.65925 5.73744 5.98744C5.40925 6.31563 4.96413 6.5 4.5 6.5C4.03587 6.5 3.59075 6.31563 3.26256 5.98744C2.93437 5.65925 2.75 5.21413 2.75 4.75ZM2.5 9.67812C2.1875 10.0281 2 10.4938 2 11C2 11.5063 2.1875 11.9719 2.5 12.3219V9.675V9.67812ZM7.0125 8.1375C6.08437 8.95937 5.5 10.1625 5.5 11.5C5.5 12.5719 5.875 13.5562 6.5 14.3281V15C6.5 15.5531 6.05312 16 5.5 16H3.5C2.94688 16 2.5 15.5531 2.5 15V14.1625C1.31875 13.6 0.5 12.3969 0.5 11C0.5 9.06563 2.06562 7.5 4 7.5H5C5.75 7.5 6.44375 7.73438 7.0125 8.13438V8.1375ZM14.5 15V14.3281C15.125 13.5562 15.5 12.5719 15.5 11.5C15.5 10.1625 14.9156 8.95937 13.9875 8.13438C14.5563 7.73438 15.25 7.5 16 7.5H17C18.9344 7.5 20.5 9.06563 20.5 11C20.5 12.3969 19.6812 13.6 18.5 14.1625V15C18.5 15.5531 18.0531 16 17.5 16H15.5C14.9469 16 14.5 15.5531 14.5 15ZM14.75 4.75C14.75 4.28587 14.9344 3.84075 15.2626 3.51256C15.5908 3.18437 16.0359 3 16.5 3C16.9641 3 17.4092 3.18437 17.7374 3.51256C18.0656 3.84075 18.25 4.28587 18.25 4.75C18.25 5.21413 18.0656 5.65925 17.7374 5.98744C17.4092 6.31563 16.9641 6.5 16.5 6.5C16.0359 6.5 15.5908 6.31563 15.2626 5.98744C14.9344 5.65925 14.75 5.21413 14.75 4.75ZM18.5 9.67812V12.325C18.8125 11.9719 19 11.5094 19 11.0031C19 10.4969 18.8125 10.0312 18.5 9.68125V9.67812ZM10.5 3C11.0304 3 11.5391 3.21071 11.9142 3.58579C12.2893 3.96086 12.5 4.46957 12.5 5C12.5 5.53043 12.2893 6.03914 11.9142 6.41421C11.5391 6.78929 11.0304 7 10.5 7C9.96957 7 9.46086 6.78929 9.08579 6.41421C8.71071 6.03914 8.5 5.53043 8.5 5C8.5 4.46957 8.71071 3.96086 9.08579 3.58579C9.46086 3.21071 9.96957 3 10.5 3ZM8 11.5C8 12.0063 8.1875 12.4688 8.5 12.8219V10.175C8.1875 10.5281 8 10.9906 8 11.4969V11.5ZM12.5 10.1781V12.825C12.8125 12.4719 13 12.0094 13 11.5031C13 10.9969 12.8125 10.5312 12.5 10.1812V10.1781ZM14.5 11.5C14.5 12.8969 13.6812 14.1 12.5 14.6625V16C12.5 16.5531 12.0531 17 11.5 17H9.5C8.94687 17 8.5 16.5531 8.5 16V14.6625C7.31875 14.1 6.5 12.8969 6.5 11.5C6.5 9.56563 8.06563 8 10 8H11C12.9344 8 14.5 9.56563 14.5 11.5Z" fill="#E8EEFE"/>
-                </svg>
-                
-                
+              <span class="icon-com">
+                <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
               </span>
               <span class="text-icon">Equipos</span>
              </div>
@@ -80,8 +76,8 @@
 
         <div class="container-scrolls">
           <div class="btns-scroll">
-            <i class="bi bi-arrow-left l1" (click)="scrollLeft()"></i>
-            <i class="bi bi-arrow-right l1" (click)="scrollRigh()"></i>
+            <i class="bi bi-arrow-left l1" (click)= "scrollLeft()"></i>
+            <i class="bi bi-arrow-right l1" (click)= "scrollRigh()"></i>
           </div>
         </div>
 
@@ -89,10 +85,10 @@
       <h1>Equipos</h1>
       <h3>Equipos que podrían interesarte</h3> 
   
-      <div class="teams">
+      <div class="teams" #teams>
         <!-- tarjeta de contenido de equipos individual  -->
             <!-- Para probar tamaños y distancias de las tarjetas de equipos -->
-          <div class="card-play" #teams>
+          <div class="card-play">
             <div class="content-card"> 
               <div class="cont-img">
                 <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
@@ -108,9 +104,12 @@
                 <div class="info-card">
                      <div class="info-button">
                         <ol>
-                            <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
+                          <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                          <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                          <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                            <!-- <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
                             <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Premios</a></li>
+                            <li><a href=""><i class="bi bi-award"></i>Premios</a></li> -->
                         </ol> 
                          </div> 
                       <button class="button-Ver">Ver</button>
@@ -129,7 +128,7 @@
                 <div class="two-cont">
 
                   <div class="text-card">
-                    <h4>Gran Turismo - Community</h4>
+                    <h4>Gran Turismo</h4>
                   </div>
                   <div class="icon-card">
                     <i class="bi bi-person-fill"></i>
@@ -138,9 +137,9 @@
                   <div class="info-card">
                        <div class="info-button">
                           <ol>
-                              <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
-                              <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                              <li><a href=""><i class="bi bi-award"></i>Premios</a></li>
+                            <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                          <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                          <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
                           </ol> 
                            </div> 
                         <button class="button-Ver">Ver</button>
@@ -170,9 +169,9 @@
               <div class="info-card">
                    <div class="info-button">
                       <ol>
-                          <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
-                          <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                          <li><a href=""><i class="bi bi-award"></i>Premios</a></li>
+                        <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                        <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                        <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
                       </ol> 
                        </div> 
                     <button class="button-Ver">Ver</button>
@@ -198,9 +197,9 @@
             <div class="info-card">
                  <div class="info-button">
                     <ol>
-                        <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
-                        <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                        <li><a href=""><i class="bi bi-award"></i>Premios</a></li>
+                      <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                      <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                      <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
                     </ol> 
                      </div> 
                   <button class="button-Ver">Ver</button>
@@ -214,20 +213,16 @@
 <!-- apartado de Crear teams -->
         <div class="icon-teams-community">
           <!-- Botón Comunidades -->
-          <div type="button" class="btn-pass">
+          <div type="button" class="btn-pass tt">
            <div class="icon-com">
-            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.8342 0.603027L10.3217 2.11553L14.3842 6.17803L15.8967 4.66553C16.6779 3.88428 16.6779 2.61865 15.8967 1.8374L14.6654 0.603027C13.8842 -0.178223 12.6185 -0.178223 11.8373 0.603027H11.8342ZM9.61541 2.82178L2.33103 10.1093C2.00603 10.4343 1.76853 10.8374 1.63728 11.278L0.531033 15.0374C0.452908 15.303 0.524783 15.5874 0.718533 15.7812C0.912283 15.9749 1.19666 16.0468 1.45916 15.9718L5.21853 14.8655C5.65916 14.7343 6.06228 14.4968 6.38728 14.1718L13.6779 6.88428L9.61541 2.82178Z" fill="#94B1F9"/>
-              </svg>                           
+            <fa-icon class="icon-styles" [icon]="faPen"></fa-icon>                         
            </div>
            <div class="text-icon">Creados por mi</div>
           </div>
           <!-- Botón Equipos -->
-          <div type="button" class="btn-pass">
+          <div type="button" class="btn-pass tt">
            <span class="icon-com">
-            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.5 0C1.39688 0 0.5 0.896875 0.5 2V12C0.5 13.1031 1.39688 14 2.5 14H16.5C17.6031 14 18.5 13.1031 18.5 12V2C18.5 0.896875 17.6031 0 16.5 0H2.5ZM5 8H7C8.38125 8 9.5 9.11875 9.5 10.5C9.5 10.775 9.275 11 9 11H3C2.725 11 2.5 10.775 2.5 10.5C2.5 9.11875 3.61875 8 5 8ZM4 5C4 4.46957 4.21071 3.96086 4.58579 3.58579C4.96086 3.21071 5.46957 3 6 3C6.53043 3 7.03914 3.21071 7.41421 3.58579C7.78929 3.96086 8 4.46957 8 5C8 5.53043 7.78929 6.03914 7.41421 6.41421C7.03914 6.78929 6.53043 7 6 7C5.46957 7 4.96086 6.78929 4.58579 6.41421C4.21071 6.03914 4 5.53043 4 5ZM12 4H16C16.275 4 16.5 4.225 16.5 4.5C16.5 4.775 16.275 5 16 5H12C11.725 5 11.5 4.775 11.5 4.5C11.5 4.225 11.725 4 12 4ZM12 6H16C16.275 6 16.5 6.225 16.5 6.5C16.5 6.775 16.275 7 16 7H12C11.725 7 11.5 6.775 11.5 6.5C11.5 6.225 11.725 6 12 6ZM12 8H16C16.275 8 16.5 8.225 16.5 8.5C16.5 8.775 16.275 9 16 9H12C11.725 9 11.5 8.775 11.5 8.5C11.5 8.225 11.725 8 12 8Z" fill="#E8EEFE"/>
-              </svg>                        
+            <fa-icon class="icon-styles" [icon]="faAddressCard"></fa-icon>                       
            </span>
            <span class="text-icon">Suscritos</span>
           </div>
@@ -236,7 +231,7 @@
             <h2>Mis Equipos</h2>
             <article class="cont-myTeams">
             <div class="create-button">
-              <button class="create-team">Crear Equipo<i class="bi bi-plus"></i></button>
+            <button class="create-team" [routerLink] = "'/teams-three'">Crear Equipo<i class="bi bi-plus"></i></button>
             </div>
             <div class="view-team">
                 <div class="card-create">
@@ -244,16 +239,16 @@
                       <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="LeagueofLegends">
                     </div>
                       <h4 class="h4-Myteams">League Of Legends</h4>
-                    <div class="icon-card">
+                    <div class="icon-card crd">
                       <i class="bi bi-person-fill"></i>
                       <span class="number-card">18</span>
                     </div>
                     <div class="info-card C-two">
                          <div class="info-button-2 If-two">
                             <ol>
-                              <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>                      
-                              <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                              <li><a href=""><i class="bi bi-award"></i>Premios</a></li>
+                              <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
+                              <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
+                              <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
                             </ol> 
                              </div> 
                             <button class="button-Ver bnt-ver2">Ver</button>
@@ -264,3 +259,4 @@
         </div>
      </article>
 </main>
+
