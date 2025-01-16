@@ -8,7 +8,7 @@ body {
 
 .signup-container {
     width: 750px;
-    height: 820px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     color: white;
     border-radius: 10px;
-    padding: 0 30px 0 30px;
+    padding: 20px 30px;
 }
 
 .avatar {
@@ -38,6 +38,12 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: white;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 
 .text-avatar {
