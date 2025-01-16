@@ -1,14 +1,4 @@
 <div class="contenedorpadre">
-    <header class="header">
-    <nav class="nav-container">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-VFEO9Mf7FbUfxd6PYd2LGNevJzzap9.png" alt="Respawn Events Logo" class="logo">
-        <div>
-            <a href="#" style="color: white; text-decoration: none; margin-left: 1rem;">Eventos</a>
-            <a href="#" style="color: white; text-decoration: none; margin-left: 1rem;">Comunidades</a>
-            <a href="#" style="color: white; text-decoration: none; margin-left: 1rem;">Ayuda</a>
-        </div>
-    </nav>
-</header>
 
 <div class="banner">
     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8fcf03ffb46c0781dbadfdb48b7a24ab.jpg-TQQCc3MbvKGkMOxZ55yChtgsCdW3ms.jpeg" alt="Events Banner" class="banner-image">
@@ -25,6 +15,16 @@
             <a href="#" class="see-all">Ver más →</a>
         </div>
         <div class="cards-container" id="upcoming-events">
+
+            <div class="card">
+                <div class="card create-event-card">
+                    <div class="card-content" style="text-align: center;" [routerLink]="'/create-event'">
+                        <span style="font-size: 2rem;">+</span>
+                        <h3 class="card-title">Crear evento</h3>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <img src="\assets\dashboard\9f22093c8e027cf7e615bbb073cd13f2.jpg" alt="Valorant Event" class="card-image">
                 <div class="card-content">
@@ -131,6 +131,7 @@
             </div>
         </div>
     </section>
+
 </main>
 
 </div>

@@ -1,0 +1,111 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evento - Gaming Events Platform</title>
+    
+</head>
+<body>
+    
+
+    <div class="form-container">
+        <div class="tabs">
+            <a href="#" class="tab active">📝 Descripción general</a>
+            <a href="#" class="tab">👥 Equipos/Grupos</a>
+            <a href="#" class="tab">🗺️ Reglas</a>
+            <a href="#" class="tab">👥 Participantes</a>
+            <a href="#" class="tab">🔗 Links externos</a>
+        </div>
+
+        <form id="create-event-form">
+            <div class="form-section">
+                <h3 class="section-title">Foto de Portada</h3>
+                <div class="upload-area">
+                    
+                    <input type="file" id="cover-photo" accept="image/*" style="display: none;">
+                    <button type="button" onclick="document.getElementById('cover-photo').click()" class="create-button" style="background: rgba(255,255,255,0.1)">Subir Foto</button>
+                </div>
+                <p class="upload-info">Sube una foto de 1280*720 px</p>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title">Evento</h3>
+                <div class="form-grid">
+                    <select class="form-field">
+                        <option>Torneo</option>
+                        <option>Competencia</option>
+                        <option>Casual</option>
+                    </select>
+                    <input type="text" class="form-field" placeholder="Torneo de Domingo">
+                    <input type="date" class="form-field" value="2024-04-05">
+                    <input type="time" class="form-field" value="15:00">
+                    <select class="form-field">
+                        <option>UTC-05:00 - (Hora [GMT -5])</option>
+                    </select>
+                </div>
+
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="eventType" id="presencial">
+                        <label for="presencial">Presencial</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="eventType" id="virtual" checked>
+                        <label for="virtual">Virtual</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title">Juego</h3>
+                <div class="form-grid">
+                    <select class="form-field">
+                        <option>Valorant</option>
+                        <option>League of Legends</option>
+                        <option>CS:GO</option>
+                    </select>
+                    <select class="form-field">
+                        <option>PC</option>
+                        <option>PlayStation</option>
+                        <option>Xbox</option>
+                    </select>
+                </div>
+
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="gameMode" id="individual">
+                        <label for="individual">Individual</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="gameMode" id="equipos" checked>
+                        <label for="equipos">Equipos</label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <select class="form-field">
+                        <option>16</option>
+                        <option>32</option>
+                        <option>64</option>
+                    </select>
+                    <select class="form-field">
+                        <option>Número de suplentes</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="create-button" [routerLink]="'/cre'">Anterior</button>
+            <button class="create-button primary" onclick="onNext()">Siguiente</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('create-event-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para procesar el formulario
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
