@@ -9,6 +9,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ComunidadesComponent } from './pages/comunidades/comunidades.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamsTwoComponent } from './pages/teams-two/teams-two.component';
+import { TeamsThreeComponent } from './pages/teams-three/teams-three.component';
 
 // import { NgModel } from '@angular/forms';
 // import { NgModule } from '@angular/core';
@@ -23,7 +24,8 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, title: 'dashboard'},
   { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
   { path: 'teams', component: TeamsComponent},
-  { path: 'teams-two', component: TeamsTwoComponent}
+  { path: 'teams-two', component: TeamsTwoComponent},
+  { path: 'teams-three', component: TeamsThreeComponent}
 ];
 
 // @NgModule({
