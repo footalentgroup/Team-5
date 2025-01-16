@@ -29,12 +29,13 @@ export const routes: Routes = [
   { path: 'edit-user-profile', component: EditProfileComponent },
   { path: 'help-center', component: HelpCenterComponent },
   { path: 'building', component: BuildingComponent },
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
   { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
   { path: 'teams', component: TeamsComponent},
   { path: 'teams-two', component: TeamsTwoComponent},
-  { path: 'teams-three', component: TeamsThreeComponent}
+  { path: 'teams-three', component: TeamsThreeComponent},
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
+
 ];
 
 
