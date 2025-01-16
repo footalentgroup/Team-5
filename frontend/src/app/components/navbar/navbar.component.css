@@ -8,6 +8,10 @@
     list-style: none;
 }
 
+.letraNav {
+    font-size: small;
+}
+
 .navbar-toggler:focus,
 .btn-close:focus {
     box-shadow: none;
