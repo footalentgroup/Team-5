@@ -14,6 +14,7 @@ import { ComunidadesComponent } from './pages/comunidades/comunidades.component'
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamsTwoComponent } from './pages/teams-two/teams-two.component';
 import { TeamsThreeComponent } from './pages/teams-three/teams-three.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 // import { NgModel } from '@angular/forms';
 // import { NgModule } from '@angular/core';
@@ -29,12 +30,13 @@ export const routes: Routes = [
   { path: 'edit-user-profile', component: EditProfileComponent },
   { path: 'help-center', component: HelpCenterComponent },
   { path: 'building', component: BuildingComponent },
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
   { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
   { path: 'teams', component: TeamsComponent},
   { path: 'teams-two', component: TeamsTwoComponent},
-  { path: 'teams-three', component: TeamsThreeComponent}
+  { path: 'teams-three', component: TeamsThreeComponent},
+  { path: 'dashboard', component: DashboardComponent},
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent },
 ];
 
 
