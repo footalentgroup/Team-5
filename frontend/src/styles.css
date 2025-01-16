@@ -73,7 +73,27 @@ body {
 }
 
 .btnComunidades:hover, 
-.btnComunidades:active {
+.btnComunidades.active {
     color: var(--letra-navbar);
+}
+
+.btnComunidades.active {
     border-bottom: 2px solid var(--letra-navbar);
+}
+
+.button-Ver {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 78%;
+    background-color: var(--navbar-color);
+    border: var(--letra-navbar) solid 1px;
+    color: var(--letra-navbar);
+    border-radius: 20px;
+    padding: 4px 13px;
+    font-size: 10px;
+}
+
+.button-Ver:hover {
+    color: var(--color-blanco);
+    border: solid var(--color-blanco) 1px;
 }
