@@ -11,11 +11,11 @@
                 <h1>Shadowhunters team</h1>
                 <p class="created-by">Creado por: <span> <a href="">Usarname</a></span></p>
                 <button class="button-live">
-                    <i class="bi bi-circle-fill"></i>
+                    <fa-icon [icon]="faCircle"></fa-icon>
                     Jugando ahora
                 </button>
                 <div class="button-devices">
-                    <button><i class="bi bi-star-fill"></i> valorant</button>
+                    <button><i class="bi bi-star-fill"></i>valorant</button>
                     <button><i class="bi bi-star-fill"></i>PC</button>
                     <button><i class="bi bi-star-fill"></i>FPS</button>
                 </div>
@@ -24,53 +24,55 @@
             <div class="data-team">
                 <div class="Number-data">
                 <div class="content-icon">
-                    <i class="fa-solid fa-people-group"></i>
+                    <fa-icon [icon]="faPeopleGroup"></fa-icon>
                     <span>15</span>
                     <span>miembros</span>
                 </div>
                 <div class="content-icon">
-                    <i class="fa-solid fa-trophy"></i>
+                    <fa-icon [icon]="faTrophy"></fa-icon>
                     <span>Trofeos</span>
                 </div>
                 </div>
                 <div class="action-team">
-                    <button><i class="bi bi-bell-fill"></i></button>
-                    <button><i class="fa-solid fa-share-nodes"></i></button>
+                    <button> <fa-icon [icon]="faBell"></fa-icon></button>
+                    <button> <fa-icon [icon]="faShareNodes"></fa-icon></button>
                     <div class="button-like">Seguir<i class="bi bi-heart-fill"></i></div>
                 </div>
             </div>
         </article>
 <!-- Article del contenido de los eventos  -->
-        <article class="card-play">
+ <article class="container-card">
+    <h2>Eventos a los que asistirá</h2>
+        <div class="card-play">
             <div class="content-card"> 
               <div class="cont-img">
                 <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
               </div>
               <div class="two-cont">
                 <div class="text-card">
-                  <h4>Titans</h4>
+                  <h4>Valorant Ultimate Battle 5th Encounter</h4>
                   <span>Evento activo en este momento</span>
                 </div>
                 <div class="icon-card">
-                  <i class="bi bi-person-fill"></i>
-                    <span class="number-card">0</span> / <span class="number-card"> 20</span>
+                    <fa-icon [icon]="faUser"></fa-icon>
+                    <span class="number-card">0 </span> <span class="number-card">/20</span>
                 </div>
                 <div class="info-card">
                      <div class="info-button">
                         <ol>
-                            <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Premiación</a></li>
+                            <li><a href=""><fa-icon [icon]="faAward"></fa-icon> Dispositivo</a></li>
+                            <li><a href=""><fa-icon [icon]="faAward"></fa-icon> Género</a></li>
+                            <li><a href=""><fa-icon [icon]="faAward"></fa-icon> Premiación</a></li>
                         </ol> 
                          </div> 
                       <button class="button-Ver">Registrarse</button>
                 </div>
               </div>
             </div>
-        </article>
+        </div>
 
 <!-- Aticle de información del equipo, descripción del equipo, presentación, atitudes entre otros. -->
-        <article class="we-info">
+            <div class="we-info">
             <h5>Nosotros</h5>
             <div>
                 <p>
@@ -82,6 +84,7 @@
                     Nuestra Misión <br>
                     Conquistar cada torneo, destacar en la comunidad gamer y llevar el nombre de Shadowhunters Team a lo más alto. Ya sea en Valorant, League of Legends o cualquier arena, luchamos con el corazón de cazadores, siempre buscando la victoria.
                 </p>
+            </div>
             </div>
         </article>
     </section>
