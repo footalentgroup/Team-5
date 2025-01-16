@@ -23,6 +23,31 @@ body {
     margin-bottom: 10px;
 }
 
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: solid 2px #94B1F9;
+}
+
+.text-avatar {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-img span {
+    color: #94B1F9;
+    cursor: pointer;
+}
+
 h6 {
     text-align: left;
     margin-bottom: 1rem;
@@ -34,7 +59,7 @@ h6 {
     gap: 1rem;
 }
 
-input {
+input, select {
     width: 100%;
     padding: 0.5rem;
     background-color: inherit;
@@ -55,6 +80,12 @@ input::placeholder {
 input:focus {
     border-color: #94B1F9;
     outline: none;
+}
+
+option {
+    background-color: #292F4A;
+    color: white;
+    font-size: 1rem;
 }
 
 .form-submit {
@@ -102,7 +133,6 @@ a {
     }
 }
 
-/* Estilos para móviles grandes o phablets */
 @media (min-width: 768px) and (max-width: 1024px) {
     .edit-container {
         width: 650px;

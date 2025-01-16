@@ -15,6 +15,7 @@ import { CrearComunidadComponent } from './pages/crear-comunidad/crear-comunidad
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamsTwoComponent } from './pages/teams-two/teams-two.component';
 import { TeamsThreeComponent } from './pages/teams-three/teams-three.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 // import { NgModel } from '@angular/forms';
 // import { NgModule } from '@angular/core';
@@ -35,9 +36,9 @@ export const routes: Routes = [
   { path: 'teams', component: TeamsComponent},
   { path: 'teams-two', component: TeamsTwoComponent},
   { path: 'teams-three', component: TeamsThreeComponent},
+  { path: 'dashboard', component: DashboardComponent},
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent }
-
+  { path: '**', component: NotFoundComponent },
 ];
 
 

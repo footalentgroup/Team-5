@@ -1,21 +1,41 @@
 <body>
     <div class="edit-container">
-        <form class="form-container">
+        <!-- El formulario está vinculado con el formulario reactivo editProfileForm -->
+        <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" class="form-container" enctype="multipart/form-data">
+            
+            <!-- Sección de Avatar -->
+            <div class="avatar">
+                <!-- Muestra la imagen de avatar con una vista previa si se ha cargado -->
+                <img [src]="avatarPreview || 'assets/login/avatar-login.jpg'" alt="avatar de usuario">
+                <div class="text-avatar">
+                    <p>Foto de perfil</p>
+                    <p class="upload-img">
+                        <!-- Input para cambiar el avatar, se oculta y se activa con el label -->
+                        <input type="file" (change)="onFileChange($event)" style="display: none;" id="avatarFile" />
+                        <label for="avatarFile"><span>Cambia tu avatar</span></label>
+                    </p>
+                </div>
+            </div>
+
             <!-- Sección 1: Datos de Usuario -->
             <div class="form-section">
                 <h6>Datos de Usuario</h6>
                 <div class="form-grid">
-                    <!-- Columna 1 -->
+                    <!-- Columna 1: Nombre, Username, País -->
                     <div>
-                        <input type="text" id="name" placeholder="Nombre">
-                        <input type="text" id="username" placeholder="Username">
-                        <input type="text" id="country" placeholder="País">
+                        <input type="text" formControlName="name" placeholder="Nombre">
+                        <input type="text" formControlName="username" placeholder="Username">
+                        <select formControlName="country">
+                            <option value="" disabled>Selecciona tu país</option>
+                            <!-- Se recorre la lista de países con un *ngFor para mostrar cada país -->
+                            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                        </select>
                     </div>
-                    <!-- Columna 2 -->
+                    <!-- Columna 2: Apellido, Fecha de nacimiento, Contraseña -->
                     <div>
-                        <input type="text" id="apellido" placeholder="Apellido">
-                        <input type="date" id="fecha-nacimiento">
-                        <input type="text" id="Zina horaria" placeholder="Confirme su contraseña">
+                        <input type="text" formControlName="lastname" placeholder="Apellido">
+                        <input type="date" formControlName="dateBirth" placeholder="Fecha de nacimiento">
+                        <input type="password" formControlName="password" placeholder="Contraseña">
                     </div>
                 </div>
             </div>
@@ -24,23 +44,26 @@
             <div class="form-section">
                 <h6>Datos Adicionales</h6>
                 <div class="form-grid">
-                    <!-- Columna 1 -->
+                    <!-- Columna 1: Juegos favoritos, Nivel de habilidad -->
                     <div>
-                        <input type="text" id="games" placeholder="Juegos favoritos">
-                        <input type="text" id="hability" placeholder="Nivel de habilidad">
+                        <input type="text" placeholder="Juegos favoritos">
+                        <input type="text" placeholder="Nivel de habilidad">
                     </div>
-                    <!-- Columna 2 -->
+                    <!-- Columna 2: Dispositivos -->
                     <div>
-                        <input type="text" id="platform" placeholder="Dispositivos">
+                        <input type="text" placeholder="Dispositivos">
                     </div>
                 </div>
             </div>
 
             <!-- Botón de Enviar -->
             <div class="form-submit">
-                <button type="submit">Editar perfil</button>
+                <!-- El botón está deshabilitado cuando el formulario es inválido -->
+                <button type="submit" [disabled]="editProfileForm.invalid">Editar perfil</button>
             </div>
         </form>
+
+        <!-- Enlace para regresar al perfil -->
         <hr>
         <a routerLink="/user-profile">Volver al perfil</a>
     </div>
