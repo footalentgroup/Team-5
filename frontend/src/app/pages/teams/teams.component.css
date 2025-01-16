@@ -136,7 +136,7 @@ main{
     transition: 0.3s linear;
   }
   
-  .filter-btn i {
+  .filter-btn fa-icon {
     margin-right: 8px;
     color: #000000;
   }
@@ -257,16 +257,10 @@ main{
     color:#94B1F9;
   }
 
-  .btn-pass{
-    object-fit: cover;
-    width: 50%;
-    position: relative;
+  .equipos{
+    border-bottom: solid #94B1F9;
   }
-
-  /* .btn-pass:hover{
-    border-bottom:#94B1F9 solid;
-  } */
-
+  
   .text-icon{
     font-size: 12px;
     display: flex;
@@ -274,12 +268,31 @@ main{
 
   }
 
+  .btn-pass{
+    object-fit: cover;
+    width: 50%;
+    position: relative;
+  }
+
+  .btn-pass.active{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 26%;
+    width: 48%;
+    height: 2px;
+    background: linear-gradient(to right, #94B1F9, #d5e1ff, #94B1F9);
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+
   .btn-pass::before {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 30%;
-    width: 46%;
+    left: 26%;
+    width: 48%;
     height: 2px;
     background: linear-gradient(to right, #94B1F9, #d5e1ff, #94B1F9);
     z-index: 1;
