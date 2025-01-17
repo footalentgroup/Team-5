@@ -133,6 +133,6 @@ export class SignupComponent implements OnInit {
   // Método para manejar el inicio de sesión con Discord
   onDiscordLogin() {
     // Redirigir a la URL de autenticación de Discord
-    window.location.href = 'https://ftg-team5.vercel.app/api/auth/discord';
+    window.location.href = 'https://footg-t5.vercel.app/api/auth/discord';
   }
 }

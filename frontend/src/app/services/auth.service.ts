@@ -9,7 +9,7 @@ import { Observable } from 'rxjs'; // Para trabajar con flujos de datos asíncro
 })
 export class AuthService {
   // Definimos la URL base para la API de autenticación
-  private apiUrl = 'http://localhost:3000/api/users'; // Endpoint para todas las operaciones de usuario
+  private apiUrl = 'https://footg-t5.vercel.app/api/users'; // Endpoint para todas las operaciones de usuario
 
   // El constructor inyecta el servicio HttpClient para hacer peticiones HTTP
   constructor(private http: HttpClient) { }
