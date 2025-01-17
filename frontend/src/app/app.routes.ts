@@ -11,11 +11,12 @@ import { HelpCenterComponent } from './pages/help-center/help-center.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { ComunidadesComponent } from './pages/comunidades/comunidades.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
+import { CrearComunidadComponent } from './pages/crear-comunidad/crear-comunidad.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamsTwoComponent } from './pages/teams-two/teams-two.component';
 import { TeamsThreeComponent } from './pages/teams-three/teams-three.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 // import { NgModel } from '@angular/forms';
 // import { NgModule } from '@angular/core';
@@ -33,8 +34,13 @@ export const routes: Routes = [
   { path: 'building', component: BuildingComponent },
   { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
   { path: 'create-event', component: CreateEventComponent },
+  { path: 'crearComunidad', component: CrearComunidadComponent },
   { path: 'teams', component: TeamsComponent},
   { path: 'teams-two', component: TeamsTwoComponent},
+  { path: 'teams-three', component: TeamsThreeComponent},
+  { path: 'dashboard', component: DashboardComponent},
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent },
   { path: 'teams-three', component: TeamsThreeComponent},
   { path: 'dashboard', component: DashboardComponent },
   

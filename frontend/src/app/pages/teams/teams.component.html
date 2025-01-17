@@ -25,7 +25,7 @@
       <!-- Botón Filtro -->
       <button type="button" class="filter-btn">
         <!-- <i class="bi bi-list icon-filter"></i> -->
-        <fa-icon class=" icon-filter" [icon]="faBars"></fa-icon>
+        <fa-icon class="icon-filter" [icon]="faBars"></fa-icon>
          Filtrar búsqueda
       </button>
   
@@ -57,7 +57,7 @@
       <!-- ----------------------------------- -->
         <div class="icon-teams-community">
              <!-- Botón Comunidades -->
-             <div type="button" class="btn-pass">
+             <div type="button" class="btn-pass" [routerLink] = "'/comunidades'">
               <div class="icon-com">
                 <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
               </div>
@@ -76,8 +76,8 @@
 
         <div class="container-scrolls">
           <div class="btns-scroll">
-            <i class="bi bi-arrow-left l1" (click)="scrollLeft()"></i>
-            <i class="bi bi-arrow-right l1" (click)="scrollRigh()"></i>
+            <i class="bi bi-arrow-left l1" (click)= "scrollLeft()"></i>
+            <i class="bi bi-arrow-right l1" (click)= "scrollRigh()"></i>
           </div>
         </div>
 
@@ -85,10 +85,10 @@
       <h1>Equipos</h1>
       <h3>Equipos que podrían interesarte</h3> 
   
-      <div class="teams">
+      <div class="teams" #teams>
         <!-- tarjeta de contenido de equipos individual  -->
             <!-- Para probar tamaños y distancias de las tarjetas de equipos -->
-          <div class="card-play" #teams>
+          <div class="card-play">
             <div class="content-card"> 
               <div class="cont-img">
                 <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
@@ -107,12 +107,9 @@
                           <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
                           <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
                           <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                            <!-- <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Premios</a></li> -->
                         </ol> 
                          </div> 
-                      <button class="button-Ver">Ver</button>
+                      <button class="button-Ver" [routerLink] = "'/teams-two'">Ver</button>
                 </div>
               </div>
             </div>
