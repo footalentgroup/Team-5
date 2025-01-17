@@ -339,6 +339,51 @@ h1{
 
   @media (max-width: 500px){
 
+    main{
+      overflow-x: hidden;
+    }
 
+    .banner{
+      height: 20%;
+    }
 
+    .article-info{
+      width: 100%;
+      padding: 0;
+      height: 28vh;
+      position: relative;
+    }
+
+    .Info-team{
+      height: 60%;
+      margin-top: 28%;
+      position: absolute;
+      margin-right: 40%;
+    }
+
+    .data-team{
+      width: 50%;
+      position: absolute;
+      margin-left: 23%;
+      margin-top: 3%;
+    }
+
+    .container-card{
+      width: 88%;
+      margin: 0;
+      padding: 0 3%;
+    }
+
+    .card-play{
+      width: 100%;
+    }
+
+    .button-Ver{
+      display: none;
+    }
+
+    .we-info{
+      width: 80%;
+      margin-left: 2%;
+    }
   }

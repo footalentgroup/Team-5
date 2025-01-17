@@ -1,5 +1,6 @@
 import { Component,ViewChild, ElementRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SearchComponent } from '../../components/search/search.component';
 
   // Importaciones de iconos font awesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,7 +13,7 @@ import { ComunidadesComponent } from '../comunidades/comunidades.component';
 @Component({  
   selector: 'app-teams',
   standalone: true,
-  imports: [RouterLink, FontAwesomeModule, TeamsThreeComponent, ComunidadesComponent],
+  imports: [RouterLink, FontAwesomeModule, TeamsThreeComponent, ComunidadesComponent, SearchComponent],
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.css'
 })
