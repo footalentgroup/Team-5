@@ -13,6 +13,7 @@ import { BuildingComponent } from './pages/building/building.component';
 import { ComunidadesComponent } from './pages/comunidades/comunidades.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { CrearComunidadComponent } from './pages/crear-comunidad/crear-comunidad.component';
+import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamsTwoComponent } from './pages/teams-two/teams-two.component';
 import { TeamsThreeComponent } from './pages/teams-three/teams-three.component';
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
   { path: 'create-event', component: CreateEventComponent },
   { path: 'crearComunidad', component: CrearComunidadComponent },
+  { path: 'verComunidad', component: VerComunidadComponent },
   { path: 'teams', component: TeamsComponent},
   { path: 'teams-two', component: TeamsTwoComponent},
   { path: 'teams-three', component: TeamsThreeComponent},

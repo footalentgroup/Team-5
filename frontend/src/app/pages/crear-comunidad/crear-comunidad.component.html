@@ -1,1 +1,95 @@
-<p>crear-comunidad works!</p>
+<main class="letra">
+    <section>
+        <article class="form-img">
+            <div>
+                <h1>Foto de Portada</h1>
+                <p>Sube una foto de 1280*720 px</p>
+                <form action="subir_archivo.php" method="POST" enctype="multipart/form-data">
+                    <label for="file-upload" class="button">Subir Foto<fa-icon [icon]="faArrowUp"></fa-icon></label>
+                    <input type="file" id="file-upload" name="archivo" accept="image/*" style="display: none" />
+                </form>
+            </div>
+            <div class="img-form">
+                <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37.jpg"
+                    alt="Valorant val" />
+                <div class="gradient"></div>
+            </div>
+        </article>
+        <article class="form-info">
+            <div>
+                <!-- Formulario de comunidad -->
+
+                <h3>Comunidad</h3>
+                <form class="row g-3 needs-validation container-form" novalidate>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faAddressCard"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Nombre de comunidad"
+                            required />
+                        <div class="valid-tooltip">Looks good!</div>
+                        <fa-icon class="icon one" [icon]="faPlus"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Intereses de la comunidad" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faPen"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Descripción de la comunidad" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                        <fa-icon class="icon" [icon]="faPen"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Reglas de la comunidad" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                </form>
+
+                <!-- Formulario de redes sociales  -->
+
+                <h3>Redes sociales</h3>
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faPen"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Link a comunidad de Discord" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faPen"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Link a canal de Youtube" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faPen"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Link del perfil de Instagram" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                </form>
+
+                <!-- Formulario de asignacón de roles -->
+
+                <h3>Asignación de roles</h3>
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faUserPlus"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Asignar moderador"
+                            required />
+                        <div class="valid-tooltip">Looks good!</div>
+                        <fa-icon class="icon" [icon]="faUserPlus"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Asignar colaboradores" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                    <div class="col-md-4 position-relative conta-info">
+                        <fa-icon class="icon" [icon]="faUserPlus"></fa-icon>
+                        <input type="text" class="form-control" id="validationTooltip01"
+                            placeholder="Asignar administrador/es" required />
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                </form>
+            </div>
+            <button class="create-team">Crear comunidad</button>
+        </article>
+    </section>
+</main>
