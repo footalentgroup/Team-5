@@ -11,6 +11,7 @@ import { HelpCenterComponent } from './pages/help-center/help-center.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { ComunidadesComponent } from './pages/comunidades/comunidades.component';
+import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { CrearComunidadComponent } from './pages/crear-comunidad/crear-comunidad.component';
 import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.component';
 import { TeamsComponent } from './pages/teams/teams.component';
@@ -33,6 +34,7 @@ export const routes: Routes = [
   { path: 'help-center', component: HelpCenterComponent },
   { path: 'building', component: BuildingComponent },
   { path: 'comunidades', component: ComunidadesComponent, title: 'comunidades' },
+  { path: 'create-event', component: CreateEventComponent },
   { path: 'crearComunidad', component: CrearComunidadComponent },
   { path: 'verComunidad', component: VerComunidadComponent },
   { path: 'teams', component: TeamsComponent},
@@ -41,6 +43,12 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
+  { path: 'teams-three', component: TeamsThreeComponent},
+  { path: 'dashboard', component: DashboardComponent },
+  
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent },
+  
 ];
 
 
