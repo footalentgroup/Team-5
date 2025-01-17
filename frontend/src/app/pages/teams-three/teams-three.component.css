@@ -110,6 +110,10 @@ h3{
     margin-bottom: 3%;
 }
 
+.form-control::placeholder{
+    color: #E8EEFE;
+}
+
 .icon{
     position: absolute;
     margin-left: 88%;
@@ -126,4 +130,52 @@ h3{
     margin-top: 2%;
     align-items: center;
     margin-left: 42%;
+}
+
+@media (max-width: 500px) {
+
+    main{
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    section{
+        width: 80%;
+        margin-top: 40%;
+        height: 90%;
+        margin-bottom: 20%;
+    }
+
+    .form-img{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 3%;
+    }
+
+    .img-form{
+        position: absolute;
+        margin-top: 10%;
+        width: 100%;
+    }
+
+    .form-img p{
+        margin-top: 68%;
+    }   
+
+    .form-info{
+        margin-bottom: 5%;
+
+    }
+
+    .container-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .conta-info{
+        width: 100%;
+    }
 }

@@ -22,6 +22,16 @@ export const createTeam = async (req, res) => {
             })
         );
 
+
+        // const memberIds = await Promise.all(
+        //     members.map(async (username) => {
+        //         const user = await User.findOne({ username });
+        //         if (!user) throw new Error(`El usuario ${username} no existe.`);
+        //         return user._id;
+        //     })
+        // );
+
+
         // Crear el equipo
         const team = new Team({
             name,
@@ -40,3 +50,14 @@ export const createTeam = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+    export const getTeams = async (req, res) => {
+        try {
+            const teams = await Team.find()
+            res.status(200).json(teams)
+        } catch (error) {
+            res.json({
+                message: error.message
+            })
+        }
+    }

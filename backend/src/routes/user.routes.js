@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerUser, verifyEmail, loginUser, getUserInfo } from '../controllers/auth.controller.js';
+import { registerUser, verifyEmail, loginUser, getUserInfo, getUsers } from '../controllers/auth.controller.js';
 import avatarUpload from '../middlewares/avatar.middleware.js';
 import { authenticateJWT } from '../middlewares/auth.middleware.js';
 
@@ -16,6 +16,9 @@ router.post('/login', loginUser);
 
 // Endpoint para obtener la información del usuario autenticado
 router.get('/user', authenticateJWT, getUserInfo);
+
+// Endpoint para obtener la información de todos los usuarios autenticados
+router.get('', getUsers);
 
 // Endpoint para subir un avatar
 router.post('/upload-avatar', avatarUpload.single('avatar'), (req, res) => {
