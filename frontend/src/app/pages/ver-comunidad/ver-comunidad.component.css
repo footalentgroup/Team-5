@@ -1,0 +1,361 @@
+main {
+    width: 100%;
+    height: auto;
+    background-color: #292F4A;
+}
+
+.banner {
+    width: 100%;
+    height: 30vh;
+    position: relative;
+}
+
+.banner img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Div gradient, color de imagen baner */
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(148, 177, 249);
+    background: linear-gradient(162deg, rgba(148, 176, 249, 0.679) 0%, rgba(245, 161, 253, 0.575) 10%,
+            rgba(9, 35, 102, 0.459) 19%, rgba(12, 46, 133, 0.525) 55%, rgba(148, 176, 249, 0.497) 80%, rgba(245, 161, 253, 0.519) 100%);
+}
+
+/* Inicio del article donde esta la informacion general */
+.article-info {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #353C60;
+    justify-content: space-around;
+    padding: 2% 6% 3% 11%;
+}
+
+h1 {
+    font-size: 25px;
+    color: #94B1F9;
+}
+
+.created-by {
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Boton de live */
+
+.button-live {
+    background-color: #353C60;
+    border: #F6A1FD solid 1px;
+    border-radius: 3px;
+    padding: 2% 6%;
+    font-size: 10px;
+    color: #F6A1FD;
+    margin: 4% 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.button-live fa-icon {
+    color: #F6A1FD;
+    font-size: 10px;
+}
+
+/* boton de dispositivos  */
+
+.button-devices {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.button-devices button {
+    background-color: #353C60;
+    border: #E8EEFE solid 1px;
+    padding: 2% 5%;
+    font-size: 12px;
+    border-radius: 3px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.data-team {
+    width: 25%;
+}
+
+.Number-data {
+    display: flex;
+    gap: 20px;
+    justify-content: right;
+}
+
+.content-icon {
+    background-color: #434D7B;
+    padding: 4% 6%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.content-icon span {
+    font-size: 13px;
+}
+
+.action-team {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    gap: 15px;
+}
+
+.action-team button {
+    width: 45px;
+    height: 45px;
+    background-color: #292F4A;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.action-team button fa-icon {
+    color: #94B1F9;
+    font-size: 15px;
+}
+
+.button-like {
+    background-color: #94B1F9;
+    padding: 1% 6%;
+    border: none;
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    gap: 15px;
+    color: #1F2439;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.button-like i {
+    color: #1F2439;
+    font-size: 12px;
+}
+
+/* Tarjeta de información equipos */
+
+.container-card {
+    width: 50%;
+    margin-left: 25%;
+}
+
+
+.card-play {
+    background-color: #434D7B;
+    border-radius: 10px;
+    width: 61%;
+    height: 20%;
+    padding: 14px;
+    flex: 0 0 auto;
+}
+
+/* tarjeta secundaria de equipos */
+
+.content-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.cont-img {
+    width: 40%;
+    height: 15vh;
+    overflow: hidden;
+}
+
+.content-card img {
+    border-radius: 7px;
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
+}
+
+.text-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-card span {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 14px;
+    margin: 0 0 1% 0;
+}
+
+.two-cont {
+    width: 60%;
+    padding-left: 3%;
+    position: relative;
+}
+
+.icon-card {
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.icon-card fa-icon {
+    font-size: 12px;
+    margin-right: 4%;
+}
+
+.number-card {
+    font-size: 10px;
+    margin-top: 1%;
+}
+
+.info-button ol {
+    margin: 0;
+    padding: 0;
+}
+
+.info-card ol li {
+    list-style: none;
+    padding: 0;
+    align-items: center;
+    overflow: hidden;
+}
+
+.info-card ol li:hover {
+    background-color: #515c85;
+
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.info-button fa-icon {
+    font-size: 11px;
+    margin-right: 2px;
+}
+
+
+.info-card ol li a:hover {
+    text-decoration: underline;
+}
+
+.info-card ol {
+    display: flex;
+    gap: 10px;
+}
+
+.info-card ol li a {
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.button-Ver {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 65%;
+    background-color: #292F4A;
+    border: #94B1F9 solid 1px;
+    color: #94B1F9;
+    border-radius: 20px;
+    padding: 4px 13px;
+    font-size: 10px;
+}
+
+.button-Ver:hover {
+    color: #E8EEFE;
+    border: solid #E8EEFE 1px;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 3% 0 3% 0;
+}
+
+.we-info {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 2%;
+    border: solid #292F4A;
+}
+
+h5 {
+    font-size: 12px;
+}
+
+.we-info p {
+    font-size: 10px;
+    font-weight: 250;
+}
+
+
+@media (max-width: 500px) {
+
+    main {
+        overflow-x: hidden;
+    }
+
+    .banner {
+        height: 20%;
+    }
+
+    .article-info {
+        width: 100%;
+        padding: 0;
+        height: 28vh;
+        position: relative;
+    }
+
+    .Info-team {
+        height: 60%;
+        margin-top: 28%;
+        position: absolute;
+        margin-right: 40%;
+    }
+
+    .data-team {
+        width: 50%;
+        position: absolute;
+        margin-left: 23%;
+        margin-top: 3%;
+    }
+
+    .container-card {
+        width: 88%;
+        margin: 0;
+        padding: 0 3%;
+    }
+
+    .card-play {
+        width: 100%;
+    }
+
+    .button-Ver {
+        display: none;
+    }
+
+    .we-info {
+        width: 80%;
+        margin-left: 2%;
+    }
+}
