@@ -11,6 +11,7 @@ import teamRoutes from './routes/team.routes.js';
 import eventRoutes from './routes/event.routes.js';
 import communityRoutes from './routes/community.routes.js';
 import searchRoutes from './routes/search.routes.js';
+import { errorHandler } from './middlewares/errorHandler.middleware.js';
 
 // Cargar las variables de entorno
 dotenv.config();
@@ -23,7 +24,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(session({
-  secret: 'tu_clave_secreta',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -35,7 +36,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // Rutas
 app.use('/api/users', userRoutes);
 app.use('/api/auth/discord', authDiscordRoutes);
@@ -43,6 +43,9 @@ app.use('/api/teams', teamRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/community', communityRoutes);
 app.use('/api', searchRoutes);
+
+// Manejador de errores (middleware)
+app.use(errorHandler);
 
 // Conexión a la base de datos
 mongoDB();
