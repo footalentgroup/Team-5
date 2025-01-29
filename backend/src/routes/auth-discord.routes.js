@@ -1,6 +1,6 @@
 import express from 'express';
 import passport from 'passport';
-import { generateToken } from '../controllers/auth.controller.js';
+import { generateToken } from '../utils/auth.util.js';
 
 const router = express.Router();
 
