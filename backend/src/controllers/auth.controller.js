@@ -87,28 +87,30 @@ export const loginUser = async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        // Buscar usuario por username
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ message: 'Username o contraseña incorrectos.' });
+            const error = new Error('Username o contraseña incorrectos.');
+            error.statusCode = 400;
+            throw error;
         }
 
-        // Verificar si la contraseña es correcta
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Username o contraseña incorrectos.' });
+            const error = new Error('Username o contraseña incorrectos.');
+            error.statusCode = 400;
+            throw error;
         }
 
-        // Si el correo no está verificado, enviamos un mensaje de error
         if (!user.isVerified) {
-            return res.status(400).json({ message: 'El correo electrónico no ha sido verificado. Verifica tu correo para continuar.' });
+            const error = new Error('El correo electrónico no ha sido verificado. Verifica tu correo para continuar.');
+            error.statusCode = 400;
+            throw error;
         }
 
-        // Generar el token JWT
         const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
-        // Responder con el token y la información del usuario
         res.status(200).json({
+            success: true,
             message: 'Inicio de sesión exitoso',
             token,
             user: {
@@ -123,7 +125,6 @@ export const loginUser = async (req, res) => {
         res.status(500).json({ message: 'Error durante el inicio de sesión.' });
     }
 };
-
 
 export const getUserInfo = async (req, res) => {
     try {
