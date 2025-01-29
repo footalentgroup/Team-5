@@ -1,55 +1,86 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router'; 
-import { CommonModule } from '@angular/common'; 
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'; 
-import { AuthService } from '../../services/auth.service'; 
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
+/**
+ * Componente para el inicio de sesión de los usuarios.
+ * Gestiona el formulario de inicio de sesión y la lógica asociada, como la validación y autenticación del usuario.
+ */
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  standalone: true, // Se establece como un componente independiente
+  imports: [CommonModule, ReactiveFormsModule, RouterModule], // Se importan módulos comunes y de formularios reactivos
+  templateUrl: './login.component.html', // Plantilla HTML asociada al componente
+  styleUrl: './login.component.css' // Estilos CSS asociados al componente
 })
 export class LoginComponent {
-  loginForm: FormGroup; // Formulario reactivo para el inicio de sesión
-  errorMessage: string | null = null; // Mensaje de error para mostrar al usuario
+  // Formulario reactivo que contiene los campos de usuario y contraseña.
+  loginForm: FormGroup;
+  
+  // Mensaje de error que se mostrará al usuario en caso de que ocurra un error durante el inicio de sesión.
+  errorMessage: string | null = null;
 
   constructor(
-    private fb: FormBuilder, // Inyección de FormBuilder para crear formularios reactivos
-    private authService: AuthService, // Inyección del servicio de autenticación
-    private router: Router // Inyección del router para la navegación
+    private fb: FormBuilder, // Inyección de FormBuilder para crear y gestionar formularios reactivos
+    private authService: AuthService, // Inyección del servicio de autenticación para realizar las solicitudes de login
+    private router: Router // Inyección del servicio de enrutamiento para redirigir al usuario después de un inicio de sesión exitoso
   ) {
-    // Inicialización del formulario reactivo
+    // Inicialización del formulario reactivo con validadores requeridos para los campos 'username' y 'password'
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]], // Campo de nombre de usuario requerido
-      password: ['', [Validators.required]], // Campo de contraseña requerido
+      username: ['', [Validators.required]], // El campo de nombre de usuario es obligatorio
+      password: ['', [Validators.required]], // El campo de contraseña es obligatorio
     });
   }
 
-  // Método que maneja el evento de inicio de sesión
+  /**
+   * Método que se ejecuta cuando el usuario intenta iniciar sesión.
+   * Realiza la validación del formulario y llama al servicio de autenticación para verificar las credenciales del usuario.
+   */
   onLogin() {
-    if (this.loginForm.invalid) return; // Si el formulario es inválido, no se realiza la solicitud
+    if (this.loginForm.invalid) return; // Si el formulario es inválido, se evita realizar la solicitud de login.
   
-    const { username, password } = this.loginForm.value; // Extraer valores del formulario
+    const { username, password } = this.loginForm.value; // Extrae los valores del formulario
   
-    // Llamada al servicio de autenticación para realizar la solicitud de inicio de sesión
+    // Llama al servicio de autenticación para hacer la solicitud de inicio de sesión
     this.authService.login(username, password).subscribe({
       next: (response) => {
-        localStorage.setItem('token', response.token); // Guardar el token en localStorage
-        this.router.navigate(['/dashboard']); // Redirigir al usuario al dashboard
+        console.log(response); // Imprime la respuesta para verificar su estructura
+  
+        if (response && response.token) {
+          localStorage.setItem('token', response.token); // Guarda el token en localStorage para mantener la sesión activa
+          this.router.navigate(['/dashboard']); // Redirige al usuario a la página del dashboard
+        } else {
+          console.error('Error: No se ha recibido un token.');
+          this.errorMessage = 'Error al recibir el token. Por favor, inténtalo de nuevo.'; // Muestra mensaje de error si no se recibe el token
+        }
       },
       error: (err) => {
-        // Mostrar el error recibido del backend
-        console.error('Error de inicio de sesión:', err);
-        this.errorMessage = err.message || 'Error al iniciar sesión'; // Mostrar el mensaje de error
+        console.error('Error de inicio de sesión:', err); // Muestra el error en la consola para depuración
+        this.errorMessage = err.error?.message || 'Error al iniciar sesión'; // Muestra el mensaje de error si existe
       },
     });
-  }  
+  }
 
-  // Método para manejar el inicio de sesión con Discord
+  /**
+   * Método que maneja el inicio de sesión utilizando la autenticación de Discord.
+   * Redirige al usuario al endpoint de autenticación de Discord.
+   */
   onDiscordLogin() {
-    // Redirigir a la URL de autenticación de Discord
+    // Redirige al usuario a la URL de autenticación de Discord
     window.location.href = 'http://localhost:3000/api/auth/discord';
+  }
+
+  /**
+   * Método para limpiar el valor de un campo de texto específico en el formulario de inicio de sesión.
+   * 
+   * @param field Nombre del campo cuyo valor se desea limpiar.
+   */
+  clearInput(field: string): void {
+    const control = this.loginForm.get(field); // Obtiene el control del formulario correspondiente al campo
+    if (control) {
+      control.setValue(''); // Limpia el valor del campo
+    }
   }
 }

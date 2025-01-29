@@ -9,9 +9,9 @@ body {
 }
 
 .container-verify-email {
-    width: 420px;
-    height: 420px;
-    padding: 20px;
+    width: 450px;
+    height: 440px;
+    padding: 32px;
     border-radius: 10px;
     background-color: #292F4A;
     color: white;
@@ -34,9 +34,8 @@ body {
 }
 
 .btn {
-    width: 230px;
-    height: 48px;
-    font-weight: 600;
+    width: 231px;
+    height: 47px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -48,8 +47,8 @@ body {
 /* Estilos para móviles pequeños */
 @media (max-width: 480px) {
     .container-verify-email {
-        width: 350px;
+        width: 342px;
+        height: 402px;
         text-align: center;
     }
 }
-  
