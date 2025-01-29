@@ -1,21 +1,28 @@
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import User from '../models/user.model.js';
-import { sendVerificationEmail } from '../utils/email-verification.util.js';
+import bcrypt from 'bcrypt'; // Módulo para cifrar contraseñas
+import jwt from 'jsonwebtoken'; // Módulo para manejo de tokens JWT
+import User from '../models/user.model.js'; // Modelo de usuario
+import { sendVerificationEmail } from '../utils/email-verification.util.js'; // Función para enviar correos de verificación
 
+/**
+ * Controlador para registrar un nuevo usuario.
+ * - Valida la existencia previa del username o correo.
+ * - Encripta la contraseña.
+ * - Genera un token de verificación.
+ * - Envía un correo con el link de verificación.
+ */
 export const registerUser = async (req, res) => {
     const { name, lastname, username, email, password, dateBirth, country, acceptTerms, isOver14, acceptPrivacyPolicy } = req.body;
 
     try {
         const avatarUrl = req.file ? req.file.path : null;
 
-        // Validar existencia de usuario antes del registro
+        // Verifica si ya existe un usuario con el mismo email o username
         const existingUser = await User.findOne({ $or: [{ email }, { username }] });
         if (existingUser) {
             return res.status(400).json({ message: 'El username o email ya están registrados.' });
         }
 
-        // Crear el usuario con los datos sin encriptar la contraseña manualmente
+        // Creación del nuevo usuario
         const newUser = new User({
             name,
             lastname,
@@ -30,19 +37,20 @@ export const registerUser = async (req, res) => {
             avatar: avatarUrl,
         });
 
-        // Guardar el usuario en la base de datos
+        // Guardado en la base de datos
         await newUser.save();
 
-        // Generar token de verificación y enviar correo
-        const verificationToken = jwt.sign({ email: newUser.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        // Generación de un token para verificación por correo
+        const verificationToken = jwt.sign({ email: newUser.email }, process.env.JWT_SECRET, { expiresIn: '24h' });
         const verificationLink = `${process.env.FRONTEND_URL}/verify-email?token=${encodeURIComponent(verificationToken)}`;
+        
+        // Envío del correo de verificación
         await sendVerificationEmail(email, verificationLink);
 
         res.status(201).json({ message: 'Usuario registrado exitosamente. Verifica tu correo electrónico.' });
     } catch (error) {
         console.error('Error al registrar el usuario:', error);
 
-        // Manejar errores de validación de Mongoose
         if (error.name === 'ValidationError') {
             return res.status(400).json({ message: error.message });
         }
@@ -51,12 +59,24 @@ export const registerUser = async (req, res) => {
     }
 };
 
+/**
+ * Controlador para verificar el correo del usuario.
+ * - Decodifica el token de verificación.
+ * - Valida la existencia del usuario.
+ * - Verifica que el token no haya expirado.
+ * - Actualiza el estado de verificación del usuario.
+ */
 export const verifyEmail = async (req, res) => {
     const { token } = req.query;
+
+    if (!token) {
+        return res.status(400).json({ message: 'El token de verificación es necesario.' });
+    }
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const user = await User.findOne({ email: decoded.email });
+
         if (!user) {
             return res.status(404).json({ message: 'Usuario no encontrado.' });
         }
@@ -65,24 +85,37 @@ export const verifyEmail = async (req, res) => {
             return res.status(400).json({ message: 'El correo ya ha sido verificado.' });
         }
 
-        const tokenCreationTime = decoded.iat * 1000; // Fecha de creación del token en milisegundos
+        // Valida la vigencia del token (24 horas)
+        const tokenCreationTime = decoded.iat * 1000;
         const currentTime = Date.now();
         const tokenAge = currentTime - tokenCreationTime;
 
-        if (tokenAge > 24 * 60 * 60 * 1000) { // 24 horas
+        if (tokenAge > 24 * 60 * 60 * 1000) {
             return res.status(400).json({ message: 'El token de verificación ha expirado.' });
         }
 
+        // Marcar el correo como verificado
         user.isVerified = true;
         await user.save();
 
         res.status(200).json({ message: 'Correo verificado exitosamente.' });
     } catch (error) {
         console.error('Error verificando el token:', error);
-        res.status(400).json({ message: 'Token inválido o expirado.' });
+
+        if (error instanceof jwt.JsonWebTokenError) {
+            return res.status(400).json({ message: 'Token inválido.' });
+        }
+
+        res.status(500).json({ message: 'Error en el servidor, por favor intente nuevamente más tarde.' });
     }
 };
 
+/**
+ * Controlador para el inicio de sesión del usuario.
+ * - Verifica la existencia del usuario.
+ * - Compara la contraseña ingresada con la almacenada.
+ * - Genera un token JWT para autenticación.
+ */
 export const loginUser = async (req, res) => {
     const { username, password } = req.body;
 
@@ -92,6 +125,7 @@ export const loginUser = async (req, res) => {
             return res.status(400).json({ message: 'Username o contraseña incorrectos.' });
         }
 
+        // Verificación de la contraseña
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ message: 'Username o contraseña incorrectos.' });
@@ -101,6 +135,7 @@ export const loginUser = async (req, res) => {
             return res.status(400).json({ message: 'El correo electrónico no ha sido verificado. Verifica tu correo para continuar.' });
         }
 
+        // Generación del token JWT
         const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
         res.status(200).json({
@@ -123,6 +158,9 @@ export const loginUser = async (req, res) => {
     }
 };
 
+/**
+ * Obtiene la información del usuario autenticado.
+ */
 export const getUserInfo = async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
@@ -142,6 +180,9 @@ export const getUserInfo = async (req, res) => {
     }
 };
 
+/**
+ * Obtiene una lista de todos los usuarios.
+ */
 export const getUsers = async (req, res) => {
     try {
         const users = await User.find();
@@ -151,6 +192,9 @@ export const getUsers = async (req, res) => {
     }
 };
 
+/**
+ * Actualiza la información del usuario autenticado.
+ */
 export const updateUserInfo = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -162,15 +206,12 @@ export const updateUserInfo = async (req, res) => {
             return res.status(404).json({ message: 'Usuario no encontrado.' });
         }
 
+        // Actualiza el avatar si existe un nuevo archivo
         if (file) {
-            if (user.avatar) {
-                const publicId = user.avatar.split('/').pop().split('.')[0];
-                await cloudinary.uploader.destroy(publicId);
-            }
-
             user.avatar = file.path;
         }
 
+        // Actualiza los campos permitidos
         for (const key in updates) {
             if (key === 'password') {
                 user.password = await bcrypt.hash(updates[key], 10);
