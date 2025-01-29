@@ -89,22 +89,16 @@ export const loginUser = async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
-            const error = new Error('Username o contraseña incorrectos.');
-            error.statusCode = 400;
-            throw error;
+            return res.status(400).json({ message: 'Username o contraseña incorrectos.' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            const error = new Error('Username o contraseña incorrectos.');
-            error.statusCode = 400;
-            throw error;
+            return res.status(400).json({ message: 'Username o contraseña incorrectos.' });
         }
 
         if (!user.isVerified) {
-            const error = new Error('El correo electrónico no ha sido verificado. Verifica tu correo para continuar.');
-            error.statusCode = 400;
-            throw error;
+            return res.status(400).json({ message: 'El correo electrónico no ha sido verificado. Verifica tu correo para continuar.' });
         }
 
         const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1d' });
@@ -122,7 +116,10 @@ export const loginUser = async (req, res) => {
         });
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
-        res.status(500).json({ message: 'Error durante el inicio de sesión.' });
+        res.status(error.statusCode || 500).json({
+            success: false,
+            message: error.message || 'Error durante el inicio de sesión.',
+        });
     }
 };
 

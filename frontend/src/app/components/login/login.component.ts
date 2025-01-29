@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router'; // Se importa Router para poder redirigir entre rutas y RouterModule para manejar rutas en la aplicación.
-import { CommonModule } from '@angular/common'; // Se importa CommonModule, que proporciona funcionalidades comunes para los módulos.
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'; // Se importan las clases y módulos necesarios para crear formularios reactivos en Angular.
-import { AuthService } from '../../services/auth.service'; // Se importa el servicio de autenticación para manejar las peticiones de login.
+import { Router, RouterModule } from '@angular/router'; 
+import { CommonModule } from '@angular/common'; 
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'; 
+import { AuthService } from '../../services/auth.service'; 
 
 @Component({
   selector: 'app-login',
@@ -30,9 +30,9 @@ export class LoginComponent {
   // Método que maneja el evento de inicio de sesión
   onLogin() {
     if (this.loginForm.invalid) return; // Si el formulario es inválido, no se realiza la solicitud
-
+  
     const { username, password } = this.loginForm.value; // Extraer valores del formulario
-
+  
     // Llamada al servicio de autenticación para realizar la solicitud de inicio de sesión
     this.authService.login(username, password).subscribe({
       next: (response) => {
@@ -40,16 +40,16 @@ export class LoginComponent {
         this.router.navigate(['/dashboard']); // Redirigir al usuario al dashboard
       },
       error: (err) => {
-        // Manejo de errores: mostrar mensaje de error
+        // Mostrar el error recibido del backend
         console.error('Error de inicio de sesión:', err);
-        this.errorMessage = err.error.message || 'Error al iniciar sesión';
+        this.errorMessage = err.message || 'Error al iniciar sesión'; // Mostrar el mensaje de error
       },
     });
-  }
+  }  
 
   // Método para manejar el inicio de sesión con Discord
   onDiscordLogin() {
     // Redirigir a la URL de autenticación de Discord
-    window.location.href = 'https://ftg-team5.vercel.app/api/auth/discord';
+    window.location.href = 'http://localhost:3000/api/auth/discord';
   }
 }

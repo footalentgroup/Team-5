@@ -1,65 +1,105 @@
-// Importamos las dependencias necesarias
-import { Injectable } from '@angular/core'; // Decorador que indica que esta clase es un servicio
-import { HttpClient, HttpHeaders } from '@angular/common/http'; // Para realizar peticiones HTTP
-import { Observable } from 'rxjs'; // Para trabajar con flujos de datos asíncronos
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError, tap } from 'rxjs';
 
-// Decorador @Injectable con providedIn: 'root' indica que este servicio es global y se inyectará en cualquier componente que lo necesite
 @Injectable({
-  providedIn: 'root', // Proporciona el servicio a nivel de toda la aplicación
+  providedIn: 'root',
 })
 export class AuthService {
-  // Definimos la URL base para la API de autenticación
-  private apiUrl = 'http://localhost:3000/api/users'; // Endpoint para todas las operaciones de usuario
+  private apiUrl = 'http://localhost:3000/api/users'; 
 
-  // El constructor inyecta el servicio HttpClient para hacer peticiones HTTP
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Método para iniciar sesión con nombre de usuario y contraseña
-  // Este método hace una petición POST a la API con las credenciales del usuario
   login(username: string, password: string): Observable<any> {
-    // Realiza la petición POST a la ruta /login de la API con las credenciales
-    return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
+    return this.http.post<any>(`${this.apiUrl}/login`, { username, password }).pipe(
+      catchError(error => {
+        let errorMessage = 'Error desconocido';
+  
+        // Verifica si el backend devuelve un mensaje de error
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message; // Extrae el mensaje de error
+        } else if (error.status === 0) {
+          errorMessage = 'No se pudo conectar al servidor';
+        }
+  
+        console.error('Login error:', error); // Loguear el error para depuración
+        return throwError(() => new Error(errorMessage)); // Retorna el mensaje de error
+      })
+    );
   }
 
-  // Método para obtener la información del usuario autenticado
-  // Se pasa un token JWT en el encabezado Authorization para validar al usuario
   getUserInfo(token: string): Observable<any> {
-    // Realiza una solicitud GET a la ruta /user de la API, pasando el token de autorización en el encabezado
     return this.http.get<any>(`${this.apiUrl}/user`, {
-      headers: { Authorization: `Bearer ${token}` }, // Se incluye el token JWT en los headers
-    });
+      headers: { Authorization: `Bearer ${token}` },
+    }).pipe(
+      catchError(error => {
+        let errorMessage = 'Error desconocido';
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        }
+        console.error('Get user info error:', error);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
-  // Método para verificar el email del usuario mediante un token
-  // Este método se usa generalmente después de un registro, para confirmar el email del usuario
   verifyEmail(token: string): Observable<any> {
-    // Realiza una solicitud GET a la ruta /verify-email de la API, pasando el token como query string
-    return this.http.get<any>(`${this.apiUrl}/verify-email?token=${token}`);
+    return this.http.get<any>(`${this.apiUrl}/verify-email?token=${token}`).pipe(
+      catchError(error => {
+        let errorMessage = 'Error desconocido';
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        }
+        console.error('Verify email error:', error);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
-  // Método para registrar un nuevo usuario
-  // Este método usa FormData para enviar datos del formulario (por ejemplo, imágenes, campos de texto, etc.)
   register(userData: FormData): Observable<any> {
-    // Realiza una solicitud POST a la ruta /register de la API para registrar al nuevo usuario
-    return this.http.post(`${this.apiUrl}/register`, userData);
+    return this.http.post(`${this.apiUrl}/register`, userData).pipe(
+      catchError(error => {
+        let errorMessage = 'Error desconocido';
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        }
+        console.error('Register error:', error);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
-  // Método para actualizar la información del perfil del usuario
-  // Se pasa el token JWT en los headers para autorizar la solicitud de actualización
   updateUserProfile(token: string, updateData: FormData): Observable<any> {
-    // Se configura el encabezado Authorization con el token para validar la solicitud
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`, // El token JWT se incluye en los encabezados
+      Authorization: `Bearer ${token}`,
     });
 
-    // Realiza una solicitud PUT a la ruta /update de la API con los datos de actualización
-    return this.http.put(`${this.apiUrl}/update`, updateData, { headers });
+    return this.http.put(`${this.apiUrl}/update`, updateData, { headers }).pipe(
+      catchError(error => {
+        let errorMessage = 'Error desconocido';
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        }
+        console.error('Update user profile error:', error);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
-  // Método para iniciar sesión con Discord
-  // Este método guarda el token recibido en el almacenamiento local del navegador
-  loginWithDiscord(token: string): void {
-    // Guarda el token recibido en localStorage para su uso posterior (por ejemplo, mantener la sesión abierta)
-    localStorage.setItem('token', token); // Guardamos el token en el localStorage
+  loginWithDiscord(token: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/auth/discord`, { token }).pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token);
+      }),
+      catchError(error => {
+        let errorMessage = 'Error desconocido';
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        }
+        console.error('Discord login error:', error);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 }
