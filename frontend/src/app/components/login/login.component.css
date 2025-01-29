@@ -9,30 +9,22 @@ body {
 }
 
 .login-container {
-  width: 420px;
+  width: 466px;
   height: auto;
   margin: 0 auto;
-  padding: 20px;
+  padding: 32px;
   border-radius: 10px;
   background-color: #292F4A;
   color: white;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); 
-}
-
-p {
-  color: #94B1F9;
-}
-
-.back-home {
-  color: inherit;
-  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .img-avatar {
   width: 100%;
   height: auto;
-  margin: 5rem 0;
   display: flex;
+  margin: 0 0 3rem 0;
   justify-content: center;
   align-items: center;
 }
@@ -51,20 +43,49 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: inherit;
+  border-radius: 6px;
+  outline: none;
+  border: solid 1px #FAFAFA;
 }
 
 input {
-  width: 80%;
   padding: 15px;
   background-color: inherit;
   color: #FAFAFA;
-  border-radius: 6px;
-  border: solid 1px #FAFAFA;
-  outline: none;
+  text-align: center;
+  border: none;
+  outline: none; /* Elimina el contorno del input */
+}
+
+input:focus,
+input:hover {
+  border: none; /* No aplica borde al hacer foco o hover */
+  outline: none; /* Elimina el contorno cuando se selecciona el campo */
+  background-color: inherit; 
+  color: #FAFAFA; 
 }
 
 ::placeholder {
   color: #FAFAFA;
+}
+
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #E8EEFE;
+  cursor: pointer;
+  outline: none;
+}
+
+.clear-btn:hover {
+  color: #fa5c5c;
 }
 
 .btn {
@@ -76,7 +97,7 @@ input {
 }
 
 .btn-primary {
-  margin-top: 30px;
+  margin-top: 2rem;
   background-color: #94B1F9;
   color: #292F4A;
 }
@@ -92,24 +113,39 @@ input {
   background-color: inherit;
   border: solid 1px #94B1F9;
   color: #94B1F9;
+  margin-bottom: 2rem;
 }
 
-hr {
-  margin: 2rem ;
-  width: 80%;
-}
-
-.create-account {
-  text-align: center;
-}
-
-.create-account a {
+a {
   color: #FAFAFA;
 }
 
 /* Estilos para móviles */
 @media (max-width: 480px) {
+  .img-avatar {
+    margin: 0 0 2rem 0;
+  }
   .login-container {
-    width: 380px;
+    width: 372px;
+    font-size: small;
+  }
+  img {
+    width: 106px;
+    height: 106px;
+  }
+  .form-group {
+    width: 100%;
+    height: 40px;
+  }
+  input {
+    font-size: small;
+  }
+  .btn {
+    font-size: small;
+    width: 184px;
+    height: 31px;
+  }
+  .btn-secondary {
+    margin-bottom: 1rem;
   }
 }

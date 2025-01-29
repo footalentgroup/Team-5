@@ -1,101 +1,125 @@
 <body>
   <div class="signup-container">
+    <!-- El contenedor principal de la página de registro -->
+
     <form [formGroup]="signupForm" (ngSubmit)="onSignup()" class="signup-form">
-      <!-- Campo para avatar -->
+      <!-- Este formulario usa el FormGroup llamado signupForm para el enlace de datos reactivo en Angular. -->
+
       <div class="avatar">
-        <div class="avatar-image">
-          <!-- Mostrar imagen de avatar si está seleccionada -->
-          <img *ngIf="avatar" [src]="avatar" alt="avatar de usuario">
-          <!-- Mostrar iniciales si no se ha seleccionado avatar -->
-          <ng-container *ngIf="!avatar">{{ getInitials() }}</ng-container>
-        </div>
+        <!-- Contenedor para la imagen del avatar del usuario -->
+        <img *ngIf="avatar; else defaultAvatar" [src]="avatar" alt="avatar del usuario" />
+        <!-- Si se ha cargado una imagen en el avatar, se muestra aquí. Si no, se muestra el avatar predeterminado. -->
+
+        <ng-template #defaultAvatar>
+          <img src="assets/login/avatar-login.jpg" alt="avatar predeterminado" />
+        </ng-template>
+        <!-- El avatar predeterminado que se muestra si el usuario no ha subido una imagen. -->
+
         <div class="text-avatar">
           <p>Foto de perfil</p>
+          <!-- Texto que indica que el usuario puede subir su foto de perfil. -->
+
           <p class="upload-img">
             <input type="file" #fileInput (change)="onFileChange($event)" accept="image/*" style="display: none;" />
-            <span (click)="fileInput.click()">Subir imagen</span>
+            <!-- Un input oculto para seleccionar un archivo de imagen. El evento (change) llama al método onFileChange para manejar la selección del archivo. -->
+
+            <span (click)="fileInput.click()">Subir foto
+              <!-- Al hacer clic en este texto, se simula el clic en el input de archivo para seleccionar la imagen. -->
+              <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.70627 0.293701C6.31565 -0.0969238 5.68127 -0.0969238 5.29065 0.293701L0.290649 5.2937C-0.0999756 5.68433 -0.0999756 6.3187 0.290649 6.70933C0.681274 7.09995 1.31565 7.09995 1.70627 6.70933L5.00002 3.41245V13C5.00002 13.5531 5.4469 14 6.00002 14C6.55315 14 7.00002 13.5531 7.00002 13V3.41558L10.2938 6.7062C10.6844 7.09683 11.3188 7.09683 11.7094 6.7062C12.1 6.31558 12.1 5.6812 11.7094 5.29058L6.7094 0.290576L6.70627 0.293701Z"
+                  fill="#94B1F9" />
+              </svg>
+            </span>
           </p>
         </div>
       </div>
 
+      <div class="dbasic">
+        <p>Datos Básicos</p>
+        <!-- Sección de título para los datos básicos del usuario -->
+      </div>
+
+      <!-- Grid Input: Sección con los campos del formulario, organizada en dos columnas -->
       <div class="form-grid">
+        <!-- Columna 1 -->
         <div class="form-column">
-          <!-- Campo de nombre -->
           <div class="form-group">
             <input id="name" formControlName="name" type="text" placeholder="Nombre" required>
+            <!-- Campo para el nombre del usuario, con validación de que es obligatorio. -->
             <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched" class="error">
               El nombre es obligatorio.
             </div>
           </div>
 
-          <!-- Campo de apellido -->
           <div class="form-group">
             <input id="lastname" formControlName="lastname" type="text" placeholder="Apellido" required>
+            <!-- Campo para el apellido del usuario, con validación de que es obligatorio. -->
             <div *ngIf="signupForm.get('lastname')?.invalid && signupForm.get('lastname')?.touched" class="error">
               El apellido es obligatorio.
             </div>
           </div>
 
-          <!-- Campo de nombre de usuario -->
           <div class="form-group">
             <input id="username" formControlName="username" type="text" placeholder="Nombre de usuario" required>
+            <!-- Campo para el nombre de usuario, con validación de que es obligatorio. -->
             <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error">
               El nombre de usuario es obligatorio.
             </div>
           </div>
 
-          <!-- Campo de correo electrónico -->
           <div class="form-group">
             <input id="email" formControlName="email" type="email" placeholder="Correo electrónico" required>
+            <!-- Campo para el correo electrónico del usuario, con validación de que es obligatorio y formato válido de correo. -->
             <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error">
               Introduce un correo electrónico válido.
             </div>
           </div>
         </div>
 
+        <!-- Columna 2 -->
         <div class="form-column">
-          <!-- Campo de contraseña -->
           <div class="form-group">
             <input id="password" formControlName="password" type="password" placeholder="Contraseña" required>
+            <!-- Campo para la contraseña del usuario, con validación de que es obligatorio y mínimo 8 caracteres. -->
             <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error">
-              La contraseña debe tener al menos 8 caracteres.
+                Debe tener al menos 8 caracteres, incluyendo una mayúscula, minúscula, un número y un carácter especial.
             </div>
           </div>
 
-          <!-- Campo para repetir contraseña -->
           <div class="form-group">
             <input id="repeatPassword" formControlName="repeatPassword" type="password" placeholder="Repetir contraseña"
               required>
+            <!-- Campo para repetir la contraseña y validación de que debe coincidir con la contraseña inicial. -->
             <div *ngIf="signupForm.hasError('mismatch') && signupForm.get('repeatPassword')?.touched" class="error">
               Las contraseñas no coinciden.
             </div>
           </div>
 
-          <!-- Campo de fecha de nacimiento -->
           <div class="form-group">
             <input id="dateBirth" formControlName="dateBirth" type="date" placeholder="Fecha de nacimiento" required>
+            <!-- Campo para la fecha de nacimiento del usuario, con validación de que es obligatorio. -->
             <div *ngIf="signupForm.get('dateBirth')?.invalid && signupForm.get('dateBirth')?.touched" class="error">
               La fecha de nacimiento es obligatoria.
             </div>
           </div>
 
-          <!-- Campo de selección de país -->
           <div class="form-group">
-            <!-- Spinner mientras se cargan los países -->
             <div *ngIf="loading" class="spinner"></div>
+            <!-- Muestra un indicador de carga mientras los países se cargan. -->
 
-            <!-- Error si no se pudieron cargar los países -->
             <div *ngIf="!countries.length && !loading" class="error">
               No se pudieron cargar los países. Intenta nuevamente.
             </div>
+            <!-- Si no se cargan los países, muestra un mensaje de error. -->
 
-            <!-- Campo de selección de país -->
             <select id="country" formControlName="country" [disabled]="loading || !countries.length" required>
+              <!-- Selección de país, que se habilita cuando los países están cargados. -->
               <option value="">Selecciona tu país</option>
               <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+              <!-- Muestra una lista de países obtenidos desde el servicio. -->
             </select>
 
-            <!-- Validación del campo -->
             <div *ngIf="signupForm.get('country')?.invalid && signupForm.get('country')?.touched" class="error">
               Selecciona tu país.
             </div>
@@ -103,32 +127,39 @@
         </div>
       </div>
 
+      <!-- Checkbox: Para aceptar términos y políticas -->
       <div class="checkbox-group">
-        <!-- Aceptación de términos y condiciones -->
         <div class="checkbox-item">
-          <input id="acceptTerms" formControlName="acceptTerms" type="checkbox" required>
-          <label for="acceptTerms">Acepto los Términos y condiciones</label>
-          <div *ngIf="signupForm.get('acceptTerms')?.invalid && signupForm.get('acceptTerms')?.touched" class="error">
+          <div class="checkbox-text">
+            <input id="acceptTerms" formControlName="acceptTerms" type="checkbox" required>
+            <!-- Checkbox para aceptar los términos y condiciones. -->
+            <label for="acceptTerms">Acepto los Términos y condiciones</label>
+          </div>
+          <div *ngIf="signupForm.get('acceptTerms')?.invalid && signupForm.get('acceptTerms')?.touched" class="error echeck">
             Debes aceptar los términos y condiciones.
           </div>
         </div>
 
-        <!-- Aceptación de política de privacidad -->
         <div class="checkbox-item">
-          <input id="acceptPrivacyPolicy" formControlName="acceptPrivacyPolicy" type="checkbox" required>
-          <label for="acceptPrivacyPolicy">Estoy de acuerdo con las Políticas de Privacidad y Datos.</label>
+          <div class="checkbox-text">
+            <input id="acceptPrivacyPolicy" formControlName="acceptPrivacyPolicy" type="checkbox" required>
+            <!-- Checkbox para aceptar las políticas de privacidad y datos. -->
+            <label for="acceptPrivacyPolicy">Estoy de acuerdo con las Políticas de Privacidad y Datos.</label>
+          </div>
           <div *ngIf="signupForm.get('acceptPrivacyPolicy')?.invalid && signupForm.get('acceptPrivacyPolicy')?.touched"
-            class="error">
+            class="error echeck">
             Debes aceptar la política de privacidad.
           </div>
         </div>
 
-        <!-- Confirmación de mayor de 14 años -->
         <div class="checkbox-item">
-          <input id="isOver14" formControlName="isOver14" type="checkbox" required>
-          <label for="isOver14">Confirmo que soy mayor de 14 años o cuento con la autorización de mi representante legal
-            para usar los servicios de Respawn Events</label>
-          <div *ngIf="signupForm.get('isOver14')?.invalid && signupForm.get('isOver14')?.touched" class="error">
+          <div class="checkbox-text">
+            <input id="isOver14" formControlName="isOver14" type="checkbox" required>
+            <!-- Checkbox para confirmar que el usuario tiene más de 14 años. -->
+            <label for="isOver14">Confirmo que soy mayor de 14 años o cuento con la <br> autorización de mi representante
+              legal para usar <br> los servicios de Respawn Events</label>
+          </div>
+          <div *ngIf="signupForm.get('isOver14')?.invalid && signupForm.get('isOver14')?.touched" class="error echeck">
             Debes confirmar que eres mayor de 14 años.
           </div>
         </div>
@@ -137,11 +168,15 @@
       <button type="submit" [disabled]="!signupForm.valid" class="submit-button">
         Crear cuenta
       </button>
+      <!-- Botón para enviar el formulario, deshabilitado si el formulario es inválido. -->
     </form>
-    
+
     <button (click)="onDiscordLogin()" class="discord-button">Crear cuenta con Discord</button>
+    <!-- Botón para registrarse con Discord, que redirige a la autenticación de Discord. -->
+
     <hr>
     <p>¿Ya tienes cuenta?</p>
     <a routerLink="/login">Iniciar sesión</a>
+    <!-- Enlace para redirigir a la página de inicio de sesión si el usuario ya tiene cuenta. -->
   </div>
 </body>
