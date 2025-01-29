@@ -1,0 +1,9 @@
+.mainContainer {
+    margin-bottom: 0; /* Por defecto, no hay margen */
+  }
+  
+  @media (max-width: 500px) {
+    .mainContainer {
+      margin-bottom: 60px; /* Margen para la navbar inferior */
+    }
+  }
