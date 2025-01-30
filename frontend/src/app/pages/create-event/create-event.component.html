@@ -1,111 +1,475 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Evento - Gaming Events Platform</title>
-    
-</head>
 <body>
-    
+  <div class="event-form">
+    <!-- Navigation Steps -->
+    <nav class="steps-nav">
+      <div class="container">
+        <div class="steps-container">
+          <button *ngFor="let step of steps; let i = index"
+                  (click)="setStep(i)"
+                  [class.active]="currentStep === i">
+            {{ step }}
+          </button>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Form Content -->
+    <div class="container">
+      <form [formGroup]="eventForm" *ngIf="currentStep === 0">
+        <div class="form-sections">
+          <!-- Cover Photo Upload -->
+          <div class="form-section">
+            <h3>Foto de Portada</h3>
+            <div class="cover-upload">
+              <input type="file"
+                     accept="image/*"
+                     (change)="onFileSelected($event)"
+                     class="file-input">
+              <ng-container *ngIf="coverImage; else uploadPrompt">
+                <img [src]="coverImage"
+                     alt="Cover"
+                     class="cover-preview">
+              </ng-container>
+              <ng-template #uploadPrompt>
+                <div class="upload-prompt">
+                  <p>Sube una foto de 1280x720 px</p>
+                  <button type="button" class="btn-upload">Subir Foto</button>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+  
+          <!-- Event Details -->
+          <div class="form-section">
+            <h3>Evento</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Tipo de evento</label>
+                <select class="select" formControlName="eventType">
+                  <option value="competitivo">Competitivo</option>
+                  <option value="amistoso">Amistoso</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Nombre del torneo</label>
+                <input formControlName="tournamentName" 
+                       type="text"
+                       placeholder="Ingrese nombre del torneo">
+              </div>
+              <div class="form-group">
+                <label>Fecha de inicio</label>
+                <input formControlName="startDate"
+                       type="date">
+              </div>
+              <div class="form-group">
+                <label>Hora de inicio</label>
+                <input formControlName="startTime"
+                       type="time">
+              </div>
+              <div class="form-group">
+                <label>Zona horaria</label>
+                <select class="select" formControlName="timezone">
+                  <option value="utc-03">UTC-03:00 – Chile (Chile Time - CLT)</option>
+                  <option value="utc-04">UTC-04:00 – Chile (Chile Time - CLT)</option>
+                  <option value="utc-05">UTC-05:00 – Colombia (Colombia Time - CLT)</option>
+                  <option value="utc-06">UTC-06:00 – Central (Central Time - CT)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Ubicación del evento</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" 
+                           formControlName="locationType"
+                           value="presencial"
+                           class="form-radio">
+                    <span>Presencial</span>
+                  </label>
+                  <label>
+                    <input type="radio"
+                           formControlName="locationType"
+                           value="virtual"
+                           class="form-radio">
+                    <span>Virtual</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Game Details -->
+          <div class="form-section">
+            <h3>Juego</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Juego del torneo</label>
+                <select class="select" formControlName="gameType">
+                  <option value="valorant">Valorant</option>
+                  <option value="call">Call of Duty: Warzone/Mobile</option>
+                  <option value="lol">League of Legends</option>
+                  <option value="Minecraft">Minecraft</option>
+                  <option value="Genshin">Genshin Impact</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Plataforma</label>
+                <select class="select" formControlName="platform">
+                  <option value="pc">PC</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="PS4">PS4</option>
+                  <option value="PS5">PS5</option>
+                  <option value="XBOX">XBOX</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Número de participantes</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio"
+                           formControlName="participantType"
+                           value="individual"
+                           class="form-radio">
+                    <span>Individual</span>
+                  </label>
+                  <label>
+                    <input type="radio"
+                           formControlName="participantType"
+                           value="equipos"
+                           class="form-radio">
+                    <span>Equipos</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Tamaño de equipo</label>
+                <select class="select" formControlName="teamSize">
+                  <option value="5">5 jugadores</option>
+                  <option value="6">6 jugadores</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Número de suplentes</label>
+                <select class="select" formControlName="substitutesCount">
+                  <option value="2">2 suplentes</option>
+                  <option value="3">3 suplentes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation Buttons -->
+      <div class="nav-buttons">
+        <button (click)="previousStep()" class="btn-prev">
+          Anterior
+        </button>
+        <button (click)="nextStep()" class="btn-next">
+          Siguiente
+        </button>
+      </div>
+      </form>
+  
+      
 
-    <div class="form-container">
-        <div class="tabs">
-            <a href="#" class="tab active">📝 Descripción general</a>
-            <a href="#" class="tab">👥 Equipos/Grupos</a>
-            <a href="#" class="tab">🗺️ Reglas</a>
-            <a href="#" class="tab">👥 Participantes</a>
-            <a href="#" class="tab">🔗 Links externos</a>
+      <form [formGroup]="tournamentFormatForm" *ngIf="currentStep === 1">
+        <div class="form-sections">
+          <!-- Tipo de encuentro -->
+          <div class="form-section">
+            <h3>Tipo de encuentro</h3>
+            <div class="tournament-type-grid">
+              <label class="tournament-type-option" [class.selected]="tournamentFormatForm.get('matchType')?.value === 'duel'">
+                <input type="radio" 
+                       formControlName="matchType" 
+                       value="duel" 
+                       class="form-radio">
+                <i class="vs-icon"></i>
+                <span>Duelo (VS)</span>
+              </label>
+              <label class="tournament-type-option" [class.selected]="tournamentFormatForm.get('matchType')?.value === 'ffa'">
+                <input type="radio" 
+                       formControlName="matchType" 
+                       value="ffa" 
+                       class="form-radio">
+                <i class="ffa-icon"></i>
+                <span>Todos contra todos (FFA)</span>
+              </label>
+            </div>
+          </div>
+  
+          <!-- Tipo de fase -->
+          <div class="form-section">
+            <h3>Tipo de fase</h3>
+            <div class="phase-type-grid">
+              <label class="phase-type-option" [class.selected]="tournamentFormatForm.get('phaseType')?.value === 'single'">
+                <input type="radio" 
+                       formControlName="phaseType" 
+                       value="single" 
+                       class="form-radio">
+                <img src="/assets/single-elimination-icon.svg" alt="Single Elimination">
+                <span>Eliminación simple</span>
+              </label>
+              <label class="phase-type-option" [class.selected]="tournamentFormatForm.get('phaseType')?.value === 'double'">
+                <input type="radio" 
+                       formControlName="phaseType" 
+                       value="double" 
+                       class="form-radio">
+                <img src="/assets/double-elimination-icon.svg" alt="Double Elimination">
+                <span>Doble Eliminación</span>
+              </label>
+              <label class="phase-type-option" [class.selected]="tournamentFormatForm.get('phaseType')?.value === 'custom'">
+                <input type="radio" 
+                       formControlName="phaseType" 
+                       value="custom" 
+                       class="form-radio">
+                <img src="/assets/custom-round-icon.svg" alt="Custom Round">
+                <span>Ronda personalizada</span>
+              </label>
+            </div>
+          </div>
+  
+          <!-- Estructura de fase -->
+          <div class="form-section">
+            <h3>Estructura de fase</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Nombre de la fase</label>
+                <input type="text" 
+                       formControlName="phaseName">
+              </div>
+              <div class="form-group">
+                <label>Orden en el torneo</label>
+                <input type="number" 
+                       formControlName="tournamentOrder">
+              </div>
+              <div class="form-group">
+                <label>Número de participantes en esta fase</label>
+                <input type="number" 
+                       formControlName="participantsCount">
+              </div>
+              <div class="form-group">
+                <label>¿Permitir descanso de 2 y 4 o más?</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" 
+                           formControlName="allowBreaks" 
+                           value="yes" 
+                           class="form-radio">
+                    <span>Sí</span>
+                  </label>
+                  <label>
+                    <input type="radio" 
+                           formControlName="allowBreaks" 
+                           value="no" 
+                           class="form-radio">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Avanzado -->
+          <div class="form-section">
+            <h3>Avanzado</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Número de clasificados</label>
+                <input type="number" 
+                       formControlName="qualifiersCount">
+              </div>
+              <div class="form-group">
+                <label>Posicionamiento</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" 
+                           formControlName="positioning" 
+                           value="automatic" 
+                           class="form-radio">
+                    <span>Sí</span>
+                  </label>
+                  <label>
+                    <input type="radio" 
+                           formControlName="positioning" 
+                           value="manual" 
+                           class="form-radio">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Ajustes adicionales</label>
+                <select class="select" formControlName="additionalSettings">
+                  <option value="format1">Formato horneado</option>
+                  <!-- Agregar más opciones según sea necesario -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label>¿Activar salas de chat por enfrentamiento?</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" 
+                           formControlName="enableChatRooms" 
+                           value="yes" 
+                           class="form-radio">
+                    <span>Sí</span>
+                  </label>
+                  <label>
+                    <input type="radio" 
+                           formControlName="enableChatRooms" 
+                           value="no" 
+                           class="form-radio">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+          <button (click)="previousStep()" class="btn-prev">
+            Anterior
+          </button>
+          <button (click)="nextStep()" class="btn-next">
+            Siguiente
+          </button>
+        </div>
+      </form>
+
+      <form [formGroup]="tournamentRulesForm" *ngIf="currentStep === 2">
+        <div class="form-section">
+          <div class="form-group">
+            <h3>Reglas de torneo</h3>
+                <input formControlRules="tournamentRules" 
+                       type="text"
+                       placeholder="Reglas del evento">
+          </div>
+          <div class="form-group">
+            <label>¿Los jugadores deben aceptarlas?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" 
+                       formControlName="aceptrules" 
+                       value="yes" 
+                       class="form-radio">
+                <span>Sí</span>
+              </label>
+              <label>
+                <input type="radio" 
+                       formControlName="aceptrules" 
+                       value="no" 
+                       class="form-radio">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>  
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+          <button (click)="previousStep()" class="btn-prev">
+            Anterior
+          </button>
+          <button (click)="nextStep()" class="btn-next">
+            Siguiente
+          </button>
+        </div>     
+      </form>
+
+
+      <!-- Participants Form -->
+  <form [formGroup]="participantsForm" *ngIf="currentStep === 3">
+    <div class="form-section">
+      <h3>Invitar</h3>
+      <form [formGroup]="participantsForm" (ngSubmit)="addPlayer()" class="invite-form">
+        <div class="input-group">
+          <input type="text"
+                 formControlName="playerInput"
+                 placeholder="Nombre de usuario o correo electrónico"
+                 class="player-input">
+          <button type="submit"
+                  [disabled]="!participantsForm.valid"
+                  class="btn-send">
+            Enviar
+          </button>
+        </div>
+      </form>
+
+      <!-- Invited Players List -->
+      <div class="invited-players" *ngIf="invitedPlayers.length > 0">
+        <h4>Jugadores invitados</h4>
+        <div class="players-list">
+          <div *ngFor="let player of invitedPlayers; let i = index" class="player-item">
+            <span>{{ player }}</span>
+            <button class="btn-remove" (click)="removePlayer(i)">
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Navigation Buttons -->
+        <div class="nav-buttons">
+          <button (click)="previousStep()" class="btn-prev">
+            Anterior
+          </button>
+          <button (click)="nextStep()" class="btn-next">
+            Siguiente
+          </button>
+        </div>     
+  </form>
+
+  <form [formGroup]="linksForm" *ngIf="currentStep === 4">
+    <div class="form-section">
+      <h3>Conectar</h3>
+      
+      <div class="links-container">
+        <div *ngFor="let platform of platforms" class="link-group">
+          <div class="input-group">
+            <input type="url"
+                   [formGroup]="linksForm"
+                   formControlName="linkInput"
+                   [placeholder]="platform.placeholder"
+                   class="link-input">
+            <button (click)="addLink(platform.name)"
+                    [disabled]="!linksForm.valid"
+                    class="btn-add">
+              Añadir
+            </button>
+          </div>
         </div>
 
-        <form id="create-event-form">
-            <div class="form-section">
-                <h3 class="section-title">Foto de Portada</h3>
-                <div class="upload-area">
-                    
-                    <input type="file" id="cover-photo" accept="image/*" style="display: none;">
-                    <button type="button" onclick="document.getElementById('cover-photo').click()" class="create-button" style="background: rgba(255,255,255,0.1)">Subir Foto</button>
-                </div>
-                <p class="upload-info">Sube una foto de 1280*720 px</p>
-            </div>
-
-            <div class="form-section">
-                <h3 class="section-title">Evento</h3>
-                <div class="form-grid">
-                    <select class="form-field">
-                        <option>Torneo</option>
-                        <option>Competencia</option>
-                        <option>Casual</option>
-                    </select>
-                    <input type="text" class="form-field" placeholder="Torneo de Domingo">
-                    <input type="date" class="form-field" value="2024-04-05">
-                    <input type="time" class="form-field" value="15:00">
-                    <select class="form-field">
-                        <option>UTC-05:00 - (Hora [GMT -5])</option>
-                    </select>
-                </div>
-
-                <div class="radio-group">
-                    <div class="radio-option">
-                        <input type="radio" name="eventType" id="presencial">
-                        <label for="presencial">Presencial</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" name="eventType" id="virtual" checked>
-                        <label for="virtual">Virtual</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h3 class="section-title">Juego</h3>
-                <div class="form-grid">
-                    <select class="form-field">
-                        <option>Valorant</option>
-                        <option>League of Legends</option>
-                        <option>CS:GO</option>
-                    </select>
-                    <select class="form-field">
-                        <option>PC</option>
-                        <option>PlayStation</option>
-                        <option>Xbox</option>
-                    </select>
-                </div>
-
-                <div class="radio-group">
-                    <div class="radio-option">
-                        <input type="radio" name="gameMode" id="individual">
-                        <label for="individual">Individual</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" name="gameMode" id="equipos" checked>
-                        <label for="equipos">Equipos</label>
-                    </div>
-                </div>
-
-                <div class="form-grid">
-                    <select class="form-field">
-                        <option>16</option>
-                        <option>32</option>
-                        <option>64</option>
-                    </select>
-                    <select class="form-field">
-                        <option>Número de suplentes</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </div>
-            </div>
-
-            <button class="create-button" [routerLink]="'/cre'">Anterior</button>
-            <button class="create-button primary" onclick="onNext()">Siguiente</button>
-        </form>
+        <!-- Added Links List -->
+        <div class="added-links" *ngIf="socialLinks.length > 0">
+          <div *ngFor="let link of socialLinks; let i = index" class="link-item">
+            <span>{{ link.platform }}: {{ link.url }}</span>
+            <button class="btn-remove" (click)="removeLink(i)">
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script>
-        document.getElementById('create-event-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Aquí iría la lógica para procesar el formulario
-            window.location.href = 'index.html';
-        });
-    </script>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button (click)="previousStep()" class="btn-prev">
+        Anterior
+      </button>
+      <button (click)="createEvent()" class="btn-create">
+        Crear evento
+      </button>
+    </div>
+  </form>
+
+  <div class="success-modal" *ngIf="showSuccessModal">
+    <div class="modal-content">
+      <h2>Tu evento ha sido creado</h2>
+      <button (click)="viewEvent()" class="btn-view">
+        Ver evento
+      </button>
+    </div>
+  </div>
+</div>
+  </div>
+  
 </body>
