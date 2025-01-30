@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EventService } from '../../services/events.service';
 
 interface SocialLink {
   platform: string;
@@ -10,12 +11,13 @@ interface SocialLink {
 @Component({
   selector: 'app-create-event',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
   currentStep = 0;
+  eventservice=inject(EventService)
   coverImage: string | null = null;
   eventForm: FormGroup;
   tournamentFormatForm: FormGroup;
@@ -25,6 +27,26 @@ export class CreateEventComponent implements OnInit {
   linksForm: FormGroup;
   socialLinks: SocialLink[] = [];
   showSuccessModal = false;
+  coverPhoto = null;
+  datafrominputs={
+    
+    name: '',
+    startDate: '',
+    startTime: '',
+    timezone: '',
+    location: '',
+    game: '',
+    platform: '',
+    gameMode: '',
+    teamSize: 0 ,
+    substitutes: 0 ,
+    format: '',
+    rules: '',
+    mustAcceptRules: false,
+    participant: '',
+    links: {} as { [key: string]: string }
+  }
+  participants: string []=[];
 
   steps = [
     'Descripción general',
@@ -87,6 +109,7 @@ export class CreateEventComponent implements OnInit {
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
+    this.coverPhoto= file
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
@@ -139,6 +162,34 @@ export class CreateEventComponent implements OnInit {
     // Aquí iría la lógica para crear el evento
     console.log('Evento creado con links:', this.socialLinks);
     this.showSuccessModal = true;
+    console.log (this.datafrominputs)
+    console.log (this.participants)
+    const formData = new FormData();
+      if (this.coverPhoto){
+        formData.append('coverPhoto', this.coverPhoto)
+      }
+      
+      formData.append('name', (this.datafrominputs.name))
+      formData.append('startDate', (this.datafrominputs.startDate))
+      formData.append('timezone', (this.datafrominputs.timezone))
+      formData.append('location', (this.datafrominputs.location))
+      formData.append('game', (this.datafrominputs.game))
+      formData.append('platform', (this.datafrominputs.platform))
+      formData.append('gameMode', (this.datafrominputs.gameMode))
+      formData.append('teamSize', JSON.stringify(Number(this.datafrominputs.teamSize)))
+      formData.append('substitutes', JSON.stringify(Number(this.datafrominputs.substitutes)))
+      formData.append('format', (this.datafrominputs.format))
+      formData.append('rules', (this.datafrominputs.rules))
+      formData.append('mustAcceptRules', JSON.stringify(this.datafrominputs.mustAcceptRules))
+      formData.append('participants', JSON.stringify(this.participants))
+      formData.append('links', JSON.stringify(this.datafrominputs.links))
+      formData.append('createdBy', '6761bb64d683cd858ecc9bf4' )
+      formData.append('teamId', '677dcc2270238dc5fcdb8bbb')
+      formData.append('participantsLimit',  JSON.stringify (10))
+
+      this.eventservice.createEvent(formData).subscribe((res: any) => {
+      console.log (res)
+      })
   }
 
   viewEvent() {
@@ -149,6 +200,26 @@ export class CreateEventComponent implements OnInit {
 
   closeModal() {
     this.showSuccessModal = false;
+  }
+
+  setlocation(location: string) {
+  this.datafrominputs.location=location;
+  }
+
+  setGameMode(gameMode: string) {
+    this.datafrominputs.gameMode=gameMode;
+  }
+  setFormat(format: string) {
+    this.datafrominputs.format=format;
+  } 
+  setAcceptrules(accept: boolean) {
+    this.datafrominputs.mustAcceptRules=accept;
+  } 
+  addParticipant(participant: string) {
+    this.participants.push(participant)
+  }
+  onchage(){
+    console.log(this.datafrominputs.name);
   }
 }
 
