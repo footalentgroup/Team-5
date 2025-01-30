@@ -1,11 +1,15 @@
 <main class="navColor">
 
-    <app-search></app-search>
-
+        <!-- Banner -->
+     <article class="banner">
+        <img class="img-banner" src="/assets/teams/destoks 1/danny-howe-bn-D2bCvpik-unsplash.jpg" alt="banner-img">
+        <div class="gradient"><span class="text-banner">¡Encuentra tu Clan! <br> Busca comunidades gamers y haz equipo.</span></div>
+ </article>
+ <!-- ----------------------------------- -->
     <article class="m-5">
 
         <!-- ----------------------------------- -->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-start">
             <ul class="d-inline p-0 mb-1">
                 <li class="d-inline-block text-center px-2 pt-3">
                     <a [routerLink]="'/comunidades'" class="btnComunidades navbar-nav text-decoration-none active" aria-current="page">
@@ -24,14 +28,10 @@
 
         <!-- -------------------------------- -->
         <article class="letra">
-            <h2>Comunidades</h2>
-            <p>Comunidades que podrían interesarte</p>
+            <h1>Mis comunidades creadas</h1>
         </article>
 
-        <div class="teams letra" #teams>
-            <!-- tarjeta de contenido de equipos individual  -->
-            <!-- Valorant Community -->
-    
+        <!-- <div class="teams letra" #teams>  
             <div class="card-play">
                 <div class="content-card">
                     <div class="cont-img">
@@ -61,7 +61,6 @@
                     </div>
                 </div>
             </div>
-            <!-- leagueoflegends -->
             <div class="card-play">
                 <div class="content-card">
                     <div class="cont-img">
@@ -82,9 +81,6 @@
                                     <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
                                     <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
                                     <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                                    <!-- <li><a href=""><i class="bi bi-award"></i>Dispositivo</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Género</a></li>
-                            <li><a href=""><i class="bi bi-award"></i>Premios</a></li> -->
                                 </ol>
                             </div>
                             <button class="button-Ver">Ver</button>
@@ -92,8 +88,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Gran Turismo - Community-->
             <div class="card-play">
                 <div class="content-card">
                     <div class="cont-img">
@@ -124,7 +118,6 @@
                 </div>
             </div>
 
-            <!-- Gran Turismo - Community-->
             <div class="card-play">
                 <div class="content-card">
                     <div class="cont-img">
@@ -158,7 +151,7 @@
         <!--  ---------------------------------------------------------------------------------------------------- -->
 
         <!-- apartado de Crear Comunidades -->
-        <div class="d-flex justify-content-center p-3">
+        <!-- <div class="d-flex justify-content-center p-3">
             <ul class="d-inline p-0 mb-1">
                 <li class="d-inline-block text-center px-2 pt-3">
                     <a routerLink="" class="btnComunidades navbar-nav text-decoration-none active">
@@ -173,11 +166,12 @@
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="letra">
-            <section >
-                <h2>Mis comunidades</h2>
-            </section>
+        </div> -->
+        <section class="card-text">
+            <div class="arrow">
+                <i class="bi bi-arrow-left"></i>
+                <i class="bi bi-arrow-right"></i>
+            </div>
             <article class="cont-myTeams">
                 <div class="create-button">
                     <button class="create-team" [routerLink]="'/crearComunidad'">Crear Comunidad<i
@@ -190,6 +184,7 @@
                                 alt="LeagueofLegends">
                         </div>
                         <h4 class="h4-Myteams">League Of Legends</h4>
+                        <span class="com">Comunidad Abierta</span>
                         <div class="icon-card crd">
                             <i class="bi bi-person-fill"></i>
                             <span class="number-card">18</span>
@@ -202,11 +197,11 @@
                                     <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
                                 </ol>
                             </div>
-                            <button class="button-Ver bnt-ver2">Ver</button>
+                            <button class="button-Ver bnt-ver2">Ver comunidad</button>
                         </div>
                     </div>
                 </div>
             </article>
-        </div>
+        </section>
     </article>
 </main>
