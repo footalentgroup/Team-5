@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  private apiUrl = 'https://ftg-team5.vercel.app/api/search';
+  private apiUrl = 'https://localhost:3000/api/search';
 
   constructor(private http: HttpClient) {}
 

@@ -8,47 +8,45 @@ body {
     place-content: center;
 }
 
-.container-verify-email {
-    width: 450px;
-    height: 440px;
-    padding: 32px;
+.verify-edit {
+    width: 713px;
+    height: 464px;
+
     border-radius: 10px;
     background-color: #292F4A;
     color: white;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
 }
 
-.container-verify-email h2 {
-    font-size: 32px;
+h2 {
     color: #F6A1FD;
 }
 
-.container-verify-email p {
-    font-size: 20px;
+p {
+    text-align: center;
+    font-size: large;
 }
 
-.btn {
+button {
     width: 231px;
     height: 47px;
+    font-size: 1rem;
+    color: #292F4A;
+    background-color: #94B1F9;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    margin-top: 30px;
-    background-color: #94B1F9;
-    color: #292F4A;
+    margin: 20px;
 }
 
 /* Estilos para móviles pequeños */
 @media (max-width: 480px) {
-    .container-verify-email {
-        width: 342px;
-        height: 402px;
+    .verify-edit {
+        width: 350px;
         text-align: center;
     }
 }

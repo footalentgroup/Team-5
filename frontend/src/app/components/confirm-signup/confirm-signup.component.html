@@ -1,0 +1,11 @@
+<body>
+    <div class="verify-edit">
+        <h2>¡Confirmación enviada!</h2>
+        <p>Hemos enviado un mail de confirmación a tu correo:
+            <br>
+            {{ userEmail }}
+        </p>
+        <img src="assets/login/avatar-login.jpg" alt="avatar de usuario">
+        <button (click)="redirectToEmailService()">Verificar mi correo</button>
+    </div>
+</body>
