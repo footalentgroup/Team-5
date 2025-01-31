@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
     // Verificar si se encuentra el token
     if (this.token) {
       console.log('Token encontrado:', this.token);  // Si el token está presente, se muestra en consola
-      alert('¡Autenticación exitosa!');  // Mensaje de éxito de autenticación
     } else {
       alert('No se recibió ningún token. Redirigiendo...');  // Si no se encuentra el token, se muestra un mensaje
       this.router.navigate(['/login']);  // Redirige a la página de login si no hay token
