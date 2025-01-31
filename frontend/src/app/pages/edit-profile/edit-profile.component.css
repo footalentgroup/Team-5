@@ -11,6 +11,7 @@ body {
 .edit-container {
     width: 870px;
     height: auto;
+    margin: 8.2rem;
 
     text-align: center;
     border-radius: 10px;

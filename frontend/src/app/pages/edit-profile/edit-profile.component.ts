@@ -35,12 +35,12 @@ export class EditProfileComponent implements OnInit {
   ) {
     // Inicializamos el formulario reactivo con las validaciones correspondientes.
     this.editProfileForm = this.fb.group({
-      name: ['', Validators.required], // Campo obligatorio para el nombre del usuario.
-      lastname: ['', Validators.required], // Campo obligatorio para el apellido.
-      username: ['', Validators.required], // Campo obligatorio para el nombre de usuario.
+      name: [''], // Campo obligatorio para el nombre del usuario.
+      lastname: [''], // Campo obligatorio para el apellido.
+      username: [''], // Campo obligatorio para el nombre de usuario.
       country: [''], // Campo opcional para el país.
-      dateBirth: ['', Validators.required], // Campo obligatorio para la fecha de nacimiento.
-      password: [''], // Campo opcional para la nueva contraseña.
+      dateBirth: [''], // Campo obligatorio para la fecha de nacimiento.
+      password: ['', Validators.minLength(8)], // Campo opcional para la nueva contraseña.
     });
   }
 
@@ -122,6 +122,7 @@ export class EditProfileComponent implements OnInit {
       this.authService.updateUserProfile(token, formData).subscribe({
         next: (response) => {
           // Si la actualización es exitosa, mostramos un mensaje de éxito.
+          alert('Perfil actualizado exitosamente.');
           this.successMessage = 'Perfil actualizado exitosamente.';
           this.errorMessage = null;
 
