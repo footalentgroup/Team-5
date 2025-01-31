@@ -11,7 +11,7 @@ body {
 .profile-container {
     width: 715px;
     height: 820px;
-    margin: 3rem;
+    margin: 2.8rem;
 
     border-radius: 10px;
     background-color: #292F4A;
@@ -111,6 +111,7 @@ button {
     .profile-container {
         width: 350px;
         padding: 20px 20px 0 20px;
+        margin: 5rem 0;
     }
 
     .info-profile {
@@ -143,7 +144,7 @@ button {
     }
 
     .trophies img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 }
