@@ -1,6 +1,7 @@
 main{
     width: 100%;
     height: 100%;
+    border:#292F4A solid;
 }
 
 .btnComunidades{
@@ -160,6 +161,7 @@ h2 {
     border:#515c85 solid 2px;
     border-radius: 8px;
     background-color: #292F4A;
+
 }
 
 
@@ -270,25 +272,37 @@ h2 {
     margin-top: 5%;
 }
 
-.If-two ol {
+.If-two {
     display: flex;
-    gap: 10px;
-    margin: 0;
-    margin-top: 1%;
+    height: 3vh;
+    flex-direction: row;
+}
+
+.If-two ol{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    height: 3vh;
+    border: solid yellow;
     padding: 0;
+    width: 50vw;
 }
 
 .If-two ol li{
-    width: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 3vh;
 }
 
 .ic{
-    margin-right: 7%;
+    margin: 0;
+    padding-right: 4%;
 }
 
 .bnt-ver2 {
     position: absolute;
-    margin-top: 6%;
+    margin-top: 5%;
     margin-left: 57%;
 }
 
@@ -301,25 +315,27 @@ h2{
 
 .content-card{
     display: flex;
+    width: 95%;
     flex-direction: row;
     border:#515c85 solid 2px;
     background-color:#292F4A;
     border-radius: 8px;
-    padding: 3%;
+    padding: 3% 6% 3% 3%;
     color: aliceblue;
   }
 
   .cont-img{
     width: 40%;
-    height: 15vh;
+    height: 16vh;
     overflow: hidden;
   }
 
   .content-card img{
     border-radius: 7px;
     width: 100%;
-    height: 15vh;
+    height: 16vh;
     object-fit: cover;
+    padding-right: 5%;
   }
 
   .text-card{
@@ -332,8 +348,6 @@ h2{
   }
 
   .two-cont{
-    width: 60%;
-    padding-left: 3%;
     position: relative;
   }
   
@@ -351,14 +365,12 @@ h2{
     font-size: 10px;
   }
 
-  /* .info-button{
-    margin-top: 1%;
-  } */
-
   .info-button ol{
     margin: 0;
     padding: 0;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
 
   .info-card ol li{
@@ -372,7 +384,6 @@ h2{
 
   .info-card ol li:hover{
     background-color:#515c85;
-
     border-radius: 3px;
     transition: 0.3s;
   }
@@ -380,7 +391,6 @@ h2{
   .info-button fa-icon{
     margin-right: 5px;
   }
-
 
   .info-card ol li a:hover{
     text-decoration: underline;
@@ -399,7 +409,7 @@ h2{
   .button-Ver{
     position: absolute;
     margin-top: 5%;
-    margin-left: 50%;
+    margin-left: 60%;
     background-color:#292F4A;
     border:#94B1F9 solid 1px;
     color: #94B1F9;
@@ -416,169 +426,18 @@ h2{
     width: 40%;
     padding: 0;
   }
+
+  .info-card{
+    position: relative;
+  }
+
+  .three{
+    width: 50%;
+  }
 /* responsive mobile max with 500px */
 
 @media (max-width: 500px) {
-    .main {
-        width: 100%;
-        height: 100%;
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
 
-    .banner {
-        height: 19vh;
-    }
+    
 
-    .img-banner {
-        display: none;
-    }
-
-    .gradient {
-        display: none;
-    }
-
-    .container-banner {
-        width: 100%;
-        margin-top: 15%;
-        background-color: #434d7b;
-        padding: 2%;
-        margin-bottom: 0;
-    }
-
-    .remove-tag {
-        display: none;
-    }
-
-    .filter-btn {
-        width: 40%;
-        background-color: #1f2439;
-        border: #94b1f9 solid 2px;
-        color: #94b1f9;
-        align-items: center;
-        text-align: center;
-    }
-
-    .icon-filter {
-        color: #94b1f9;
-        padding-right: 10%;
-    }
-
-
-    .icon-teams-community {
-        width: 100%;
-        margin-top: 3%;
-    }
-
-    .container-scrolls {
-        display: none;
-    }
-
-    h1 {
-        margin: 5% 0 5% 0;
-    }
-
-    .teams {
-        align-items: center;
-        display: flex;
-    }
-
-    .card-play {
-        width: 95%;
-        height: 15vh;
-    }
-
-    .two-cont {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin-top: 2%;
-    }
-
-    h3 {
-        margin-bottom: 5%;
-    }
-
-    h4 {
-        font-size: 15px;
-    }
-
-    .cont-img {
-        height: 11vh;
-        border-radius: 15px;
-    }
-
-    .icon-card {
-        position: absolute;
-        width: 20%;
-        gap: 10px;
-        margin-top: 20%;
-        align-items: center;
-    }
-
-    .number-card {
-        font-size: 14px;
-    }
-
-    .info-button {
-        gap: 20px;
-        justify-content: space-between;
-    }
-
-    .info-button ol {
-        flex-direction: column;
-        align-items: start;
-    }
-
-    .info-button ol li {
-        font-size: 12px;
-        text-align: center;
-    }
-
-    .button-Ver {
-        display: none;
-    }
-
-
-    h2 {
-        margin: 4% 0;
-        font-size: 22px;
-    }
-
-    .create-button {
-        width: 55%;
-        height: 200px;
-    }
-
-    .view-team {
-        width: 50%;
-        height: 200px;
-        border:  solid red;
-    }
-
-    .card-create {
-        width: 100%;
-        height: 100%;
-    }
-
-    .team-img {
-        height: 90px;
-    }
-
-    .crd {
-        margin-top: 71%;
-    }
-
-    .C-two {
-        margin-top: 15%;
-        height: 10%;
-        gap: 5px;
-        flex-direction: row;
-    }
-
-    .ic {
-        margin: 5% 0 0 0;
-        display: flex;
-        justify-content: center;
-    }
 }
