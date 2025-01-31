@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Navbar2Component } from '../navbar2/navbar2.component';
 
 /**
  * Componente para el inicio de sesión de los usuarios.
@@ -11,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true, // Se establece como un componente independiente
-  imports: [CommonModule, ReactiveFormsModule, RouterModule], // Se importan módulos comunes y de formularios reactivos
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, Navbar2Component], // Se importan módulos comunes y de formularios reactivos
   templateUrl: './login.component.html', // Plantilla HTML asociada al componente
   styleUrl: './login.component.css' // Estilos CSS asociados al componente
 })

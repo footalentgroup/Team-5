@@ -6,11 +6,12 @@ import { AuthService } from '../../services/auth.service'; // Servicio para la a
 import { CommonModule } from '@angular/common'; // Módulo común para componentes básicos
 import { CountryService } from '../../services/country.service'; // Servicio para obtener los países
 import { CloudinaryService } from '../../services/cloudinary.service'; // Servicio para manejar la carga de imágenes en Cloudinary
+import { Navbar2Component } from '../navbar2/navbar2.component';
 
 @Component({
   selector: 'app-signup', // Definición del selector para usar el componente en la vista
   standalone: true, // Indicamos que este componente es autónomo (no necesita otros módulos para funcionar)
-  imports: [CommonModule, ReactiveFormsModule, RouterLink], // Importación de módulos que este componente utiliza
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, Navbar2Component], // Importación de módulos que este componente utiliza
   templateUrl: './signup.component.html', // Archivo HTML asociado al componente
   styleUrls: ['./signup.component.css'] // Estilos CSS asociados al componente
 })
