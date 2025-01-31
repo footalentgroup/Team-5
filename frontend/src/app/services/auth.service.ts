@@ -13,8 +13,8 @@ import { BehaviorSubject, Observable, throwError, tap } from 'rxjs';
 })
 export class AuthService {
   // URL base para interactuar con la API de usuarios.
-  private apiUrl = 'http://localhost:3000/api/users'; 
-  
+  private apiUrl = 'http://localhost:3000/api/users';
+
   // BehaviorSubject para manejar el estado del usuario
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
@@ -52,7 +52,7 @@ export class AuthService {
       }),
       catchError(error => {
         let errorMessage = 'Error desconocido';
-        
+
         // Verifica si el backend devuelve un mensaje de error
         if (error.error && error.error.message) {
           errorMessage = error.error.message; // Extrae el mensaje de error
@@ -108,11 +108,11 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/verify-email?token=${token}`).pipe(
       catchError(error => {
         let errorMessage = 'Error desconocido';
-        
+
         // Si hay un error en la respuesta, se muestra el mensaje adecuado
         if (error.error && error.error.message) {
           errorMessage = error.error.message;
-        } 
+        }
         // Si el error es un problema de red o de conexión, manejarlo
         else if (error.status === 0) {
           errorMessage = 'No se puede conectar al servidor. Verifica tu conexión a Internet.';
@@ -161,7 +161,8 @@ export class AuthService {
 
     return this.http.put(`${this.apiUrl}/update`, updateData, { headers }).pipe(
       tap((updatedUser) => {
-        // Actualizar el BehaviorSubject con la información actualizada del usuario
+        // Actualiza el usuario en localStorage y en el BehaviorSubject
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
         this.currentUserSubject.next(updatedUser);
       }),
       catchError(error => {

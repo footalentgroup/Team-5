@@ -11,6 +11,7 @@ body {
 .verify-edit {
     width: 713px;
     height: 464px;
+    margin: 14rem;
 
     border-radius: 10px;
     background-color: #292F4A;

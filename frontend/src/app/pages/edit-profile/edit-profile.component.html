@@ -59,7 +59,7 @@
             <!-- Botón de Enviar -->
             <div class="form-submit">
                 <!-- El botón está deshabilitado cuando el formulario es inválido -->
-                <button type="submit" [disabled]="editProfileForm.invalid">Editar perfil</button>
+                <button type="submit" (click)="onSubmit()" [disabled]="editProfileForm.invalid" >Editar perfil</button>
             </div>
         </form>
 
