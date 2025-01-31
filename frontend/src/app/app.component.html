@@ -2,17 +2,17 @@
     <!-- Navegación principal -->
     <header>
         <nav>
-            <app-navbar></app-navbar>
+            <app-navbar *ngIf="verNavbar"></app-navbar>
         </nav>
     </header>
 
     <!-- Contenido principal -->
-    <main class="pb-5 navColor">
+    <main [ngClass]="{ 'mainContainer': padding }">
         <router-outlet></router-outlet>
     </main>
 
     <!-- Pie de página si es necesario -->
     <footer>
-        <app-footer></app-footer>
+        <app-footer *ngIf="verFooter"></app-footer>
     </footer>
 </body>
