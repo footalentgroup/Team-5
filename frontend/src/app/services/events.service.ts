@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EventService {
   constructor(private httpClient: HttpClient) { }
-  url: string = "http://localhost:3000/api/events/create"
+  url: string = "https://respawn-events-t5.vercel.app/api/events/create"
 
   createEvent(data: FormData){
     return this.httpClient.post(this.url, data)

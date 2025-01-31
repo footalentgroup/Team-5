@@ -70,7 +70,7 @@ export class LoginComponent {
    */
   onDiscordLogin() {
     // Redirige al usuario a la URL de autenticación de Discord
-    window.location.href = 'http://localhost:3000/api/auth/discord';
+    window.location.href = 'https://respawn-events-t5.vercel.app/api/auth/discord';
   }
 
   /**

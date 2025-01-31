@@ -13,7 +13,7 @@ import { BehaviorSubject, Observable, throwError, tap } from 'rxjs';
 })
 export class AuthService {
   // URL base para interactuar con la API de usuarios.
-  private apiUrl = 'http://localhost:3000/api/users';
+  private apiUrl = 'https://respawn-events-t5.vercel.app/api/users';
 
   // BehaviorSubject para manejar el estado del usuario
   private currentUserSubject: BehaviorSubject<any>;

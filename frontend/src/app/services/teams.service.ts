@@ -11,7 +11,7 @@ export class TeamsService {
 
   httpClient = inject(HttpClient);
 
-  API_URL = "http://localhost:6000/"
+  API_URL = "https://respawn-events-t5.vercel.app/"
 
   // Obtener equipos
   getTeams(){

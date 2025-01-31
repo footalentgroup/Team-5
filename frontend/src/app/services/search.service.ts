@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  private apiUrl = 'http://localhost:3000/api/search';
+  private apiUrl = 'https://respawn-events-t5.vercel.app/api/search';
 
   constructor(private http: HttpClient) {}
 

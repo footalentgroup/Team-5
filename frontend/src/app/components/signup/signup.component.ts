@@ -133,6 +133,6 @@ export class SignupComponent implements OnInit {
   // Método para manejar el inicio de sesión con Discord
   onDiscordLogin() {
     // Redirige a la URL de autenticación de Discord
-    window.location.href = 'http://localhost:3000/api/auth/discord';
+    window.location.href = 'https://respawn-events-t5.vercel.app/api/auth/discord';
   }
 }
