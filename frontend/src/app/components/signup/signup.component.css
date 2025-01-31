@@ -1,5 +1,6 @@
 /* Estilos generales */
 body {
+    height: 100vh;
     background: url('/assets/login/login-background.jpg') center / cover no-repeat fixed;
     display: flex;
     align-items: center;
@@ -10,7 +11,7 @@ body {
     width: 980px;
     height: auto;
     padding: 32px;
-    margin: 1rem;
+    margin-top: 4rem;
     background-color: #292F4A;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     color: white;
