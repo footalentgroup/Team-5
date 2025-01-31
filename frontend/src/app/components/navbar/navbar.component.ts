@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ComunidadesComponent } from '../../pages/comunidades/comunidades.component';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,9 +8,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [
     RouterLink, 
-    FontAwesomeModule, 
-    FontAwesomeModule, 
-    ComunidadesComponent, 
+    FontAwesomeModule,
     RouterLink
   ],
   templateUrl: './navbar.component.html',

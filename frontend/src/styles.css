@@ -6,12 +6,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     font-family: 'Roboto', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
@@ -96,4 +95,10 @@ body {
 .button-Ver:hover {
     color: var(--color-blanco);
     border: solid var(--color-blanco) 1px;
+}
+
+/* Footer */
+
+.footer {
+    border-top: 2px solid var(--letra-navbar);
 }

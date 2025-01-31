@@ -42,14 +42,17 @@ export class AuthService {
    */
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { username, password }).pipe(
-      tap((user) => {
-        // Guardar el usuario en localStorage y actualizar el BehaviorSubject
+      tap((response) => {
+        // Extraer el usuario de la respuesta
+        const user = response.user;
+        // Almacenar el usuario y el token en localStorage
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
+        localStorage.setItem('token', response.token); // Guardar el token por separado si es necesario
+        this.currentUserSubject.next(user); // Actualizar el BehaviorSubject
       }),
       catchError(error => {
         let errorMessage = 'Error desconocido';
-
+        
         // Verifica si el backend devuelve un mensaje de error
         if (error.error && error.error.message) {
           errorMessage = error.error.message; // Extrae el mensaje de error
