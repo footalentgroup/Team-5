@@ -87,56 +87,64 @@ export class EditProfileComponent implements OnInit {
 
   // Método que se ejecuta al enviar el formulario de actualización de perfil.
   async onSubmit(): Promise<void> {
-    // Validamos que el formulario sea válido antes de proceder.
+    // Validar que el formulario sea válido
     if (this.editProfileForm.invalid) {
-      // Si el formulario es inválido, mostramos un mensaje de error.
       this.errorMessage = 'Por favor, llena los campos obligatorios.';
       return;
     }
-
-    // Creamos un objeto FormData para enviar los datos del formulario, incluyendo el avatar.
+  
+    // Crear un objeto FormData para enviar los datos del formulario
     const formData = new FormData();
-    const token = localStorage.getItem('token'); // Recuperamos el token de autenticación del almacenamiento local.
-
+    const token = localStorage.getItem('token'); // Obtener el token del localStorage
+  
+    // Verificar si el token existe
     if (!token) {
-      // Si no se encuentra el token, mostramos un mensaje de error.
       this.errorMessage = 'No se encontró el token de autenticación.';
       return;
     }
-
+  
     try {
-      // Si el usuario ha seleccionado un avatar, lo subimos a Cloudinary.
+      // Si el usuario ha seleccionado un archivo de avatar, subirlo a Cloudinary
       if (this.avatarFile) {
-        const avatarUrl = await this.cloudinaryService.uploadAvatar(this.avatarFile); // Subimos la imagen y obtenemos la URL.
-        formData.append('avatar', avatarUrl); // Añadimos la URL del avatar al FormData.
+        const avatarUrl = await this.cloudinaryService.uploadAvatar(this.avatarFile);
+        formData.append('avatar', avatarUrl); // Agregar la URL del avatar al FormData
       }
-
-      // Agregamos el resto de los datos del formulario al FormData.
+  
+      // Agregar los datos del formulario al FormData
       Object.entries(this.editProfileForm.value).forEach(([key, value]) => {
         if (value) {
-          formData.append(key, value as string); // Solo agregamos los campos con valor.
+          formData.append(key, value as string); // Solo agregar campos con valor
         }
       });
-
-      // Llamamos al servicio de autenticación para actualizar el perfil del usuario en el backend.
+  
+      // Llamar al servicio para actualizar el perfil del usuario
       this.authService.updateUserProfile(token, formData).subscribe({
-        next: (response) => {
-          // Si la actualización es exitosa, mostramos un mensaje de éxito.
-          alert('Perfil actualizado exitosamente.');
-          this.successMessage = 'Perfil actualizado exitosamente.';
-          this.errorMessage = null;
-
-          // Después de 2 segundos, redirigimos al perfil del usuario.
-          setTimeout(() => this.router.navigate(['/user-profile']), 2000);
+        next: async (response) => {
+          // Recargar la información del usuario desde el backend
+          this.authService.getUserInfo(token).subscribe({
+            next: (user) => {
+              // Mostrar un mensaje de éxito si la actualización fue exitosa
+              this.successMessage = 'Perfil actualizado exitosamente.';
+              this.errorMessage = null;
+  
+              // Redirigir al perfil del usuario después de 2 segundos
+              setTimeout(() => this.router.navigate(['/user-profile']), 2000);
+            },
+            error: (err) => {
+              // Manejar errores al cargar los datos actualizados
+              this.errorMessage = 'Error al cargar los datos actualizados del usuario.';
+              console.error(err);
+            },
+          });
         },
         error: (error) => {
-          // Si ocurre un error al actualizar el perfil, mostramos un mensaje de error.
+          // Manejar errores al actualizar el perfil
           this.errorMessage = error.error?.message || 'Ocurrió un error al actualizar el perfil.';
           this.successMessage = null;
         },
       });
     } catch (error: any) {
-      // Si ocurre un error durante la subida del avatar, mostramos un mensaje de error.
+      // Manejar errores durante la subida del avatar
       this.errorMessage = error.message || 'Ocurrió un error al procesar el avatar.';
     }
   }
