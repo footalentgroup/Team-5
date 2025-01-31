@@ -118,7 +118,7 @@
 
 .event-list {
     display: flex;
-    animation: scroll-carousel 30s linear infinite;
+    animation: scroll-carousel 25s linear infinite;
 }
 
 @keyframes scroll-carousel {
@@ -127,7 +127,7 @@
     }
 
     100% {
-        transform: translateX(-200%);
+        transform: translateX(-150%);
     }
 }
 
@@ -342,6 +342,12 @@ li {
     align-items: center;
 }
 
+.accordion {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
 
 .accordion-header {
     border: none;
@@ -356,7 +362,7 @@ li {
 
 .accordion-body {
     color: #091038;
-    background-color: transparent !important;
+    background-color: transparent;
 }
 
 .accordion-button:not(.collapsed) {
