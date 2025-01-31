@@ -128,12 +128,14 @@ export class EditProfileComponent implements OnInit {
               this.errorMessage = null;
   
               // Redirigir al perfil del usuario después de 2 segundos
-              setTimeout(() => this.router.navigate(['/user-profile']), 2000);
+              setTimeout(() => this.router.navigate(['/verify-edit']), 2000);
             },
             error: (err) => {
               // Manejar errores al cargar los datos actualizados
               this.errorMessage = 'Error al cargar los datos actualizados del usuario.';
               console.error(err);
+
+              this.router.navigate(['/verify-edit']);
             },
           });
         },
