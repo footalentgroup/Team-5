@@ -27,9 +27,9 @@
         </div>
 
         <!-- -------------------------------- -->
-        <article class="letra">
+        <div class="letra">
             <h1>Mis comunidades creadas</h1>
-        </article>
+        </div>
 
         <!-- <div class="teams letra" #teams>  
             <div class="card-play">
@@ -190,16 +190,92 @@
                             <span class="number-card">18</span>
                         </div>
                         <div class="info-card C-two">
-                            <div class="info-button-2 If-two">
+                            <div class="info-button">
                                 <ol>
-                                    <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
-                                    <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
-                                    <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
+                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                                    <li><fa-icon  [icon]="faAward"></fa-icon>Género</li>
+                                    <li><fa-icon  [icon]="faAward"></fa-icon>Premios</li>
                                 </ol>
                             </div>
-                            <button class="button-Ver bnt-ver2" [routerLink] = "'/verComunidad'">Ver comunidad</button>
+                            <button class="button-Ver ver2" [routerLink] = "'/verComunidad'">Ver comunidad</button>
                         </div>
                     </div>
+                </div>
+            </article>
+
+            <!-- Comunidades suscritas -->
+            <div class="letra">
+                <h2>Comunidades suscritas</h2>
+            </div>
+
+            <div class="arrow arro2">
+                <i class="bi bi-arrow-left"></i>
+                <i class="bi bi-arrow-right"></i>
+            </div>
+            <article class="cont-myTeams cont-2">
+                <div class="view-team">
+                    <div class="card-create cc3">
+                        <div class="team-img">
+                            <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
+                                alt="LeagueofLegends">
+                        </div>
+                        <h4 class="h4-Myteams">League Of Legends</h4>
+                        <span class="com">Comunidad Abierta</span>
+                        <div class="icon-card crd">
+                            <i class="bi bi-person-fill"></i>
+                            <span class="number-card">18</span>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-button">
+                               <ol>
+                                 <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                                 <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                                 <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                               </ol> 
+                                </div> 
+                             <button class="button-Ver ver2" [routerLink] = "'/verComunidad'">Ver comunidad</button>
+                       </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- comunidades que podrian interesarte -->
+
+            <div class="letra">
+                <h2>Comunidades que podrían interesarte</h2>
+            </div>
+
+            <div class="arro3">
+                <i class="bi bi-arrow-left"></i>
+                <i class="bi bi-arrow-right"></i>
+            </div>
+            <article class="cont-myTeams cont-3">
+                <div class="view-team">
+                    <div class="content-card"> 
+                        <div class="cont-img">
+                          <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
+                        </div>
+                        <div class="two-cont">
+                          <div class="text-card">
+                            <h4>Titans</h4>
+                            <span class="com">Comunidad Abierta</span>
+                          </div>
+                          <div class="icon-card">
+                            <i class="bi bi-person-fill"></i>
+                              <span class="number-card">2</span>
+                          </div>
+                          <div class="info-card">
+                               <div class="info-button">
+                                  <ol>
+                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                                    <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                                    <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                                  </ol> 
+                                   </div> 
+                                   <button class="button-Ver ver2 three" [routerLink] = "'/verComunidad'">Ver comunidad</button>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </article>
         </section>
