@@ -67,7 +67,7 @@ img {
 /* Comunidades y eventos */
 .banner-events-communities {
     width: 100%;
-    height: 920px;
+    height: 720px;
     background-color: #353C60;
 
     display: flex;
@@ -95,7 +95,7 @@ img {
     height: auto;
     overflow: hidden;
     position: relative;
-    margin: 0 auto;
+    margin-bottom:1rem ;
     padding: 1rem;
 }
 
@@ -427,6 +427,7 @@ li {
     }
 
     .banner-events-communities {
+        height: 920px;
         padding: 20px;
         justify-content: center;
     }
