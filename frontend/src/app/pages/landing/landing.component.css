@@ -10,9 +10,13 @@
 }
 
 .icons {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    align-items: center;
+}
+
+.icon svg, img {
+    margin: 0 10px;
 }
 
 /* Servicios */
@@ -99,7 +103,6 @@
 }
 
 .section-header h4 {
-    font-weight: 600;
     color: #E8EEFE;
 }
 
@@ -244,6 +247,11 @@
     align-items: center;
 }
 
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
 .offer-card button,
 .offer-card-2 button {
     width: 264px;
@@ -383,9 +391,8 @@ li {
 /* Estilos para teléfonos pequeños */
 @media (max-width: 480px) {
     .banner-platform {
-        background-color: #FCA311;
+        flex-direction: column;
         font-size: small;
-        text-align: center;
         gap: 5px;
     }
 
@@ -397,7 +404,6 @@ li {
     .banner-services {
         padding: 20px;
         font-size: small;
-        background-color: #03071E;
     }
 
     .container-services {
@@ -409,13 +415,9 @@ li {
     .services {
         width: 182px;
         height: 150px;
-
+        padding: 20px 0;
         background-color: #09103A4D;
         border: none;
-    }
-
-    .services path {
-        fill: #06BEE1;
     }
 
     h3 {
@@ -423,103 +425,69 @@ li {
         font-weight: 400;
     }
 
-    .banner-services button {
-        background-color: #FCA311;
-    }
-
     .banner-offers {
-        background-color: #091038;
         padding: 20px 0;
     }
 
-    .offers-container {
-        padding: 10px;
-    }
-
     .offer-card {
-        width: 350px;
-        height: 320px;
-
-        border: none;
-        background-color: #03071E;
+        width:265px;
+        height: auto;
+        padding: 8px 15px;
+        background-color: #292F4A;
     }
 
-    .offer-card path {
-        fill: #06BEE1;
+    .offer-card svg {
+        width: 19px;
+        height: 19px;
     }
 
-    .offer-card-w {
-        width: 350px;
-        height: 320px;
-        background-color: #FCA311;
+    .offer-card h4, p {
+        text-align: center;
     }
 
-    .offer-card-w path {
-        fill: white;
+    .icons svg {
+        width: 19px;
+        height: 19px;
     }
 
-    .offer-card-res {
-        background-color: #122072;
+    .offer-card-2 {
+        width:265px;
+        height: auto;
+        background-color: #434D7B;
+    }
+
+    .offer-card-res{
+        background-color: #292F4A;
     }
 
     .offer-card button {
         width: 160px;
-        background-color: inherit;
-        border: solid 2px #FCA311;
-        color: #FCA311;
+        height: 32px;
     }
 
-    .offer-card-w button {
+    .offer-card-2 button {
         width: 160px;
-        background-color: #03071E;
-        border: none;
-        color: #FCA311;
+        height: 32px;
     }
 
     .banner-comments {
-        background-color: #03071E;
-        color: white;
         text-align: center;
     }
 
     .card-comment {
-        width: 250px;
+        width: 212px;
         height: auto;
-
-        background-color: #09103A4D;
-        color: white;
     }
 
     .card-comment img {
         width: 66px;
         height: 66px;
 
-        font-size: 10px;
-    }
-
-    .banner-comments button {
-        background-color: #FCA311;
+        font-size: small;
     }
 
     .banner-qa {
-        background-color: #091038;
-        color: white;
         padding: 20px;
-    }
-
-    .accordion-button,
-    .accordion-body {
-        color: white;
-        background-color: #03071E;
-    }
-
-    .accordion-button:focus {
-        box-shadow: none;
-    }
-
-    .accordion-collapse {
-        background-color: #03071E;
-        border: none;
     }
 }
 
