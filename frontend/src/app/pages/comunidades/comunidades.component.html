@@ -8,7 +8,7 @@
     </div>
     <!-- ----------------------------------- -->
 
-    <section class="m-5">
+    <section class="m-5 letra">
         <!-- ----------------------------------- -->
         <div class="d-flex justify-content-start">
             <ul class="d-inline p-0 mb-1">
@@ -29,36 +29,50 @@
             </ul>
         </div>
         <!-- -------------------------------- -->
-        <h1 class="title">Mis comunidades creadas</h1>
-        <article class="cont-myTeams community-subscribed">
-            <div class="create-button">
-                <button class="create-team" [routerLink]="'/crearComunidad'">+ Crear Comunidad<i
-                        class="bi bi-plus"></i></button>
-            </div>
-            <!-- <div class="view-team">
-                <div class="card-create">
-                    <div class="team-img">
-                        <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
-                            alt="LeagueofLegends">
-                    </div>
-                    <h4 class="h4-Myteams">League Of Legends</h4>
-                    <div class="icon-card crd">
-                        <i class="bi bi-person-fill"></i>
-                        <span class="number-card">18</span>
-                    </div>
-                    <div class="info-card C-two">
-                        <div class="info-button-2 If-two">
-                            <ol>
-                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
-                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
-                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
-                            </ol>
-                        </div>
-                        <button class="button-Ver bnt-ver2">Ver</button>
+            <h2 class="title">Mis comunidades creadas</h2>
+        <section class="d-flex">
+            <!-- ---------------- Crear Comunidad ------------------- -->
+            <div class="me-4">
+                <div>
+                    <div
+                        class="card-community card-content d-flex justify-content-center align-items-center">
+                        <button class="rounded-pill border-0 py-2 px-3 btn-crear-comunidad"
+                            [routerLink]="'/crearComunidad'">
+                            <span class="letra-comunidades">Crear Comunidad <fa-icon [icon]="faPlus"></fa-icon></span>
+                        </button>
                     </div>
                 </div>
-            </div> -->
-        </article>
+            </div>
+            <!-- ---------------- Comunidades Creadas por mi ------------------- -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card card-community cardColor letra">
+                        <img src="\assets\dashboard\9f22093c8e027cf7e615bbb073cd13f2.jpg" class="ver-comunidad-img" alt="...">
+                        <div class="card-body ps-3 py-0">
+                            <div class="pb-1">
+                                <h5>Nombre de la comunidad</h5>
+                                <span class="letra-comunidades">Estado.</span>
+                            </div>
+                            <div class="letra-comunidades pb-1">
+                                <fa-icon [icon]="faUser" class="pe-1"></fa-icon>
+                                <span>Número de personas inscritas</span>
+                            </div>
+                            <div class="letra-comunidades pb-1">
+                                <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
+                                <span class="pe-2">Dispositivo</span>
+                                <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
+                                <span class="pe-2">Género</span>
+                                <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
+                                <span class="pe-2">Premiación</span>
+                                <div class="d-flex justify-content-end align-items-end letra-comunidades pt-2">
+                                    <a href="#" class="btn-ver-comunidad rounded-pill text-decoration-none py-1 px-2">Ver comunidad</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 <!-- Mis comunidades suscritas  -->
     <h2 class="title">Mis comunidades suscritas</h2>
         <article class="community-subscribed">  

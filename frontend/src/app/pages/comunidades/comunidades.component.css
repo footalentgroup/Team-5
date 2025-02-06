@@ -3,7 +3,6 @@
 
 *{
     font-family: "Roboto", serif;
-    color: #E8EEFE;
 }
 
 /* estilos, fuentes, colores, etc */
@@ -28,40 +27,40 @@
 
 /* ----------------- */
 
-/* Banner */
+/*-- Banner --*/
 
-.banner{
-    height: 170px;
-    display: flex;
-    justify-content: center; 
-    position: relative;
+.banner {
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
-.text-banner{
-    color: #e8eefe;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight:bold;
-}
-
-.img-banner{
+.img-banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.gradient{
-   position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(148,177,249);
-    background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%,
-     rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(148, 177, 249);
+  background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%,
+      rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
+}
+
+.text-banner {
+  color: #e8eefe;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
 }
 
 .container-banner{
@@ -71,6 +70,79 @@
     text-align: center;
     margin-top: 4%;
     width: 40%;
+}
+
+/*-- Article --*/
+
+.m-5 {
+  padding: 0 10%;
+  height: 100%;
+  padding-bottom: 5%;
+}
+
+/*-- Navbar comunidades equipos --*/
+
+.btnComunidades {
+  font-size: small;
+}
+
+/*-- Mis comunidades creadas --*/
+
+.letra-comunidades{
+  font-size: small;
+}
+
+/* -- Crear comunidad -- */
+
+.card-community {
+  width: 329px;
+  height: 281px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card-content {
+  background-color: var(--crear-fondo) !important;
+  width: 329px;
+  height: 281px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: 2px dashed var(--letra-navbar);
+}
+
+.btn-crear-comunidad {
+  background-color: var(--letra-navbar);
+  color: var(--navbar-color);
+}
+
+.btn-crear-comunidad:hover {
+  background-color: var(--color-blanco);
+}
+
+/* -- Creadas por mi -- */
+
+.cardColor {
+  background-color: var(--color-card);
+}
+
+.ver-comunidad-img {
+  border-radius: 8px;
+  height: 100px;
+  width: 304px;
+  margin: 12px;
+  object-fit: cover;
+}
+
+.btn-ver-comunidad {
+  background-color: var(--navbar-color);
+  color: var(--letra-navbar);
+  border: 1px solid var(--letra-navbar);
+}
+
+.btn-ver-comunidad:hover {
+  color: var(--color-blanco);
+  border: 1px solid var(--color-blanco);
 }
 
   .equipos{
