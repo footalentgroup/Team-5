@@ -5,7 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
-import { faBars, faAward } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faAward, faArrowRight, faArrowLeft, faUser  } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -26,5 +26,8 @@ export class ComunidadesComponent {
   faAddressCard = faAddressCard
   faBars = faBars
   faAward = faAward
+  faArrowRight = faArrowRight 
+  faArrowLeft  =faArrowLeft  
+  faUser = faUser
 }
 
