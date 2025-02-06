@@ -98,9 +98,3 @@ body {
     color: var(--color-blanco);
     border: solid var(--color-blanco) 1px;
 }
-
-/* Footer */
-
-.footer {
-    border-top: 2px solid var(--letra-navbar);
-}

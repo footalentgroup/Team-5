@@ -1,14 +1,14 @@
 <main class="navColor">
 
     <!-- Banner -->
-    <article class="banner">
+    <div class="banner">
         <img class="img-banner" src="/assets/teams/destoks 1/danny-howe-bn-D2bCvpik-unsplash.jpg" alt="banner-img">
         <div class="gradient"><span class="text-banner">¡Encuentra tu Clan! <br> Busca comunidades gamers y haz
                 equipo.</span></div>
-    </article>
+    </div>
     <!-- ----------------------------------- -->
-    <article class="m-5">
 
+    <section class="m-5 letra">
         <!-- ----------------------------------- -->
         <div class="d-flex justify-content-start">
             <ul class="d-inline p-0 mb-1">
@@ -28,17 +28,13 @@
                 </li>
             </ul>
         </div>
-
         <!-- -------------------------------- -->
-        <div class="letra">
-            <h1>Mis comunidades creadas</h1>
-        </div>
+        <h2 class="title">Mis comunidades creadas</h2>
         <section class="d-flex">
             <!-- ---------------- Crear Comunidad ------------------- -->
             <div class="me-4">
                 <div>
-                    <div
-                        class="card-community card-content d-flex justify-content-center align-items-center">
+                    <div class="card-community card-content d-flex justify-content-center align-items-center">
                         <button class="rounded-pill border-0 py-2 px-3 btn-crear-comunidad"
                             [routerLink]="'/crearComunidad'">
                             <span class="letra-comunidades">Crear Comunidad <fa-icon [icon]="faPlus"></fa-icon></span>
@@ -50,7 +46,8 @@
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
                     <div class="card card-community cardColor letra">
-                        <img src="\assets\dashboard\9f22093c8e027cf7e615bbb073cd13f2.jpg" class="ver-comunidad-img" alt="...">
+                        <img src="\assets\dashboard\9f22093c8e027cf7e615bbb073cd13f2.jpg" class="ver-comunidad-img"
+                            alt="...">
                         <div class="card-body ps-3 py-0">
                             <div class="pb-1">
                                 <h5>Nombre de la comunidad</h5>
@@ -68,7 +65,9 @@
                                 <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
                                 <span class="pe-2">Premiación</span>
                                 <div class="d-flex justify-content-end align-items-end letra-comunidades pt-2">
-                                    <a href="#" class="btn-ver-comunidad rounded-pill text-decoration-none py-1 px-2">Ver comunidad</a>
+                                    <a href="#"
+                                        class="btn-ver-comunidad rounded-pill text-decoration-none py-1 px-2">Ver
+                                        comunidad</a>
                                 </div>
                             </div>
                         </div>
@@ -76,5 +75,137 @@
                 </div>
             </div>
         </section>
-    </article>
+        <!-- Mis comunidades suscritas  -->
+        <h2 class="title">Mis comunidades suscritas</h2>
+        <article class="community-subscribed">
+            <div class="btns-scroll">
+                <fa-icon class="ic" [icon]="faArrowLeft"></fa-icon>
+                <fa-icon class="ic" [icon]="faArrowRight"></fa-icon>
+            </div>
+            <div class="view-team">
+                <div class="card-create">
+                    <div class="team-img">
+                        <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
+                            alt="LeagueofLegends">
+                    </div>
+                    <h4 class="h4-Myteams">League Of Legends</h4>
+                    <p class="p-comm">Comunidad Abierta</p>
+                    <div class="icon-card crd">
+                        <fa-icon class="ic" [icon]="faUser"></fa-icon>
+                        <span class="number-card">18</span>
+                    </div>
+                    <div class="info-card">
+                        <div class="If-two">
+                            <ol>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
+                            </ol>
+                        </div>
+                        <button class="bnt-ver2">Ver comunidad</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Comunidades que podrían interesarte -->
+        <h2 class="title">Comunidades que podrían interesarte</h2>
+        <article class="community-subscribed">
+            <div class="btns-scroll">
+                <fa-icon class="ic" [icon]="faArrowLeft"></fa-icon>
+                <fa-icon class="ic" [icon]="faArrowRight"></fa-icon>
+            </div>
+            <div class="view-community view-team">
+                <div class="create">
+                    <div class="community-img">
+                        <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37 copy.jpg"
+                            alt="LeagueofLegends">
+                    </div>
+                    <div class="info-column">
+                        <h4 class="h4-MyCommunity">League Of Legends</h4>
+                        <p class="p-comm">Comunidad Abierta</p>
+                        <div class="icon-card crd">
+                            <fa-icon class="ic" [icon]="faUser"></fa-icon>
+                            <span class="number-card">18</span>
+                        </div>
+                        <div class="info-card">
+                            <div class="If-two">
+                                <ol>
+                                    <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
+                                    <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
+                                    <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
+                                </ol>
+                            </div>
+                            <button class="bnt-ver2 community-btn">Ver comunidad</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Ultimas comunidades -->
+        <h2 class="title">Ultimas comunidades</h2>
+        <article class="community-subscribed CsTwo">
+            <!-- --------------------------------------------------------------- -->
+            <div class="view-community view-team vTtw0">
+                <div class="create CrtTwo">
+                    <div class="community-img imgTwo">
+                        <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37 copy.jpg"
+                            alt="LeagueofLegends">
+                    </div>
+                    <div class="marginTwo">
+                        <h4 class="h4-MyCommunity">League Of Legends</h4>
+                        <p class="p-comm">Comunidad Abierta</p>
+                        <div class="icon-card crd">
+                            <fa-icon class="ic" [icon]="faUser"></fa-icon>
+                            <span class="number-card">18</span>
+                        </div>
+                    </div>
+                    <div class="info-column IfColTwo">
+                        <!-- <div class="info-card"> -->
+                        <div class="If-two listTwo">
+                            <ol>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
+                            </ol>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <button class="bnt-ver2 community-btn Vctwo">Ver comunidad</button>
+            </div>
+            <!-- --------------------------- -->
+            <div class="view-community view-team vTtw0">
+                <div class="create CrtTwo">
+                    <div class="community-img imgTwo">
+                        <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37 copy.jpg"
+                            alt="LeagueofLegends">
+                    </div>
+                    <div class="marginTwo">
+                        <h4 class="h4-MyCommunity">League Of Legends</h4>
+                        <p class="p-comm">Comunidad Abierta</p>
+                        <div class="icon-card crd">
+                            <fa-icon class="ic" [icon]="faUser"></fa-icon>
+                            <span class="number-card">18</span>
+                        </div>
+                    </div>
+                    <div class="info-column IfColTwo">
+                        <!-- <div class="info-card"> -->
+                        <div class="If-two listTwo">
+                            <ol>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
+                                <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
+                            </ol>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <button class="bnt-ver2 community-btn Vctwo">Ver comunidad</button>
+            </div>
+        </article>
+
+    </section>
+    <!-- Comunidades -->
 </main>

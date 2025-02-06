@@ -1,3 +1,32 @@
+/* Importación fuente google font "Roboto" */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: "Roboto", serif;
+}
+
+/* estilos, fuentes, colores, etc */
+
+:root {
+  /* Tipografía */
+  --font-roboto: "Roboto", serif;
+
+  /* Paleta de colores */
+  --background: #292F4A;
+  --button-o: #434D7B;
+  --button-2: #292F4A;
+  --font-button: #94B1F9;
+  --icon-claro: #E8EEFE;
+  --background-card: #434D7B;
+  --card-oscuro: #1F2439;
+
+  /* hoover */
+  --perm-font-btn: #F6A1FD;
+  --hover-font: #E8EEFE;
+}
+
+/* ----------------- */
+
 /*-- Banner --*/
 
 .banner {
@@ -34,6 +63,15 @@
   font-weight: bold;
 }
 
+.container-banner{
+    position: absolute;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 4%;
+    width: 40%;
+}
+
 /*-- Article --*/
 
 .m-5 {
@@ -61,6 +99,180 @@
   height: 281px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.card-content {
+  background-color: var(--crear-fondo) !important;
+  width: 329px;
+  height: 281px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: 2px dashed var(--letra-navbar);
+}
+
+.btn-crear-comunidad {
+  background-color: var(--letra-navbar);
+  color: var(--navbar-color);
+}
+
+.btn-crear-comunidad:hover {
+  background-color: var(--color-blanco);
+}
+
+/* -- Creadas por mi -- */
+
+.cardColor {
+  background-color: var(--color-card);
+}
+
+.ver-comunidad-img {
+  border-radius: 8px;
+  height: 100px;
+  width: 304px;
+  margin: 12px;
+  object-fit: cover;
+}
+
+.btn-ver-comunidad {
+  background-color: var(--navbar-color);
+  color: var(--letra-navbar);
+  border: 1px solid var(--letra-navbar);
+}
+
+.btn-ver-comunidad:hover {
+  color: var(--color-blanco);
+  border: 1px solid var(--color-blanco);
+}
+
+  .equipos{
+    border-bottom: solid #94B1F9;
+  }
+  
+  .text-icon{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .btn-pass{
+    object-fit: cover;
+    width: 50%;
+    position: relative;
+  }
+
+  .btn-pass.active{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 26%;
+    width: 48%;
+    height: 2px;
+    background: linear-gradient(to right, #94B1F9, #d5e1ff, #94B1F9);
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .btn-pass::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 26%;
+    width: 48%;
+    height: 2px;
+    background: linear-gradient(to right, #94B1F9, #d5e1ff, #94B1F9);
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+}
+  
+.btn-pass:hover::before {
+    transform: scaleX(2);
+    transform-origin: center;
+}
+
+.btn-pass:hover{
+    transition: 0.3s ease-in-out;
+}
+
+/* Incio de section de contenedores y tarjetas */
+
+.btnComunidades{
+  font-size: small;
+}
+
+.m-5{
+  padding: 0 10%;
+  height: 100%;
+}
+
+  /* ---------- Mis comunidades Suscritas-------- */
+
+.create-button{
+  width: 19vw;
+  height: 32vh;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #1F2439;
+  border-radius: 10px;
+  border: 1px dashed #94B1F9;
+}
+
+.create-team{
+  background-color: #94B1F9;
+  border: none;
+  border-radius: 20px;
+  color: #1F2439;
+  padding: 1% 1%;
+  font-size: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.create-team i{
+  color: #1F2439;
+  font-weight: bold;
+}
+
+/*-- Article --*/
+
+.m-5 {
+  padding: 0 10%;
+  height: 100%;
+  padding-bottom: 5%;
+}
+
+/*-- Navbar comunidades equipos --*/
+
+.btnComunidades {
+  font-size: small;
+}
+
+.card-create{
+  width: 19vw;
+  height: 32vh;
+  display: flex;
+  padding: 4%;
+  flex-direction: column;
+  background-color:#292F4A;
+  border-radius: 10px;
+  border:#94b0f9a4 solid 1px;
+  position: relative;
+} 
+
+.team-img{
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .card-content {
@@ -102,7 +314,257 @@
   border: 1px solid var(--letra-navbar);
 }
 
-.btn-ver-comunidad:hover {
-  color: var(--color-blanco);
-  border: 1px solid var(--color-blanco);
+.If-two ol{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0;
+  margin-top: 1%;
+  padding: 0;
+}
+
+.If-two ol li{
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.view-team{
+  margin: 0 6%;
+}
+
+.community-subscribed{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+  /* Botones de scrolear derecha e izquierda en equipos */
+
+  .btns-scroll{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+  }
+
+  .btns-scroll fa-icon{
+    font-size: 15px;
+    background-color: #515c85;
+    cursor: pointer;
+    text-align: center;
+    color: #E8EEFE;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: none;
+  }
+
+  /* ----------------- */
+
+  .icon-com{
+    color: #E8EEFE;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+  }
+
+  .icon-styles{
+    font-size: 15px;
+    margin-top: 3%;
+  }
+
+  .icon-styles:hover{
+    color:#94B1F9;
+  }
+
+  .title{
+    font-size: 20PX;
+    margin: 3% 0;
+  }
+
+  h3{
+    font-size: 18px;
+    margin-top: 1%;
+  }
+
+  /* contenedor teams  */
+
+  .teams{
+    gap: 20px;
+    display: flex;
+    /* flex-wrap: nowrap; */
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .teams::-webkit-scrollbar {
+    display: none;
+}  
+
+  .p-comm{
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  h4{
+    font-size: 13px;
+  }
+
+  .icon-card {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 0;
+  }
+
+  .number-card{
+    font-size: 10px;
+  }
+
+  .info-button{
+    margin-top: 3%;
+  }
+
+  .info-button ol{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .info-card ol li{
+    list-style: none;
+    padding: 0;
+    align-items: center;
+    overflow: hidden;
+    font-size: 11px;
+    margin-right: 2px;
+    padding: 2px 3px;
+    transition: all 0.4s;
+  }
+
+  .info-card ol li:hover{
+    background-color:#515c85;
+    border-radius: 3px;
+    transition: 0.3s;
+    padding: 2px 3px;
+    text-decoration: underline;
+  }
+
+  .info-button fa-icon{
+    margin-right: 5px;
+  }
+
+  .info-card ol{
+    display: flex;
+    gap: 10px;
+  }
+
+  .bnt-ver2{
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 60%;
+    background-color:#292F4A;
+    border:#94B1F9 solid 1px;
+    color: #94B1F9;
+    border-radius: 20px;
+    padding: 4px 15px;
+    font-size: 9px;
+  }
+
+  .bnt-ver2:hover{
+    color: #E8EEFE;
+    border: #E8EEFE solid 1px;
+    transition: all 0.3s;
+  } 
+
+/* Comunidades que podrian interesarte */
+
+.view-community{
+  width: 30vw;
+  height: 20vh;
+  display: flex;
+  border-radius: 10px;
+  border:#94b0f9a4 solid 1px;
+  padding: 1%;
+  position: relative;
+}
+
+.community-btn{
+  position: absolute;
+  margin: 3% 0 4% 28%;
+  
+}
+
+.community-img{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-radius: 5px; 
+}
+
+.community-img img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.create{
+  display: flex;
+}
+
+.info-column{
+  display: flex;
+  flex-direction: column;
+  margin-left:  4%;
+}
+
+/* Ultimas Comunidades */
+
+.CsTwo{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgTwo{
+  width: 15%;
+  margin: 0;
+}
+
+.vTtw0{
+  margin: 0;
+  width: 100%;
+  border: none;
+  background-color:#434d7b8f;
+  margin-bottom: 3%;
+  height: 15vh;
+}
+
+.listTwo{
+  position: absolute;
+  margin-left: 48%;
+  font-size: 12px;
+
+}
+
+.Vctwo{
+ margin-left: 89%;
+ margin-top: 5%;
+}
+
+.marginTwo{
+  margin-left: 1%;
+}
+
+/* responsive mobile max with 500px */
+
+@media (max-width: 500px) {
+
 }
