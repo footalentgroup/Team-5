@@ -1,13 +1,13 @@
- <main>
+<main>
 
   <app-search></app-search>
-    <!-- Banner -->
-     <!-- <article class="banner">
+  <!-- Banner -->
+  <!-- <article class="banner">
         <img class="img-banner" src="/assets/teams/destoks 1/danny-howe-bn-D2bCvpik-unsplash.jpg" alt="banner-img">
         <div class="gradient"></div> -->
-    <!-- Barra de búsqueda -->
+  <!-- Barra de búsqueda -->
 
-     <!-- <div class="container-banner">
+  <!-- <div class="container-banner">
     <div class="search-bar">
       <input 
         type="text" 
@@ -21,19 +21,19 @@
     </div>
   
     <!--Aqui van los Filtros -->
-    
-    <!-- <div class="filters"> -->
 
-      <!-- Botón Filtro -->
-      <!-- <button type="button" class="filter-btn"> -->
-        <!-- <i class="bi bi-list icon-filter"></i> -->
-        <!-- <fa-icon class="icon-filter" [icon]="faBars"></fa-icon>
+  <!-- <div class="filters"> -->
+
+  <!-- Botón Filtro -->
+  <!-- <button type="button" class="filter-btn"> -->
+  <!-- <i class="bi bi-list icon-filter"></i> -->
+  <!-- <fa-icon class="icon-filter" [icon]="faBars"></fa-icon>
          Filtrar búsqueda
       </button> -->
-  
-      <!-- Etiquetas de filtro -->
 
-      <!-- <div class="filter-tags">
+  <!-- Etiquetas de filtro -->
+
+  <!-- <div class="filter-tags">
         <div class="filter-tag">
           <button type="button" aria-label="Eliminar filtro Torneo" class="remove-tag">
             Torneo<i class="bi bi-x-lg"></i> 
@@ -51,139 +51,51 @@
         </div>
       </div>
     </div> 
-  </div> --> 
-    <!-- </article> -->
-    <!-- Teams -->
-     <article class="article-teams">
-    
-      <!-- ----------------------------------- -->
-        <div class="icon-teams-community">
-             <!-- Botón Comunidades -->
-             <div type="button" class="btn-pass" [routerLink] = "'/comunidades'">
-              <div class="icon-com">
-                <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
-              </div>
-              <div class="text-icon">Comunidades</div>
-             </div>
-             <!-- Botón Equipos -->
-             <div type="button" class="btn-pass">
-              <span class="icon-com">
-                <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
-              </span>
-              <span class="text-icon">Equipos</span>
-             </div>
+  </div> -->
+  <!-- </article> -->
+  <!-- Teams -->
+  <article class="article-teams">
+
+    <!-- ----------------------------------- -->
+    <div class="icon-teams-community">
+      <!-- Botón Comunidades -->
+      <div type="button" class="btn-pass" [routerLink]="'/comunidades'">
+        <div class="icon-com">
+          <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
         </div>
-
-        <!-- Botones de scrolear derecha e izquierda equipos -->
-
-        <div class="container-scrolls">
-          <div class="btns-scroll">
-            <i class="bi bi-arrow-left l1" (click)= "scrollLeft()"></i>
-            <i class="bi bi-arrow-right l1" (click)= "scrollRigh()"></i>
-          </div>
-        </div>
-
-        <!-- -------------------------------- -->
-      <h1>Equipos</h1>
-      <h3>Equipos que podrían interesarte</h3> 
-  
-      <div class="teams" #teams>
-        <!-- tarjeta de contenido de equipos individual  -->
-            <!-- Para probar tamaños y distancias de las tarjetas de equipos -->
-          <div class="card-play">
-            <div class="content-card"> 
-              <div class="cont-img">
-                <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
-              </div>
-              <div class="two-cont">
-                <div class="text-card">
-                  <h4>Titans</h4>
-                </div>
-                <div class="icon-card">
-                  <i class="bi bi-person-fill"></i>
-                    <span class="number-card">2</span>
-                </div>
-                <div class="info-card">
-                     <div class="info-button">
-                        <ol>
-                          <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                          <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                          <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                        </ol> 
-                         </div> 
-                      <button class="button-Ver" [routerLink] = "'/teams-two'">Ver</button>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <!-- Gran Turismo - Community -->
-            <div class="card-play">
-              <div class="content-card"> 
-                <div class="cont-img">
-                  <img src="/assets/teams/destoks 1/3aa166e6c763fa302d9fe4d0ef63ca47990dd0b9.webp" alt="Gran-turismo">
-                </div>
-
-                <div class="two-cont">
-
-                  <div class="text-card">
-                    <h4>Gran Turismo</h4>
-                  </div>
-                  <div class="icon-card">
-                    <i class="bi bi-person-fill"></i>
-                      <span class="number-card">2536</span>
-                  </div>
-                  <div class="info-card">
-                       <div class="info-button">
-                          <ol>
-                            <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                          <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                          <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                          </ol> 
-                           </div> 
-                        <button class="button-Ver">Ver</button>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          
-        <!-- Shadow legions -->
-
-        <div class="card-play">
-          <div class="content-card"> 
-            <div class="cont-img">
-              <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37.jpg" alt="Gran-turismo">
-            </div>
-
-            <div class="two-cont">
-
-              <div class="text-card">
-                <h4>Shadow legions</h4>
-              </div>
-              <div class="icon-card">
-                <i class="bi bi-person-fill"></i>
-                  <span class="number-card">12</span>
-              </div>
-              <div class="info-card">
-                   <div class="info-button">
-                      <ol>
-                        <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                        <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                        <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                      </ol> 
-                       </div> 
-                    <button class="button-Ver">Ver</button>
-              </div>
-            </div>
-          </div>
+        <div class="text-icon">Comunidades</div>
       </div>
+      <!-- Botón Equipos -->
+      <div type="button" class="btn-pass">
+        <span class="icon-com">
+          <fa-icon class="icon-styles" [icon]="faPeopleGroup"></fa-icon>
+        </span>
+        <span class="text-icon">Equipos</span>
+      </div>
+    </div>
 
-      <!-- Titans  -->
+    <!-- Botones de scrolear derecha e izquierda equipos -->
+
+    <div class="container-scrolls">
+      <div class="btns-scroll">
+        <i class="bi bi-arrow-left l1" (click)="scrollLeft()"></i>
+        <i class="bi bi-arrow-right l1" (click)="scrollRigh()"></i>
+      </div>
+    </div>
+
+    <!-- -------------------------------- -->
+    <h1>Equipos</h1>
+    <h3>Equipos que podrían interesarte</h3>
+
+    <div class="teams" #teams>
+      <!-- tarjeta de contenido de equipos individual  -->
+      <!-- Para probar tamaños y distancias de las tarjetas de equipos -->
       <div class="card-play">
-        <div class="content-card"> 
+        <div class="content-card">
           <div class="cont-img">
-            <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
+            <img
+              src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
+              alt="Gran-turismo">
           </div>
           <div class="two-cont">
             <div class="text-card">
@@ -191,71 +103,165 @@
             </div>
             <div class="icon-card">
               <i class="bi bi-person-fill"></i>
-                <span class="number-card">2</span>
+              <span class="number-card">2</span>
             </div>
             <div class="info-card">
-                 <div class="info-button">
-                    <ol>
-                      <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                      <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                      <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                    </ol> 
-                     </div> 
-                  <button class="button-Ver">Ver</button>
+              <div class="info-button">
+                <ol>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                </ol>
+              </div>
+              <button class="button-Ver" [routerLink]="'/teams-two'">Ver</button>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Gran Turismo - Community -->
+      <div class="card-play">
+        <div class="content-card">
+          <div class="cont-img">
+            <img src="/assets/teams/destoks 1/3aa166e6c763fa302d9fe4d0ef63ca47990dd0b9.webp" alt="Gran-turismo">
+          </div>
+
+          <div class="two-cont">
+
+            <div class="text-card">
+              <h4>Gran Turismo</h4>
+            </div>
+            <div class="icon-card">
+              <i class="bi bi-person-fill"></i>
+              <span class="number-card">2536</span>
+            </div>
+            <div class="info-card">
+              <div class="info-button">
+                <ol>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                </ol>
+              </div>
+              <button class="button-Ver">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Shadow legions -->
+
+      <div class="card-play">
+        <div class="content-card">
+          <div class="cont-img">
+            <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37.jpg"
+              alt="Gran-turismo">
+          </div>
+
+          <div class="two-cont">
+
+            <div class="text-card">
+              <h4>Shadow legions</h4>
+            </div>
+            <div class="icon-card">
+              <i class="bi bi-person-fill"></i>
+              <span class="number-card">12</span>
+            </div>
+            <div class="info-card">
+              <div class="info-button">
+                <ol>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                </ol>
+              </div>
+              <button class="button-Ver">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Titans  -->
+      <div class="card-play">
+        <div class="content-card">
+          <div class="cont-img">
+            <img
+              src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
+              alt="Gran-turismo">
+          </div>
+          <div class="two-cont">
+            <div class="text-card">
+              <h4>Titans</h4>
+            </div>
+            <div class="icon-card">
+              <i class="bi bi-person-fill"></i>
+              <span class="number-card">2</span>
+            </div>
+            <div class="info-card">
+              <div class="info-button">
+                <ol>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                  <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                </ol>
+              </div>
+              <button class="button-Ver">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-<!--  ---------------------------------------------------------------------------------------------------- -->
+    <!--  ---------------------------------------------------------------------------------------------------- -->
 
-<!-- apartado de Crear teams -->
-        <div class="icon-teams-community">
-          <!-- Botón Comunidades -->
-          <div type="button" class="btn-pass tt">
-           <div class="icon-com">
-            <fa-icon class="icon-styles" [icon]="faPen"></fa-icon>                         
-           </div>
-           <div class="text-icon">Creados por mi</div>
-          </div>
-          <!-- Botón Equipos -->
-          <div type="button" class="btn-pass tt">
-           <span class="icon-com">
-            <fa-icon class="icon-styles" [icon]="faAddressCard"></fa-icon>                       
-           </span>
-           <span class="text-icon">Suscritos</span>
-          </div>
-     </div>
-        <div  class="my-teams">
-            <h2>Mis Equipos</h2>
-            <article class="cont-myTeams">
-            <div class="create-button">
-            <button class="create-team" [routerLink] = "'/teams-three'">Crear Equipo<i class="bi bi-plus"></i></button>
-            </div>
-            <div class="view-team">
-                <div class="card-create">
-                    <div class="team-img">
-                      <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="LeagueofLegends">
-                    </div>
-                      <h4 class="h4-Myteams">League Of Legends</h4>
-                    <div class="icon-card crd">
-                      <i class="bi bi-person-fill"></i>
-                      <span class="number-card">18</span>
-                    </div>
-                    <div class="info-card C-two">
-                         <div class="info-button-2 If-two">
-                            <ol>
-                              <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
-                              <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
-                              <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
-                            </ol> 
-                             </div> 
-                            <button class="button-Ver bnt-ver2">Ver</button>
-                      </div>
-                </div>
-            </div>
-          </article>
+    <!-- apartado de Crear teams -->
+    <div class="icon-teams-community">
+      <!-- Botón Comunidades -->
+      <div type="button" class="btn-pass tt">
+        <div class="icon-com">
+          <fa-icon class="icon-styles" [icon]="faPen"></fa-icon>
         </div>
-     </article>
+        <div class="text-icon">Creados por mi</div>
+      </div>
+      <!-- Botón Equipos -->
+      <div type="button" class="btn-pass tt">
+        <span class="icon-com">
+          <fa-icon class="icon-styles" [icon]="faAddressCard"></fa-icon>
+        </span>
+        <span class="text-icon">Suscritos</span>
+      </div>
+    </div>
+    <div class="my-teams">
+      <h2>Mis Equipos</h2>
+      <article class="cont-myTeams">
+        <div class="create-button">
+          <button class="create-team" [routerLink]="'/teams-three'">Crear Equipo<i class="bi bi-plus"></i></button>
+        </div>
+        <div class="view-team">
+          <div class="card-create">
+            <div class="team-img">
+              <img
+                src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
+                alt="LeagueofLegends">
+            </div>
+            <h4 class="h4-Myteams">League Of Legends</h4>
+            <div class="icon-card crd">
+              <i class="bi bi-person-fill"></i>
+              <span class="number-card">18</span>
+            </div>
+            <div class="info-card C-two">
+              <div class="info-button-2 If-two">
+                <ol>
+                  <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Dispositivo</li>
+                  <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Género</li>
+                  <li><fa-icon class="ic" [icon]="faAward"></fa-icon>Premios</li>
+                </ol>
+              </div>
+              <button class="button-Ver bnt-ver2">Ver</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </article>
 </main>
-

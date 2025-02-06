@@ -10,9 +10,14 @@
 }
 
 .icons {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    align-items: center;
+}
+
+.icon svg,
+img {
+    margin: 0 10px;
 }
 
 /* Servicios */
@@ -62,19 +67,142 @@
 /* Comunidades y eventos */
 .banner-events-communities {
     width: 100%;
-    height: 771px;
+    height: 720px;
     background-color: #353C60;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
 }
 
-.banner-events-communities button {
+.button-join {
     width: 198px;
     height: 47px;
+    padding: 10px 20px;
     color: #292f4aff;
     font-weight: 600;
     border: none;
     border-radius: 50px;
     background-color: #94B1F9;
     cursor: pointer;
+}
+
+/* Sección principal */
+.event-section {
+    width: 100%;
+    max-width: 1076px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin-bottom:1rem ;
+    padding: 1rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h4 {
+    color: #E8EEFE;
+    font-size: 1.5rem;
+}
+
+.section-header a {
+    color: #94B1F9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.section-header a:hover {
+    color: #E8EEFE;
+}
+
+.event-list-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.event-list {
+    display: flex;
+    animation: scroll-carousel 25s linear infinite;
+}
+
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-150%);
+    }
+}
+
+.event-card {
+    width: 496px;
+    height: 173px;
+    background-color: #434D7B;
+    border-radius: 0.5rem;
+    padding: 16px;
+    margin-right: 1rem;
+    display: inline-block;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    display: flex;
+}
+
+.event-card img {
+    width: 159px;
+    height: 141px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 0 10px 0 0;
+}
+
+.event-details {
+    width: 100%;
+    color: #E8EEFE;
+}
+
+.event-details p {
+    font-size: small;
+}
+
+.register-button {
+    position: relative;
+    top: 85%;
+    right: 15%;
+    padding: 0 5px;
+    height: 30px;
+    font-size: small;
+    background-color: #292F4A;
+    color: #94B1F9;
+    border: solid 1px #94B1F9;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.register-button:hover {
+    background-color: #353C60;
+}
+
+.event-info {
+    display: flex;
+    gap: 8px;
+}
+
+.event-info span {
+    display: flex;
+    align-items: center;
+}
+
+.event-info span svg {
+    margin-right: 0.5rem;
 }
 
 /* Ofertas */
@@ -123,6 +251,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
 }
 
 .offer-card button,
@@ -211,29 +344,44 @@ li {
     cursor: pointer;
 }
 
-/* QA (bootstrap)*/
 .banner-qa {
     width: 100%;
-    min-height: 712px;
-    background-color: #94b1f9ff;
-    color: #092466ff;
+    height: 712px;
+    background-color: #94b1f9;
+    color: #092466;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .accordion {
-    width: 714px;
+    width: 100%;
+    max-width: 800px;
     height: auto;
     margin: 0 auto;
 }
 
-.accordion-button,
+.accordion-header {
+    border: none;
+    background-color: #434D7B;
+}
+
+.accordion-button {
+    color: white;
+    background-color: #434D7B;
+    border: none;
+}
+
 .accordion-body {
-    color: #292F4A;
-    background-color: inherit;
+    color: #091038;
+    background-color: transparent;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
 }
 
 .accordion-button:focus {
@@ -249,9 +397,8 @@ li {
 /* Estilos para teléfonos pequeños */
 @media (max-width: 480px) {
     .banner-platform {
-        background-color: #FCA311;
+        flex-direction: column;
         font-size: small;
-        text-align: center;
         gap: 5px;
     }
 
@@ -263,7 +410,6 @@ li {
     .banner-services {
         padding: 20px;
         font-size: small;
-        background-color: #03071E;
     }
 
     .container-services {
@@ -275,13 +421,66 @@ li {
     .services {
         width: 182px;
         height: 150px;
-
+        padding: 20px 0;
         background-color: #09103A4D;
         border: none;
     }
 
-    .services path {
-        fill: #06BEE1;
+    .banner-events-communities {
+        height: 920px;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .event-section {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .event-card {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .event-card img {
+        width: 60px;
+        height: 60px;
+        margin: 0 10px 0 0;
+    }
+
+    .event-details {
+        padding: 0;
+        text-align: start;
+    }
+
+    .event-details svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .register-button {
+        z-index: 1000000;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        border: none;
+    }
+
+    .event-list {
+        flex-direction: column;
+        animation: none;
+        /* Desactiva la animación en móviles */
+    }
+
+    .event-list-container {
+        overflow: visible;
+        white-space: normal;
     }
 
     h3 {
@@ -289,103 +488,70 @@ li {
         font-weight: 400;
     }
 
-    .banner-services button {
-        background-color: #FCA311;
-    }
-
     .banner-offers {
-        background-color: #091038;
         padding: 20px 0;
     }
 
-    .offers-container {
-        padding: 10px;
-    }
-
     .offer-card {
-        width: 350px;
-        height: 320px;
-
-        border: none;
-        background-color: #03071E;
+        width: 265px;
+        height: auto;
+        padding: 8px 15px;
+        background-color: #292F4A;
     }
 
-    .offer-card path {
-        fill: #06BEE1;
+    .offer-card svg {
+        width: 19px;
+        height: 19px;
     }
 
-    .offer-card-w {
-        width: 350px;
-        height: 320px;
-        background-color: #FCA311;
+    .offer-card h4,
+    p {
+        text-align: center;
     }
 
-    .offer-card-w path {
-        fill: white;
+    .icons svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .offer-card-2 {
+        width: 265px;
+        height: auto;
+        background-color: #434D7B;
     }
 
     .offer-card-res {
-        background-color: #122072;
+        background-color: #292F4A;
     }
 
     .offer-card button {
         width: 160px;
-        background-color: inherit;
-        border: solid 2px #FCA311;
-        color: #FCA311;
+        height: 32px;
     }
 
-    .offer-card-w button {
+    .offer-card-2 button {
         width: 160px;
-        background-color: #03071E;
-        border: none;
-        color: #FCA311;
+        height: 32px;
     }
 
     .banner-comments {
-        background-color: #03071E;
-        color: white;
         text-align: center;
     }
 
     .card-comment {
-        width: 250px;
+        width: 212px;
         height: auto;
-
-        background-color: #09103A4D;
-        color: white;
     }
 
     .card-comment img {
         width: 66px;
         height: 66px;
 
-        font-size: 10px;
-    }
-
-    .banner-comments button {
-        background-color: #FCA311;
+        font-size: small;
     }
 
     .banner-qa {
-        background-color: #091038;
-        color: white;
         padding: 20px;
-    }
-
-    .accordion-button,
-    .accordion-body {
-        color: white;
-        background-color: #03071E;
-    }
-
-    .accordion-button:focus {
-        box-shadow: none;
-    }
-
-    .accordion-collapse {
-        background-color: #03071E;
-        border: none;
     }
 }
 

@@ -30,7 +30,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="mx-lg-2 nav-link py-2 px-3 letra-navbar">
+            <a href="#" class="mx-lg-2 nav-link py-2 px-3 letra-navbar" [routerLink]="['/help-center']">
               <i class="py-2 px-3 fa-solid fa-circle-info"></i>
               Ayuda
             </a>
@@ -45,9 +45,9 @@
         </button>
       </div>
       <div>
-        <button class="rounded-pill border-2 py-2 px-3 btnBienvenida letraNav" [routerLink] = "'/signup'">
+        <button class="rounded-pill border-2 py-2 px-3 btnBienvenida letraNav" [routerLink]="username ? '/user-profile' : '/signup'">
           <i class="fa-solid fa-user"></i>
-          <span class="ps-2">¡Bienvenido/a!</span>
+          <span class="ps-2">{{ username ? username : '¡Bienvenido/a!' }}</span>
         </button>
       </div>
     </section>

@@ -1,140 +1,707 @@
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/*primer paso creacion de evento descripcion genereal*/
+:host {
+    display: block;
+  }
+  
+  /* Estilos generales */
+  body {
+    background-color: #2A2F4E;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Estilos para la navegación de pasos */
+  .steps-nav {
+    border-bottom: 1px solid #4A4F6E;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .steps-nav button {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    padding: 15px 20px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .steps-nav button.active {
+    color: white;
+  }
+  
+  .steps-nav button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3B82F6;
+  }
+  
+  /* Estilos para las secciones del formulario */
+  .form-section {
+    background-color: #1E2235;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  /* Estilos para la carga de foto */
+  .cover-upload {
+    border: 2px dashed #4A4F6E;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .upload-prompt p {
+    margin-bottom: 10px;
+    color: #9CA3AF;
+  }
+  
+  .btn-upload {
+    background-color: transparent;
+    border: 1px solid #4A4F6E;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cover-preview {
+    max-height: 200px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para el grid del formulario */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    
+  }
+  
+  /* Estilos para inputs y selects */
+  .form-group input[type="text"],
+  .form-group input[type="date"],
+  .form-group input {
+    background-color: transparent;
+  }[type="time"],
+  .select option {
+    background-color: #434D7B;
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #434D7B;
-            color: white;
-        }
+  }
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid #4A4F6E;
+    border-radius: 4px;
+    color: white;
+  }
+  
+  /* Estilos para los radio buttons */
+  .form-radio {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #4B5563;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+    display: inline-grid;
+    place-content: center;
+  }
+  
+  .form-radio:checked {
+    border-color: #3B82F6;
+  }
+  
+  .form-radio:checked::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    background-color: #3B82F6;
+    transform: scale(1);
+  }
+  
+  /* Estilos para los select */
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em;
+    padding-right: 2.5rem;
+  }
+  
+  /* Estilos focus */
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Estilos para el botón de navegación */
+  .nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .btn-next {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilos responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    label, select, input, button {
+      font-size: 0.875rem;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    input,
+    select,
+    button {
+      min-height: 44px;
+    }
+    
+    .form-radio {
+      width: 1.4em;
+      height: 1.4em;
+    }
+    
+    button {
+      padding: 0.75rem 1rem;
+    }
+  }
+/*segundo paso creacion de evento formato de evento*/
+.event-form {
+  min-height: 100vh;
+  background-color: #2A2F4E;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
 
-        .form-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+/* Contenedor del formulario */
+.container {
+  width: 100%;
+  max-width: 800px; /* Ajustar según el ancho deseado */
+  margin: 0 auto;
+  padding: 20px;
+}
 
-        .tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 1rem;
-        }
+/* Secciones del formulario */
+.form-section {
+  background-color: #1E2235;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
 
-        .tab {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #8A8F98;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
+/* Grid para las opciones de tipo de encuentro */
+.tournament-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 15px;
+}
 
-        .tab.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
+.tournament-type-option {
+  background-color: #2A2F4E;
+  border: 1px solid #4A4F6E;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-        .form-section {
-            background: #353C60;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
+/* Grid para las opciones de tipo de fase */
+.phase-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 15px;
+}
 
-        .section-title {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
+.phase-type-option {
+  background-color: #2A2F4E;
+  border: 1px solid #4A4F6E;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
 
-        .upload-area {
-            border: 2px dashed rgb(255, 255, 255);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+/* Grid para los campos del formulario */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
 
-        .upload-info {
-            font-size: 0.8rem;
-            color: #ffffff;
-        }
+.form-group {
+  margin-bottom: 15px;
+}
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
 
-        .form-field {
-            background: rgb(0, 21, 54);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            padding: 0.75rem;
-            color: white;
-            width: 100%;
-            font-size: 0.9rem;
-        }
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid #4A4F6E;
+  border-radius: 4px;
+  color: white;
+}
 
-        .form-field:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+/* Botones de navegación */
+.nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 20px 0;
+}
 
-        .radio-group {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
+.btn-next,
+.btn-prev {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 100px;
+}
 
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+.btn-next {
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+}
 
-        .radio-option input[type="radio"] {
-            accent-color: #4a4d8f;
-        }
+.btn-prev {
+  background-color: transparent;
+  border: 1px solid #4A4F6E;
+  color: white;
+}
 
-        .create-button {
-            background: #5f4a8f;
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-            margin-top: 1rem;
-        }
+/* Estilos para los radio buttons */
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
 
-        .create-button:hover {
-            background: #5d60a6;
-        }
+.form-radio {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #4A4F6E;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+  display: grid;
+  place-content: center;
+}
 
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
+.form-radio:checked {
+  border-color: #3B82F6;
+}
 
-            .tabs {
-                overflow-x: auto;
-                white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 0.5rem;
-            }
+.form-radio:checked::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  background-color: #3B82F6;
+  transform: scale(1);
+}
 
-            .tab {
-                flex-shrink: 0;
-            }
-        }
+/* Responsive */
+@media (max-width: 768px) {
+  .tournament-type-grid,
+  .phase-type-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
+
+/*participantes*/
+.event-form {
+    min-height: 100vh;
+    background-color: #2A2F4E;
+    color: white;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-section {
+    background-color: #1E2235;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .invite-form {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .player-input {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #4A4F6E;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .player-input::placeholder {
+    color: #9CA3AF;
+  }
+  
+  .btn-send {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-send:disabled {
+    background-color: #4A4F6E;
+    cursor: not-allowed;
+  }
+  
+  /* Invited Players List */
+  .invited-players {
+    margin-top: 20px;
+  }
+  
+  .invited-players h4 {
+    color: #9CA3AF;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  
+  .btn-remove {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  
+  .btn-remove:hover {
+    color: white;
+  }
+  
+  /* Navigation Buttons */
+  .nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn-prev,
+  .btn-next {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-next {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+  }
+  
+  .btn-prev {
+    background-color: transparent;
+    border: 1px solid #4A4F6E;
+    color: white;
+  }
+  
+  /* Steps Navigation */
+  .steps-nav {
+    border-bottom: 1px solid #4A4F6E;
+    margin-bottom: 20px;
+  }
+  
+  .steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .steps-container button {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    padding: 15px 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .steps-container button.active {
+    color: white;
+  }
+  
+  .steps-container button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3B82F6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .btn-send {
+      width: 100%;
+    }
+  }
+
+  /*links*/
+  /* Mantener los estilos existentes y agregar los nuevos */
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .link-group {
+    width: 100%;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .link-input {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #4A4F6E;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .link-input::placeholder {
+    color: #9CA3AF;
+  }
+  
+  .btn-add {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .btn-add:disabled {
+    background-color: #4A4F6E;
+    cursor: not-allowed;
+  }
+  
+  .added-links {
+    margin-top: 20px;
+  }
+  
+  .link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .btn-remove {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  
+  .btn-remove:hover {
+    color: white;
+  }
+  
+  .btn-create {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .btn-add {
+      width: 100%;
+    }
+  }
+  
+  /*success*/
+  .success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(42, 47, 78, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .modal-content {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #F8B4E4;
+    font-weight: bold;
+  }
+  
+  .btn-view {
+    background-color: #93C5FD;
+    color: #1E293B;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-view:hover {
+    background-color: #7EB6FC;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

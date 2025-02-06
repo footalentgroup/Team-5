@@ -1,11 +1,11 @@
 <body>
     <div class="profile-container">
         <div class="info-profile">
-            <img src="assets/login/avatar-login.jpg" alt="avatar de usuario">
+            <img [src]="currentUser?.avatar || 'assets/login/avatar-login.jpg'" alt="avatar de usuario">
             <div class="info-user">
-                <span>Username</span>
-                <p>Email</p>
-                <p>No. friends</p>
+                <span>{{ currentUser?.username || 'Usuario' }}</span>
+                <p>{{ currentUser?.email || 'email@ejemplo.com' }}</p>
+                <p>{{ fakeFriendsCount }} amigos</p>
             </div>
         </div>
 

@@ -1,443 +1,334 @@
-main{
-    width: 100%;
-    height: 100%;
-    border:#292F4A solid;
+/* Importación fuente google font "Roboto" */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: "Roboto", serif;
+    color: #E8EEFE;
 }
 
-.btnComunidades{
-    font-size: small;
-}
+/* estilos, fuentes, colores, etc */
 
-.nav-item {
-    list-style: none;
-}
+:root {
+  /* Tipografía */
+  --font-roboto: "Roboto", serif;
 
-/*---- Botón comunidades, mis equipos ---- */
+  /* Paleta de colores */
+  --background: #292F4A;
+  --button-o: #434D7B;
+  --button-2: #292F4A;
+  --font-button: #94B1F9;
+  --icon-claro: #E8EEFE;
+  --background-card: #434D7B;
+  --card-oscuro: #1F2439;
 
-.icon-teams-community {
-    width: 12%;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1%;
-    align-items: center;
-    margin-top: 3px;
-}
-
-/* ------------------------ */
-
-.m-5{
-    padding: 0 10%;
-    height: 100%;
-    padding-bottom: 5%;
+  /* hoover */
+  --perm-font-btn: #F6A1FD;
+  --hover-font: #E8EEFE;
 }
 
 /* ----------------- */
 
-/*-- Banner --*/
+/* Banner */
 
-.banner {
-  height: 170px;
-  display: flex;
-  justify-content: center;
-  position: relative;
+.banner{
+    height: 170px;
+    display: flex;
+    justify-content: center; 
+    position: relative;
 }
 
-.img-banner {
+.text-banner{
+    color: #e8eefe;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight:bold;
+}
+
+.img-banner{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(148, 177, 249);
-  background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%,
-      rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
+.gradient{
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(148,177,249);
+    background: linear-gradient(162deg, rgba(148, 176, 249, 0.455) 0%, rgba(245, 161, 253, 0.51) 10%,
+     rgba(9, 35, 102, 0.44) 19%, rgba(12, 46, 133, 0.373) 55%, rgba(148, 176, 249, 0.388) 80%, rgba(245, 161, 253, 0.305) 100%);
 }
 
-.text-banner {
-  color: #e8eefe;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-weight: bold;
+.container-banner{
+    position: absolute;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 4%;
+    width: 40%;
 }
 
-/*-- Article --*/
+  .equipos{
+    border-bottom: solid #94B1F9;
+  }
+  
+  .text-icon{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
 
-.m-5 {
+  }
+
+  .btn-pass{
+    object-fit: cover;
+    width: 50%;
+    position: relative;
+  }
+
+  .btn-pass.active{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 26%;
+    width: 48%;
+    height: 2px;
+    background: linear-gradient(to right, #94B1F9, #d5e1ff, #94B1F9);
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .btn-pass::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 26%;
+    width: 48%;
+    height: 2px;
+    background: linear-gradient(to right, #94B1F9, #d5e1ff, #94B1F9);
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+}
+  
+.btn-pass:hover::before {
+    transform: scaleX(2);
+    transform-origin: center;
+}
+
+.btn-pass:hover{
+    transition: 0.3s ease-in-out;
+}
+
+/* Incio de section de contenedores y tarjetas */
+
+.btnComunidades{
+  font-size: small;
+}
+
+.m-5{
   padding: 0 10%;
   height: 100%;
-  padding-bottom: 5%;
 }
 
-/*-- Navbar comunidades equipos --*/
+  /* ---------- Mis comunidades Suscritas-------- */
 
-.btnComunidades {
-  font-size: small;
-}
-
-/*-- Mis comunidades creadas --*/
-
-.letra-comunidades{
-  font-size: small;
-}
-
-/* -- Crear comunidad -- */
-
-.card-community {
-  width: 329px;
-  height: 281px;
+.create-button{
+  width: 19vw;
+  height: 32vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1F2439;
   border-radius: 10px;
-  cursor: pointer;
+  border: 1px dashed #94B1F9;
 }
 
-.card-content {
-  background-color: var(--crear-fondo);
-  width: 329px;
-  height: 281px;
+.create-team{
+  background-color: #94B1F9;
+  border: none;
+  border-radius: 20px;
+  color: #1F2439;
+  padding: 1% 1%;
+  font-size: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.create-team i{
+  color: #1F2439;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.create-team:hover{
+  background-color: #E8EEFE;
+}
+
+.cont-myTeams{
+  display: flex;
+  flex: 0 0 auto;
+  gap: 15px;
+}
+
+.card-create{
+  width: 19vw;
+  height: 32vh;
+  display: flex;
+  padding: 4%;
+  flex-direction: column;
+  background-color:#292F4A;
+  border-radius: 10px;
+  border:#94b0f9a4 solid 1px;
+  position: relative;
+} 
+
+.team-img{
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  border: 2px dashed var(--letra-navbar);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.btn-crear-comunidad {
-  background-color: var(--letra-navbar);
-  color: var(--navbar-color);
-}
-
-.btn-crear-comunidad:hover {
-  background-color: var(--color-blanco);
-}
-
-/* -- Creadas por mi -- */
-
-.cardColor {
-  background-color: var(--color-card);
-}
-
-.ver-comunidad-img {
-  border-radius: 8px;
-  height: 100px;
-  width: 304px;
-  margin: 12px;
+.team-img img{
+  width: 100%;
   object-fit: cover;
 }
 
-.btn-ver-comunidad {
-  background-color: var(--navbar-color);
-  color: var(--letra-navbar);
-  border: 1px solid var(--letra-navbar);
-}
-
-.btn-ver-comunidad:hover {
-  color: var(--color-blanco);
-  border: 1px solid var(--color-blanco);
-}
-
-/* ---------- EQUIPOS -------- */
-
-h1 {
-    font-size: 18px;
-    margin: 2% 0 2% 0;
-}
-
-h3 {
-    font-size: 18px;
-    margin-top: 1%;
-}
-
-/* contenedor teams  */
-
-h4 {
-    font-size: 13px;
-}
-
-.icon-card {
-    display: flex;
-    align-items: center;
-    width: 15%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.number-card {
-    font-size: 10px;
-}
-
-.info-card ol li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    font-size: 11px;
-}
-
-.info-card ol li:hover {
-    background-color: #515c85;
-    border-radius: 3px;
-    transition: 0.3s;
-    margin: 0;
-    padding: 0;
-}
-
-.info-card ol li a:hover {
-    text-decoration: underline;
-}
-
-/* Mis comunidades */
-
-h2 {
-    font-size: 30px;
-    margin-bottom: 1%;
-}
-
-.create-button {
-    width: 18vw;
-    height: 34vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1f2439;
-    border-radius: 10px;
-    border:#94b1f9  dashed 1px; 
-}
-
-.card-create {
-    width: 18vw;
-    height: 34vh;
-    display: flex;
-    padding: 4%;
-    flex-direction: column;
-    background-color: #434d7b;
-    border-radius: 10px;
-    position: relative;
-    color: aliceblue;
-
-
-}
-
-.cc3{
-    border:#515c85 solid 2px;
-    border-radius: 8px;
-    background-color: #292F4A;
-
-}
-
-
-.com{
-    font-size: 10px;
-    font-weight: 200;
-}
-
-.create-team {
-    background-color: #94b1f9;
-    border: none;
-    border-radius: 20px;
-    color: #1f2439;
-    padding: 0 4%;
-    font-size: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.create-team i {
-    color: #1f2439;
-    font-weight: bold;
-    font-size: 22px;
-}
-
-.create-team:hover {
-    background-color: #e8eefe;
-    transition-duration: 0.4s;
-}
-
-.cont-myTeams {
-    display: flex;
-    flex: 0 0 auto;
-    gap: 15px;
-    padding: 0 5%;
-    position: relative;
-    overflow-x: scroll;
-}
-
-.cont-myTeams::-webkit-scrollbar {
-    display: none;
-}
-
-.arrow{
-    position: absolute;
-    width: 74%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 7%;
-}
-
-.arrow i{
-    background-color: #515c85;
-    color: aliceblue;
-    padding: 5px 9px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.cont-2{
-    position: relative;
-}
-
-.arro2{
-    position: absolute;
-}
-
-.cont-3{
-    position: relative;
-}
-
-.arro3{
-    position: absolute;
-    width: 74%;
-    display: flex;
-    justify-content: space-between;
-    color: #E8EEFE;
-    margin-top: 3.5%;
-}
-
-.arro3 i{
-    background-color: #515c85;
-    color: aliceblue;
-    padding: 5px 9px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.team-img {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.team-img img {
-    width: 100%;
-    object-fit: cover;
-}
-
-.h4-Myteams {
-    margin-top: 5%;
-}
-
-.If-two {
-    display: flex;
-    height: 3vh;
-    flex-direction: row;
+.h4-Myteams{
+  margin-top: 5%;
 }
 
 .If-two ol{
-    display: flex;
-    justify-content: space-between;
-    margin-right: 20px;
-    height: 3vh;
-    border: solid yellow;
-    padding: 0;
-    width: 50vw;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0;
+  margin-top: 1%;
+  padding: 0;
 }
 
 .If-two ol li{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    height: 3vh;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
 }
 
-.ic{
-    margin: 0;
-    padding-right: 4%;
+.view-team{
+  margin: 0 6%;
 }
 
-.bnt-ver2 {
+.community-subscribed{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+  /* Botones de scrolear derecha e izquierda en equipos */
+
+  .btns-scroll{
     position: absolute;
-    margin-top: 5%;
-    margin-left: 57%;
-}
-
-h2{
-    font-size: 18px;
-    margin: 3% 0;
-}
-
-/* tarjeta de comunidades que podrian interesarte */
-
-.content-card{
     display: flex;
-    width: 95%;
     flex-direction: row;
-    border:#515c85 solid 2px;
-    background-color:#292F4A;
-    border-radius: 8px;
-    padding: 3% 6% 3% 3%;
-    color: aliceblue;
-  }
-
-  .cont-img{
-    width: 40%;
-    height: 16vh;
-    overflow: hidden;
-  }
-
-  .content-card img{
-    border-radius: 7px;
+    justify-content: space-between;
     width: 100%;
-    height: 16vh;
-    object-fit: cover;
-    padding-right: 5%;
+    height: 5vh;
+    align-items: center;
   }
 
-  .text-card{
+  .btns-scroll fa-icon{
+    font-size: 15px;
+    background-color: #515c85;
+    cursor: pointer;
+    text-align: center;
+    color: #E8EEFE;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: none;
+  }
+
+  /* ----------------- */
+
+  .icon-com{
+    color: #E8EEFE;
+    height: auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    font-size: 25px;
+  }
+
+  .icon-styles{
+    font-size: 15px;
+    margin-top: 3%;
+  }
+
+  .icon-styles:hover{
+    color:#94B1F9;
+  }
+
+  .title{
+    font-size: 20PX;
+    margin: 3% 0;
+  }
+
+  h3{
+    font-size: 18px;
+    margin-top: 1%;
+  }
+
+  /* contenedor teams  */
+
+  .teams{
+    gap: 20px;
+    display: flex;
+    /* flex-wrap: nowrap; */
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .teams::-webkit-scrollbar {
+    display: none;
+}  
+
+  .p-comm{
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
   }
 
   h4{
     font-size: 13px;
   }
 
-  .two-cont{
-    position: relative;
-  }
-  
-  .icon-card i{
-    font-size: 18px;
-    margin-right: 4%;
-  }
-
-  .icon-card{
+  .icon-card {
+    font-size: 12px;
     display: flex;
     align-items: center;
+    gap: 10px;
+    padding: 2px 0;
   }
 
   .number-card{
     font-size: 10px;
   }
 
+  .info-button{
+    margin-top: 3%;
+  }
+
   .info-button ol{
     margin: 0;
     padding: 0;
     align-items: center;
-    display: flex;
-    justify-content: space-between;
   }
 
   .info-card ol li{
@@ -447,20 +338,20 @@ h2{
     overflow: hidden;
     font-size: 11px;
     margin-right: 2px;
+    padding: 2px 3px;
+    transition: all 0.4s;
   }
 
   .info-card ol li:hover{
     background-color:#515c85;
     border-radius: 3px;
     transition: 0.3s;
+    padding: 2px 3px;
+    text-decoration: underline;
   }
 
   .info-button fa-icon{
     margin-right: 5px;
-  }
-
-  .info-card ol li a:hover{
-    text-decoration: underline;
   }
 
   .info-card ol{
@@ -468,43 +359,106 @@ h2{
     gap: 10px;
   }
 
-  .info-card ol li a{
-    text-decoration: none;
-    font-size: 10px;
-  }
-
-  .button-Ver{
+  .bnt-ver2{
     position: absolute;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 60%;
     background-color:#292F4A;
     border:#94B1F9 solid 1px;
     color: #94B1F9;
     border-radius: 20px;
-    font-size: 10px;
+    padding: 4px 15px;
+    font-size: 9px;
   }
 
-  .button-Ver:hover{
+  .bnt-ver2:hover{
     color: #E8EEFE;
-    border: solid  #E8EEFE 1px;
-  }
+    border: #E8EEFE solid 1px;
+    transition: all 0.3s;
+  } 
 
-  .ver2{
-    width: 40%;
-    padding: 0;
-  }
+/* Comunidades que podrian interesarte */
 
-  .info-card{
-    position: relative;
-  }
+.view-community{
+  width: 30vw;
+  height: 20vh;
+  display: flex;
+  border-radius: 10px;
+  border:#94b0f9a4 solid 1px;
+  padding: 1%;
+  position: relative;
+}
 
-  .three{
-    width: 50%;
-  }
+.community-btn{
+  position: absolute;
+  margin: 3% 0 4% 28%;
+  
+}
+
+.community-img{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-radius: 5px; 
+}
+
+.community-img img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.create{
+  display: flex;
+}
+
+.info-column{
+  display: flex;
+  flex-direction: column;
+  margin-left:  4%;
+}
+
+/* Ultimas Comunidades */
+
+.CsTwo{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgTwo{
+  width: 15%;
+  margin: 0;
+}
+
+.vTtw0{
+  margin: 0;
+  width: 100%;
+  border: none;
+  background-color:#434d7b8f;
+  margin-bottom: 3%;
+  height: 15vh;
+}
+
+.listTwo{
+  position: absolute;
+  margin-left: 48%;
+  font-size: 12px;
+
+}
+
+.Vctwo{
+ margin-left: 89%;
+ margin-top: 5%;
+}
+
+.marginTwo{
+  margin-left: 1%;
+}
+
 /* responsive mobile max with 500px */
 
 @media (max-width: 500px) {
-
-    
 
 }

@@ -1,0 +1,27 @@
+.letraFooter {
+    text-decoration: none;
+    color: var(--letra-navbar);
+}
+
+.paddingLeft {
+    padding-left: 77px !important;
+}
+
+.paddingLeftE {
+    padding-left: 107px !important;
+}
+
+@media (max-width: 1100px) {
+
+    .paddingLeft,
+    .paddingLeftE { 
+        padding-left: 0px !important;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .footer { 
+        display: none;
+    }
+}
