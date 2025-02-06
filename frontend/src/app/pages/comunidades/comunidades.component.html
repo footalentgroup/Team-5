@@ -1,24 +1,27 @@
 <main class="navColor">
 
-        <!-- Banner -->
-     <article class="banner">
+    <!-- Banner -->
+    <article class="banner">
         <img class="img-banner" src="/assets/teams/destoks 1/danny-howe-bn-D2bCvpik-unsplash.jpg" alt="banner-img">
-        <div class="gradient"><span class="text-banner">¡Encuentra tu Clan! <br> Busca comunidades gamers y haz equipo.</span></div>
- </article>
- <!-- ----------------------------------- -->
+        <div class="gradient"><span class="text-banner">¡Encuentra tu Clan! <br> Busca comunidades gamers y haz
+                equipo.</span></div>
+    </article>
+    <!-- ----------------------------------- -->
     <article class="m-5">
 
         <!-- ----------------------------------- -->
         <div class="d-flex justify-content-start">
             <ul class="d-inline p-0 mb-1">
                 <li class="d-inline-block text-center px-2 pt-3">
-                    <a [routerLink]="'/comunidades'" class="btnComunidades navbar-nav text-decoration-none active" aria-current="page">
+                    <a [routerLink]="'/comunidades'" class="btnComunidades navbar-nav text-decoration-none active"
+                        aria-current="page">
                         <fa-icon [icon]="faPeopleGroup" class=""></fa-icon>
                         <span class="">Comunidades</span>
                     </a>
                 </li>
                 <li class="d-inline-block text-center pt-3 px-2">
-                    <a [routerLink] = "'/teams'" class="btnComunidades navbar-nav text-decoration-none px-3" aria-current="page">
+                    <a [routerLink]="'/teams'" class="btnComunidades navbar-nav text-decoration-none px-3"
+                        aria-current="page">
                         <fa-icon [icon]="faPeopleGroup" class=""></fa-icon>
                         <span>Equipos</span>
                     </a>
@@ -31,37 +34,100 @@
             <h1>Mis comunidades creadas</h1>
         </div>
 
-        <!-- <div class="teams letra" #teams>  
-            <div class="card-play">
-                <div class="content-card">
-                    <div class="cont-img">
-                        <img src="/assets/teams/destoks 1/EGS_VALORANT_RiotGames_S1_2560x1440-6608fb6c4c56c07b9a7caa34c6e6ee37.jpg"
-                            alt="Gran-turismo">
+        <section class="d-flex">
+            <!-- ---------------- Crear Comunidad ------------------- -->
+            <div class="me-4">
+                <div>
+                    <div class="card-community card-content d-flex justify-content-center align-items-center">
+                        <button class="rounded-pill border-0 py-2 px-3 btn-crear-comunidad"
+                            [routerLink]="'/crearComunidad'">
+                            <span class="letra-comunidades">Crear Comunidad <fa-icon [icon]="faPlus"></fa-icon></span>
+                        </button>
                     </div>
-    
-                    <div class="two-cont">
-    
-                        <div class="text-card">
-                            <h4>Valorant Community</h4>
-                        </div>
-                        <div class="icon-card">
-                            <i class="bi bi-person-fill"></i>
-                            <span class="number-card">12</span>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-button">
-                                <ol>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                                </ol>
+                </div>
+            </div>
+            <!-- ---------------- Comunidades Creadas por mi ------------------- -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card card-community cardColor letra">
+                        <img src="\assets\dashboard\9f22093c8e027cf7e615bbb073cd13f2.jpg" class="ver-comunidad-img"
+                            alt="...">
+                        <div class="card-body ps-3 py-0">
+                            <div class="pb-1">
+                                <h5>Nombre de la comunidad</h5>
+                                <span class="letra-comunidades">Estado.</span>
                             </div>
-                            <button class="button-Ver" [routerLink] = "'/verComunidad'">Ver</button>
+                            <div class="letra-comunidades pb-1">
+                                <fa-icon [icon]="faUser" class="pe-1"></fa-icon>
+                                <span>Número de personas inscritas</span>
+                            </div>
+                            <div class="letra-comunidades pb-1">
+                                <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
+                                <span class="pe-2">Dispositivo</span>
+                                <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
+                                <span class="pe-2">Género</span>
+                                <fa-icon [icon]="faAward" class="pe-1"></fa-icon>
+                                <span class="pe-2">Premiación</span>
+                                <div class="d-flex justify-content-end align-items-end letra-comunidades pt-2">
+                                    <a href="#"
+                                        class="btn-ver-comunidad rounded-pill text-decoration-none py-1 px-2">Ver
+                                        comunidad</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-play">
+        </section>
+
+        <!-- Comunidades suscritas -->
+        <div class="letra">
+            <h2>Comunidades suscritas</h2>
+        </div>
+
+        <div class="arrow arro2">
+            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-arrow-right"></i>
+        </div>
+        <article class="cont-myTeams cont-2">
+            <div class="view-team">
+                <div class="card-create cc3">
+                    <div class="team-img">
+                        <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
+                            alt="LeagueofLegends">
+                    </div>
+                    <h4 class="h4-Myteams">League Of Legends</h4>
+                    <span class="com">Comunidad Abierta</span>
+                    <div class="icon-card crd">
+                        <i class="bi bi-person-fill"></i>
+                        <span class="number-card">18</span>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-button">
+                            <ol>
+                                <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
+                                <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
+                                <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
+                            </ol>
+                        </div>
+                        <button class="button-Ver ver2" [routerLink]="'/verComunidad'">Ver comunidad</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- comunidades que podrian interesarte -->
+
+        <div class="letra">
+            <h2>Comunidades que podrían interesarte</h2>
+        </div>
+
+        <div class="arro3">
+            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-arrow-right"></i>
+        </div>
+        <article class="cont-myTeams cont-3">
+            <div class="view-team">
                 <div class="content-card">
                     <div class="cont-img">
                         <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
@@ -69,7 +135,8 @@
                     </div>
                     <div class="two-cont">
                         <div class="text-card">
-                            <h4>League of Legends - Community</h4>
+                            <h4>Titans</h4>
+                            <span class="com">Comunidad Abierta</span>
                         </div>
                         <div class="icon-card">
                             <i class="bi bi-person-fill"></i>
@@ -83,201 +150,11 @@
                                     <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
                                 </ol>
                             </div>
-                            <button class="button-Ver" [routerLink] = "'/verComunidad'">Ver</button>
+                            <button class="button-Ver ver2 three" [routerLink]="'/verComunidad'">Ver comunidad</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-play">
-                <div class="content-card">
-                    <div class="cont-img">
-                        <img src="/assets/teams/destoks 1/3aa166e6c763fa302d9fe4d0ef63ca47990dd0b9.webp"
-                            alt="Gran-turismo">
-                    </div>
-
-                    <div class="two-cont">
-
-                        <div class="text-card">
-                            <h4>Gran Turismo - Community</h4>
-                        </div>
-                        <div class="icon-card">
-                            <i class="bi bi-person-fill"></i>
-                            <span class="number-card">2536</span>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-button">
-                                <ol>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                                </ol>
-                            </div>
-                            <button class="button-Ver" [routerLink] = "'/verComunidad'">Ver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-play">
-                <div class="content-card">
-                    <div class="cont-img">
-                        <img src="/assets/teams/destoks 1/3aa166e6c763fa302d9fe4d0ef63ca47990dd0b9.webp"
-                            alt="Gran-turismo">
-                    </div>
-
-                    <div class="two-cont">
-
-                        <div class="text-card">
-                            <h4>Gran Turismo - Community</h4>
-                        </div>
-                        <div class="icon-card">
-                            <i class="bi bi-person-fill"></i>
-                            <span class="number-card">2536</span>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-button">
-                                <ol>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                                </ol>
-                            </div>
-                            <button class="button-Ver" [routerLink] = "'/verComunidad'">Ver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--  ---------------------------------------------------------------------------------------------------- -->
-
-        <!-- apartado de Crear Comunidades -->
-        <!-- <div class="d-flex justify-content-center p-3">
-            <ul class="d-inline p-0 mb-1">
-                <li class="d-inline-block text-center px-2 pt-3">
-                    <a routerLink="" class="btnComunidades navbar-nav text-decoration-none active">
-                        <fa-icon [icon]="faPen"></fa-icon>
-                        <span>Creadas por mi</span>
-                    </a>
-                </li>
-                <li class="d-inline-block text-center pt-3 px-2">
-                    <a routerLink="" class="btnComunidades navbar-nav text-decoration-none px-3">
-                        <fa-icon [icon]="faAddressCard" class=""></fa-icon>
-                        <span class="">Suscritas</span>
-                    </a>
-                </li>
-            </ul>
-        </div> -->
-        <section class="card-text">
-            <div class="arrow">
-                <i class="bi bi-arrow-left"></i>
-                <i class="bi bi-arrow-right"></i>
-            </div>
-            <article class="cont-myTeams">
-                <div class="create-button">
-                    <button class="create-team" [routerLink]="'/crearComunidad'">Crear Comunidad<i
-                            class="bi bi-plus"></i></button>
-                </div>
-                <div class="view-team">
-                    <div class="card-create">
-                        <div class="team-img">
-                            <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
-                                alt="LeagueofLegends">
-                        </div>
-                        <h4 class="h4-Myteams">League Of Legends</h4>
-                        <span class="com">Comunidad Abierta</span>
-                        <div class="icon-card crd">
-                            <i class="bi bi-person-fill"></i>
-                            <span class="number-card">18</span>
-                        </div>
-                        <div class="info-card C-two">
-                            <div class="info-button">
-                                <ol>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                                    <li><fa-icon  [icon]="faAward"></fa-icon>Género</li>
-                                    <li><fa-icon  [icon]="faAward"></fa-icon>Premios</li>
-                                </ol>
-                            </div>
-                            <button class="button-Ver ver2" [routerLink] = "'/verComunidad'">Ver comunidad</button>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Comunidades suscritas -->
-            <div class="letra">
-                <h2>Comunidades suscritas</h2>
-            </div>
-
-            <div class="arrow arro2">
-                <i class="bi bi-arrow-left"></i>
-                <i class="bi bi-arrow-right"></i>
-            </div>
-            <article class="cont-myTeams cont-2">
-                <div class="view-team">
-                    <div class="card-create cc3">
-                        <div class="team-img">
-                            <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg"
-                                alt="LeagueofLegends">
-                        </div>
-                        <h4 class="h4-Myteams">League Of Legends</h4>
-                        <span class="com">Comunidad Abierta</span>
-                        <div class="icon-card crd">
-                            <i class="bi bi-person-fill"></i>
-                            <span class="number-card">18</span>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-button">
-                               <ol>
-                                 <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                                 <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                                 <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                               </ol> 
-                                </div> 
-                             <button class="button-Ver ver2" [routerLink] = "'/verComunidad'">Ver comunidad</button>
-                       </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- comunidades que podrian interesarte -->
-
-            <div class="letra">
-                <h2>Comunidades que podrían interesarte</h2>
-            </div>
-
-            <div class="arro3">
-                <i class="bi bi-arrow-left"></i>
-                <i class="bi bi-arrow-right"></i>
-            </div>
-            <article class="cont-myTeams cont-3">
-                <div class="view-team">
-                    <div class="content-card"> 
-                        <div class="cont-img">
-                          <img src="/assets/teams/destoks 1/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.jpg" alt="Gran-turismo">
-                        </div>
-                        <div class="two-cont">
-                          <div class="text-card">
-                            <h4>Titans</h4>
-                            <span class="com">Comunidad Abierta</span>
-                          </div>
-                          <div class="icon-card">
-                            <i class="bi bi-person-fill"></i>
-                              <span class="number-card">2</span>
-                          </div>
-                          <div class="info-card">
-                               <div class="info-button">
-                                  <ol>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Dispositivo</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Género</li>
-                                    <li><fa-icon [icon]="faAward"></fa-icon>Premios</li>
-                                  </ol> 
-                                   </div> 
-                                   <button class="button-Ver ver2 three" [routerLink] = "'/verComunidad'">Ver comunidad</button>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-            </article>
-        </section>
+        </article>
     </article>
 </main>
